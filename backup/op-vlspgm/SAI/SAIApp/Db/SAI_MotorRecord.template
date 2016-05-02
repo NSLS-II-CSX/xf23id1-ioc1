@@ -1,0 +1,179 @@
+record(motor, "$(Sys)$(Dev)Mtr") {
+  field(DESC, "$(DESC)")
+  field(DTYP, "asynMotor")
+  field(DIR, "0")
+## O=pos, 1=neg
+  field(VELO, "$(VEL)")
+## egu velocity
+  field(VBAS, "0")
+## base egu velocity
+  field(ACCL, "$(TACC)")
+## tacc (sec)
+  field(BDST, "0")
+## backlash dist (EGU)
+  field(BVEL, "0")
+## backlash speed (EGU)
+  field(BACC, "0")
+## backlash tacc (sec)
+  field(OUT, "@asyn($(PMACPORT),$(PMAC_MTR))")
+  field(MRES, "$(MRES)")
+  field(RRES, "1")
+  field(PREC, "$(PREC)")
+  field(EGU, "$(EGU)")
+  field(URIP, "0")
+  field(UEIP, "1")
+  field(RTRY, "0")
+## max. number of retries
+  field(SYNC, "1")
+  field(DHLM, "$(HSLM)")
+  field(DLLM, "$(LSLM)")
+  field(OFF, "$(OFFS)")
+  info(autosaveFields, "VELO ACCL OFF DHLM DLLM")
+}
+
+#record(busy, "$(Sys)$(Dev)_BUSY_STS") {
+#  field(DESC, "Busy record for sscan")
+#}
+
+#record(calcout, "$(Sys)$(Dev)_SET_BUSY") {
+#  field(DESC, "Set busy record")
+#  field(INPA, "$(Sys)$(Dev).DMOV CP")
+#  field(CALC, "A")
+#  field(OCAL, "1")
+#  field(OOPT, "Transition To Zero")
+#  field(DOPT, "Use OCAL")
+#  field(OUT, "$(Sys)$(Dev)_BUSY_STS CA")
+#}
+#
+#record(calcout, "$(Sys)$(Dev)_CLR_BUSY") {
+#  field(DESC, "Clear busy record")
+#  field(INPA, "$(Sys)$(Dev).DMOV CP")
+#  field(CALC, "A")
+#  field(OOPT, "Transition To Non-zero")
+#  field(DOPT, "Use OCAL")
+#  field(OUT, "$(Sys)$(Dev)_BUSY_STS CA")
+#}
+#
+record(transform, "$(Sys)$(Dev)Mtr_ableput") {
+  field(CLCB, "a")
+  field(CLCC, "a")
+  field(OUTB, "$(Sys)$(Dev).DISP NPP NMS")
+  field(OUTC, "$(Sys)$(Dev).DISA NPP NMS")
+}
+
+record(bo, "$(Sys)$(Dev)Mtr_able") {
+  field(DESC, "motor enable")
+  field(PINI, "YES")
+  field(OUT, "$(Sys)$(Dev)Mtr_ableput.A PP MS")
+  field(ZNAM, "Enable")
+  field(ONAM, "Disable")
+}
+#
+#record(scalcout, "$(Sys)$(Dev)_TWV_CHECK") {
+#  field(DESC, "Check and change TWV")
+#  field(INPC, "$(Sys)$(Dev).MRES")
+#  field(INPD, "$(Sys)$(Dev).HLM")
+#  field(INPE, "$(Sys)$(Dev).LLM")
+#  field(CALC, "min(max(a,c),d-e)")
+#  field(OUT, "$(Sys)$(Dev).TWV")
+#  field(PREC, "3")
+#  field(EGU, "mm")
+#}
+#
+#record(stringout, "$(Sys)$(Dev)_KILL_CMD") {
+#  field(DESC, "Kill/disable motor")
+#  field(DTYP, "stream")
+#  field(OUT, "@devPmacStreamSAI.proto sendCommand(#$(PMAC_MTR)k) $(ASYNPORT)")
+#}
+#
+#record(stringout, "$(Sys)$(Dev)_ENA_CMD") {
+#  field(DESC, "Kill/disable motor")
+#  field(DTYP, "stream")
+#  field(OUT, "@devPmacStreamSAI.proto sendCommand(#$(PMAC_MTR)J/) $(ASYNPORT)")
+#}
+#
+#record(bo, "$(Sys)$(Dev)_ST_CMD") {
+#  field(DESC, "Stop Command")
+#  field(VAL, "1")
+#  field(OUT, "$(Sys)$(Dev).STOP PP")
+#}
+#
+#record(ai, "$(Sys)$(Dev)_MON") {
+#  field(DESC, "Position Readback")
+#  field(PREC, "$(PREC)")
+#  field(EGU, "$(EGU)")
+#  field(INP, "$(Sys)$(Dev).RBV CP")
+#}
+#
+#record(ao, "$(Sys)$(Dev)_SP") {
+#  field(DESC, "New Position Setpoint")
+#  field(PREC, "$(PREC)")
+#  field(EGU, "$(EGU)")
+#  field(OUT, "$(Sys)$(Dev).VAL PP")
+#}
+#
+#record(ao, "$(Sys)$(Dev)_POS_SP") {
+#  field(DESC, "New Position Setpoint")
+#  field(PREC, "$(PREC)")
+#  field(EGU, "$(EGU)")
+#  info(autosaveFields, "VAL")
+#}
+#
+#record(calcout, "$(Sys)$(Dev)_MOVE_CMD") {
+#  field(DESC, "Enable motor")
+#  field(INPA, "$(Sys)$(Dev)_LOOPM_STS NPP NMS")
+#  field(CALC, "A")
+#  field(OOPT, "When Non-zero")
+#  field(OCAL, "1")
+#  field(OUT, "$(Sys)$(Dev)_ENA_CMD.PROC")
+#  field(FLNK, "$(Sys)$(Dev)_MOVE2_CMD")
+#}
+#
+#record(calcout, "$(Sys)$(Dev)_MOVE2_CMD") {
+#  field(DESC, "Start movement")
+#  field(PREC, "$(PREC)")
+#  field(EGU, "$(EGU)")
+#  field(INPA, "$(Sys)$(Dev)_POS_SP NPP NMS")
+#  field(CALC, "A")
+#  field(OOPT, "Every Time")
+#  field(OUT, "$(Sys)$(Dev).VAL PP")
+#}
+#
+#record(ao, "$(Sys)$(Dev)_TWK_SP") {
+#  field(DESC, "Tweak Value")
+#  field(PREC, "$(PREC)")
+#  field(EGU, "$(EGU)")
+#  info(autosaveFields, "VAL")
+#}
+#
+#record(calcout, "$(Sys)$(Dev)_TWK_CMD") {
+#  field(DESC, "Tweak Forward/Reverse")
+#  field(PREC, "$(PREC)")
+#  field(EGU, "$(EGU)")
+#  field(INPA, "$(Sys)$(Dev)_POS_SP NPP NMS")
+#  field(INPB, "$(Sys)$(Dev)_TWK_SP NPP NMS")
+#  field(INPC, "$(Sys)$(Dev).RBV NPP NMS")
+#  field(INPD, "0")
+#  field(INPE, "$(Sys)$(Dev)_TWK_MODE NPP NMS")
+#  field(CALC, "E=1?A+(B*D):C+(B*D)")
+## tweak based on setpoint or actual position
+#  field(OOPT, "Every Time")
+#  field(OUT, "$(Sys)$(Dev)_POS_SP PP")
+#  field(FLNK, "$(Sys)$(Dev)_MOVE_CMD PP")
+#}
+#
+#record(bo, "$(Sys)$(Dev)_TWK_MODE") {
+#  field(DESC, "Set Tweak Mode")
+#  field(VAL, "0")
+#  field(ZNAM, "Tweak Position")
+#  field(ONAM, "Tweak Setpoint")
+#  info(autosaveFields, "VAL")
+#}
+#
+#record(ai, "$(Sys)$(Dev)_VL_MON") {
+#  field(DESC, "Velocity monitor for scan")
+#  field(PREC, "$(PREC)")
+#  field(EGU, "$(EGU)")
+#  field(INP, "$(Sys)$(Dev).VELO CP")
+#}
+

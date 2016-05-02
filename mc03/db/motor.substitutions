@@ -1,0 +1,16 @@
+file "db/motor.db"
+{
+
+# ADDR ---> axis #
+# NOTE ---> 2 asyn ports: 1) lowel comms ("P0"), and 2) Motor Record ("motor")
+pattern
+{ P,             M,               MOTOR,   PORT,    ADDR, DESC,     DTYP,       MRES,     EGU,    PREC }
+{ "XF:23ID1-OP", "{Mir:3-Ax:X1}Mtr", 	  "motor", "PO",    1,  "X1 DS", asynMotor, '5e-5',    'mm',    4 }
+{ "XF:23ID1-OP", "{Mir:3-Ax:X2}Mtr", 	  "motor", "PO",    2,  "X2 US", asynMotor ,'1e-4',    'mm',    4 }
+{ "XF:23ID1-OP", "{Mir:3-Ax:Bdr}Mtr", 	  "motor", "PO",    3,  "Bender", asynMotor,'5e-5',    'mm',    4 }
+
+{ "XF:23ID1-OP", "{Slt:2-Ax:T}Mtr", 	  "motor", "PO",    4,  "Top", asynMotor,     '1e-4',     'mm',   4 }
+{ "XF:23ID1-OP", "{Slt:2-Ax:B}Mtr", 	  "motor", "PO",    5,  "Bottom", asynMotor , '1e-4',     'mm',   4 }
+{ "XF:23ID1-OP", "{Slt:2-Ax:I}Mtr", 	  "motor", "PO",    6,  "Inboard", asynMotor, '1e-4',     'mm',   4 }
+{ "XF:23ID1-OP", "{Slt:2-Ax:O}Mtr", 	  "motor", "PO",    7,  "Outboard", asynMotor,'1e-4',     'mm',   4 }
+}

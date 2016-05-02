@@ -1,0 +1,2 @@
+Add diag:5 camera motions.
+

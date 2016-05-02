@@ -1,0 +1,4 @@
+NAME=mc1-rge1-test
+USER=softioc
+PORT=4006
+HOST=xf23id1-ioc1

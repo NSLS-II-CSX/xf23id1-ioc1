@@ -1,0 +1,12 @@
+file "db/pmac_asyn_motor.db"
+{
+
+pattern
+{SYS,              DEV,                 MOTOR,  SPORT,  ADDR,  DESC,        DTYP        PREC,  EGU }
+{"XF:23ID1-OP",    "{Slt:3-Ax:Y}",      "motor", "P0",    1,    "y-axis",     "asynMotor",  4,      "mm" }
+{"XF:23ID1-OP",    "{Slt:3-Ax:X}",      "motor", "P0",    2,    "x-axis",  "asynMotor",  4,      "mm" }
+{"XF:23ID1-ES",    "{Cam:Beam-Ax:X}",      "motor", "P0",    3,    "Camera X",  "asynMotor",  4,      "mm" }
+{"XF:23ID1-ES",    "{Cam:Beam-Ax:Z}",      "motor", "P0",    4,    "Camera Z",  "asynMotor",  4,      "mm" }
+{"XF:23ID1-ES",    "{Cam:Beam-Ax:Zm}",      "motor", "P0",    6,    "Camera Zoom",  "asynMotor",  4,      "None" }
+{"XF:23ID1-ES",    "{Cam:Beam-Ax:Foc}",      "motor", "P0",    5,    "Camera Focus",  "asynMotor",  4,      "None" }
+}

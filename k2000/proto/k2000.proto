@@ -1,0 +1,6 @@
+Terminator = CR LF;
+
+read {
+	out "READ?";
+	in "%f";
+}

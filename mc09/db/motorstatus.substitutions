@@ -1,0 +1,23 @@
+file "db/motorstatus.db"
+{
+pattern
+{SYS,              DEV,                 PORT,  AXIS }
+{"XF:23ID1-BI",  "{Diag:5-Ax:Y}",        P0,    1    }
+{"XF:23ID1-BI",  "{Cam:Diag6-Ax:Y}",     P0,    2    }
+{"XF:23ID1-BI",  "{Cam:Diag6-Ax:Z}",     P0,    3    }
+{"XF:23ID1-BI",  "{Cam:Diag6-Ax:Zm}",    P0,    4    }
+{"XF:23ID1-BI",  "{Cam:Diag6-Ax:Foc}",   P0,    5    }
+
+}
+
+file "db/pmacStatusAxis.db"
+{
+pattern
+{SYS,               DEV,           PORT,  AXIS }
+{"XF:23ID1-CT",  "{MC:09-Ax:1}",   "P0",   1   }
+{"XF:23ID1-CT",  "{MC:09-Ax:2}",   "P0",   2   }
+{"XF:23ID1-CT",  "{MC:09-Ax:3}",   "P0",   3   }
+{"XF:23ID1-CT",  "{MC:09-Ax:4}",   "P0",   4   }
+{"XF:23ID1-CT",  "{MC:09-Ax:5}",   "P0",   5   }
+
+}

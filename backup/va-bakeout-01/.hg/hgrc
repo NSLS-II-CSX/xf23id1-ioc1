@@ -1,0 +1,6 @@
+[paths]
+default = https://code.nsls2.bnl.gov/hg/xf/23id-1/iocs/xf23id1-ioc1/va-bakeout-01
+
+[http_proxy]
+host=proxy:8888
+no=localmachine

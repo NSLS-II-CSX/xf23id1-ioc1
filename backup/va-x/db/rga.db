@@ -1,0 +1,2842 @@
+## Database for Hiden RC Interface RGA
+
+## Global setting
+## Get product ID
+#record(stringin, "XF:23ID-VA:01{RGA:01}ID-I")
+#{
+#	field(DESC, "Product ID")
+#	field(DTYP, "stream")
+#	field(INP,  "@hiden_rga.proto getID() P4")
+#	field(PINI, 1)
+#}
+
+## Set up instrument environment variables
+#  Shutdown mode
+record(longout, "XF:23ID-VA:01{RGA:01}E:SD_Multp-SP")
+{
+	field(DESC, "Shutdown Multiplier")
+	field(LOPR, "0")
+	field(HOPR, "1400")
+	field(EGU,  "V")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}E:SD_Focus-SP")
+{
+	field(DESC, "Shutdown Focus")
+	field(LOPR, "-200")
+	field(HOPR, "0")
+	field(EGU,  "V")
+	field(VAL,  "-90")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}E:SD_DeltaM-SP")
+{
+	field(DESC, "Shutdown Delta-M")
+	field(LOPR, "-100")
+	field(HOPR, "100")
+	field(EGU,  "%")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Res:SD-SP")
+{
+	field(DESC, "Shutdown Resolution")
+	field(LOPR, "-100")
+	field(HOPR, "100")
+	field(EGU,  "%")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}E:SD_Cage-SP")
+{
+	field(DESC, "Shutdown Cage")
+	field(PREC, "1")
+	field(LOPR, "-10")
+	field(HOPR, "10")
+	field(EGU,  "V")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Enrgy:SD_E-SP")
+{
+	field(DESC, "Shutdown E-Energy")
+	field(LOPR, "4")
+	field(HOPR, "150")
+	field(PREC, "1")
+	field(EGU,  "V")
+	field(VAL,  "70")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Emis:SD-SP")
+{
+	field(DESC, "Shutdown Emission")
+	field(PREC, "3")
+	field(LOPR, "20")
+	field(HOPR, "5000")
+	field(EGU,  "uA")
+	field(VAL,  "20")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Mass:SD-SP")
+{
+	field(DESC, "Shutdown Mass")
+	field(PREC, "2")
+	field(LOPR, "0.4")
+	field(HOPR, "100")
+	field(EGU,  "amu")
+	field(VAL,  "5.5")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Time:SD_ModeChngDly-SP")
+{
+	field(DESC, "Shutdown Mode-C-Dly")
+	field(LOPR, "0")
+	field(HOPR, "10000000")
+	field(EGU,  "ms")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+#   RGA mode
+record(longout, "XF:23ID-VA:01{RGA:01}E:RGA_Multp-SP")
+{
+	field(DESC, "RGA Multiplier")
+	field(LOPR, "0")
+	field(HOPR, "1400")
+	field(EGU,  "V")
+	field(VAL,  "900")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}E:RGA_Focus-SP")
+{
+	field(DESC, "RGA Focus")
+	field(LOPR, "-200")
+	field(HOPR, "0")
+	field(EGU,  "V")
+	field(VAL,  "-90")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}E:RGA_DeltaM-SP")
+{
+	field(DESC, "RGA Delta-M")
+	field(LOPR, "-100")
+	field(HOPR, "100")
+	field(EGU,  "%")
+	field(VAL,  "30")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Res:RGA-SP")
+{
+	field(DESC, "RGA Resolution")
+	field(LOPR, "-100")
+	field(HOPR, "100")
+	field(EGU,  "%")
+	field(VAL,  "25")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}E:RGA_Cage-SP")
+{
+	field(DESC, "RGA Cage")
+	field(PREC, "1")
+	field(LOPR, "-10")
+	field(HOPR, "10")
+	field(EGU,  "V")
+	field(VAL,  "3")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Enrgy:RGA_E-SP")
+{
+	field(DESC, "RGA E-Energy")
+	field(LOPR, "4")
+	field(HOPR, "150")
+	field(PREC, "1")
+	field(EGU,  "V")
+	field(VAL,  "70")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Emis:RGA-SP")
+{
+	field(DESC, "RGA Emission")
+	field(PREC, "3")
+	field(LOPR, "20")
+	field(HOPR, "5000")
+	field(EGU,  "uA")
+	field(VAL,  "500")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Mass:RGA-SP")
+{
+	field(DESC, "RGA Mass")
+	field(PREC, "2")
+	field(LOPR, "0.4")
+	field(HOPR, "100")
+	field(EGU,  "amu")
+	field(VAL,  "5.5")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Time:RGA_ModeChngDly-SP")
+{
+	field(DESC, "RGA Mode-C-Dly")
+	field(LOPR, "0")
+	field(HOPR, "10000000")
+	field(EGU,  "ms")
+	field(VAL,  "1000")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:Env-Cmd")
+{
+	field(DESC, "Environment Cmd")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto globalSet(XF:23ID-VA:01,{RGA:01}) P4")	
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+	field(DISV, "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cmd:Fil-Cmd")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(fanout, "XF:23ID-VA:01{RGA:01}Cmd:Fil-Cmd")
+{
+	field(DESC, "Filament Cmd")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Cmd:Fil1-Cmd")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}Cmd:Fil2-Cmd")
+}
+
+#  Filament select 
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:Fil1-Cmd")
+{
+	field(DESC, "RGA F1 Cmd")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto setF1 P4")	
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+	field(VAL,  "1")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:Fil2-Cmd")
+{
+	field(DESC, "RGA F2 Cmd")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto setF2 P4")	
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longin, "XF:23ID-VA:01{RGA:01}P:F_RngMin-RB")
+{
+	field(DESC, "Faraday Min Range")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto getFaradayMinRng P4")	
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+}
+
+record(longin, "XF:23ID-VA:01{RGA:01}P:F_RngMax-RB")
+{
+	field(DESC, "Faraday Max Range")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto getFaradayMaxRng P4")	
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+}
+
+record(longin, "XF:23ID-VA:01{RGA:01}P:SEM_RngMin-RB")
+{
+	field(DESC, "SEM Min Range")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto getSEMMinRng P4")	
+	field(LOPR, "-13")
+	field(HOPR, "-7")
+}
+
+record(longin, "XF:23ID-VA:01{RGA:01}P:SEM_RngMax-RB")
+{
+	field(DESC, "SEM Max Range")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto getSEMMaxRng P4")	
+	field(LOPR, "-13")
+	field(HOPR, "-7")
+}
+
+# LED status
+record(bi, "XF:23ID-VA:01{RGA:01}Ind:Run-Sts")
+{
+	field(DESC, "Run LED")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto runLED P4")	
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Ind:Fil1-Sts")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}Ind:Fil1-Sts")
+{
+	field(DESC, "F1 LED")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto F1LED P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Ind:Fil2-Sts")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}Ind:Fil2-Sts")
+{
+	field(DESC, "F2 LED")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto F2LED P4")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Ind:Emis-Sts")	
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}Ind:Emis-Sts")
+{
+	field(DESC, "F1 LED")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto emissionLED P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Ind:Flt-Sts")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}Ind:Flt-Sts")
+{
+	field(DESC, "Fault LED")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto faultLED P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Err:Poll-I")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+	field(OSV,  "MAJOR")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}Sts:Fil-Sts")
+{
+	field(DESC, "Filament Sts")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto filamentSts P4")	
+	field(SCAN, "1 second")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Emis-Sts")
+	field(ZNAM, "Fail")
+	field(ONAM, "OK")
+	field(ZSV,  "MAJOR")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}Emis-Sts")
+{
+	field(DESC, "Emission Sts")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto emissionSts P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Trip:OverP-Sts")
+	field(ZNAM, "Fail")
+	field(ONAM, "OK")
+	field(ZSV,  "MINOR")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}Trip:OverP-Sts")
+{
+	field(DESC, "Over P Trip Sts")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto ptripSts P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Trip:OverT-Sts")
+	field(ZNAM, "OK")
+	field(ONAM, "OverPressure")
+	field(OSV,  "MAJOR")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}Trip:OverT-Sts")
+{
+	field(DESC, "Over Temp Sts")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto overTemp P4")	
+	field(ZNAM, "OK")
+	field(ONAM, "OverTemp")
+	field(OSV,  "MAJOR")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:Sts-Calc_")
+}
+
+# Get mass range and resolution
+record(ai, "XF:23ID-VA:01{RGA:01}Mass:Min-I")
+{
+	field(DESC, "Mass Min")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto massMin P4")	
+	field(PINI, "1")
+	field(PREC, "2")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}Mass:Max-I")
+{
+	field(DESC, "Mass Max")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto massMax P4")	
+	field(PREC, "2")
+	field(PINI, "1")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}Mass:Res-I")
+{
+	field(DESC, "Mass Res")
+	field(DTYP, "stream")
+	field(PINI, "1")
+	field(INP,  "@hiden_rga.proto massRes P4")	
+	field(PREC, "2")
+}
+
+# Stop scan
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:ScanAbort-Cmd")
+{
+	field(DESC, "Stop Scan")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto scanAbort P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:ScanAbort-Seq_")
+        field(ASG,  "VAWRITE")
+}
+
+#  Disable 'data' command and reset all buffers
+record(seq, "XF:23ID-VA:01{RGA:01}DB:ScanAbort-Seq_")
+{
+	field(DESC, "Stop Scan")
+	field(SELM, "All")
+	field(DO1,  "1")
+	field(DO2,  "1")
+	field(DO3,  "1")
+#	field(DO4,  "0")
+#	field(DO5,  "0")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Cmd:BarStop-Cmd PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}Cmd:PrflStop-Cmd PP")
+	field(LNK3, "XF:23ID-VA:01{RGA:01}Cmd:MID_Stop-Cmd PP")
+#	field(LNK4, "XF:23ID-VA:01{RGA:01}DB:BarRst-DFOut_ PP")
+#	field(LNK5, "XF:23ID-VA:01{RGA:01}DB:PrflRst-DFOut_ PP")
+}
+
+# Operation mode
+record(mbbi, "XF:23ID-VA:01{RGA:01}Mode:Scan-Sts")
+{
+        field(DESC, "Scan Mode")
+	field(ZRST, "None")
+	field(ONST, "Bar Mode")
+	field(TWST, "Prfl Mode")
+	field(THST, "MID Mode")
+}
+
+record(calcout, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+{
+        field(DESC, "Set Calc")
+	field(INPA, "XF:23ID-VA:01{RGA:01}Mode:Scan-Sts")
+	field(INPB, "0")
+	field(CALC, "A>B?1:0")
+	field(OUT,  "XF:23ID-VA:01{RGA:01}DB:Lck-Sts PP")
+	field(SCAN, "5 second")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}DB:Lck-Sts")
+{
+        field(DESC, "Scan Mode")
+	field(ZNAM, "Unlock")
+	field(ONAM, "Locked")
+}
+
+# Error 
+record(bo, "XF:23ID-VA:01{RGA:01}Err:Init-Cmd")
+{
+        field(DESC, "Error Init")
+	field(DTYP, "stream")
+        field(OUT,  "@hiden_rga.proto errInit P4")
+        field(ASG,  "VAWRITE")
+}
+
+record(stringin, "XF:23ID-VA:01{RGA:01}Err:Poll-I")
+{
+        field(DESC, "Error Poll")
+        field(DTYP, "stream")
+        field(INP,  "@hiden_rga.proto errPoll P4")
+}
+
+# Switch to shutdown mode after scan stop
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:SD-Cmd")
+{
+        field(DESC, "Shutwodn")
+        field(DTYP, "stream")
+        field(OUT,  "@hiden_rga.proto shutdown P4")
+        field(ASG,  "VAWRITE")
+}
+
+# Calc RGA status
+record(calc, "XF:23ID-VA:01{RGA:01}DB:Sts-Calc_")
+{
+        field(DESC, "RGA Status")
+        field(INPA, "XF:23ID-VA:01{RGA:01}Sts:Fil-Sts NPP MS")
+        field(INPB, "XF:23ID-VA:01{RGA:01}Emis-Sts NPP MS")
+	field(INPC, "XF:23ID-VA:01{RGA:01}Trip:OverP-Sts NPP MS")
+	field(INPD, "XF:23ID-VA:01{RGA:01}Ind:Flt-Sts NPP MS")
+        field(INPE, "XF:23ID-VA:01{RGA:01}Ind:Run-Sts NPP MS")
+        field(CALC, "(!A)|C|D?2:E&B?1:0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Sts")
+}
+
+record(mbbi, "XF:23ID-VA:01{RGA:01}Sts")
+{
+        field(DESC, "RGA Status")
+	field(INP,  "XF:23ID-VA:01{RGA:01}DB:Sts-Calc_ NPP")	
+	field(ZRST, "Off")
+	field(ONST, "OK")
+	field(TWST, "Error")
+	field(ZRSV, "MINOR")
+	field(TWSV, "MAJOR")
+}
+
+
+
+
+
+
+## Database for Hiden RC Interface RGA
+
+## Set up parameters for bar mode
+# Set the start mass
+record(ao, "XF:23ID-VA:01{RGA:01}Mass:BarStart-SP")
+{
+	field(DESC, "Set Start Mass")
+	field(LOPR, "1.0")
+	field(HOPR, "100.0")
+	field(VAL,  "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cnt:Bar-Calc")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the stop mass
+record(ao, "XF:23ID-VA:01{RGA:01}Mass:BarStop-SP")
+{
+	field(DESC, "Set Stop Mass")
+	field(LOPR, "1.0")
+	field(HOPR, "100.0")
+	field(VAL,  "100")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cnt:Bar-Calc")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(calc, "XF:23ID-VA:01{RGA:01}Cnt:Bar-Calc")
+{
+        field(DESC, "Mass Point")
+        field(INPA, "XF:23ID-VA:01{RGA:01}Mass:BarStart-SP")
+	field(INPB, "XF:23ID-VA:01{RGA:01}Mass:BarStop-SP")
+        field(CALC, "B-A+1")
+        field(VAL,  "100")
+}
+
+# Set detector type
+record(mbbo, "XF:23ID-VA:01{RGA:01}Type:BarDetr-Sel")
+{
+	field(DESC, "Set Detector Type")
+	field(ZRST, "Faraday")
+	field(ONST, "SEM")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:BarRng-FOut_")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+#  Check autoranging
+record(bo, "XF:23ID-VA:01{RGA:01}P:BarAutoRng-Sel")
+{
+	field(DESC, "Set Autoranging")
+	field(ZNAM, "NO")
+	field(ONAM, "YES")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:BarRng-FOut_")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Download data to controller
+record(fanout, "XF:23ID-VA:01{RGA:01}DB:BarRng-FOut_")
+{
+	field(DESC, "Range Fanout")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}P:BarAutoRng-Sel")
+	field(DISV, "0")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}DB:BarF_Rng-Seq_")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}DB:BarSEM_Rng-Seq_")
+}
+
+#  Set autorange 
+record(seq, "XF:23ID-VA:01{RGA:01}DB:BarF_Rng-Seq_")
+{
+	field(DESC, "Faraday Range")
+	field(SELM, "All")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Type:BarDetr-Sel")
+	field(DISV, "1")
+	field(DOL1, "XF:23ID-VA:01{RGA:01}P:F_RngMin-RB PP")
+	field(DOL2, "XF:23ID-VA:01{RGA:01}P:F_RngMax-RB PP")
+	field(DOL3, "XF:23ID-VA:01{RGA:01}P:F_RngMax-RB PP")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}P:BarLo-SP PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}P:BarHi-SP PP")
+	field(LNK3, "XF:23ID-VA:01{RGA:01}P:BarCurt-SP PP")
+}
+
+record(seq, "XF:23ID-VA:01{RGA:01}DB:BarSEM_Rng-Seq_")
+{
+	field(DESC, "SEM Range")
+	field(SELM, "All")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Type:BarDetr-Sel")
+	field(DISV, "0")
+	field(DOL1, "XF:23ID-VA:01{RGA:01}P:SEM_RngMin-RB PP")
+	field(DOL2, "XF:23ID-VA:01{RGA:01}P:SEM_RngMax-RB PP")
+	field(DOL3, "XF:23ID-VA:01{RGA:01}P:SEM_RngMax-RB PP")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}P:BarLo-SP PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}P:BarHi-SP PP")
+	field(LNK3, "XF:23ID-VA:01{RGA:01}P:BarCurt-SP PP")
+}
+
+# Set the low pressure range limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:BarLo-SP")
+{
+	field(DESC, "Set Low Pr")
+	field(LOPR, "-13")
+	field(HOPR, "-10")
+	field(VAL,  "-13")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the high pressure limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:BarHi-SP")
+{
+	field(DESC, "Set High Pr")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the initial range
+record(longout, "XF:23ID-VA:01{RGA:01}P:BarCurt-SP")
+{
+	field(DESC, "Set Current")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set dwell time
+record(longout, "XF:23ID-VA:01{RGA:01}Time:BarDwell-SP")
+{
+	field(DESC, "Set DwellK")
+	field(LOPR, "1")
+	field(HOPR, "6000")
+	field(VAL,  "100")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Time:BarDwell-Cmd")
+{
+	field(DESC, "DwellK Opt")
+	field(ZNAM, "Normal")
+	field(ONAM, "Low Noise")
+	field(VAL,  "0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:BarDwellTime-FOut_")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Download data to controller
+record(fanout, "XF:23ID-VA:01{RGA:01}DB:BarDwellTime-FOut_")
+{
+	field(DESC, "DwellK Fanout")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}DB:BarDwell1Time-Seq_")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}DB:BarDwell2Time-Seq_")
+}
+
+#  Set autorange 
+record(seq, "XF:23ID-VA:01{RGA:01}DB:BarDwell1Time-Seq_")
+{
+	field(DESC, "Normal Dwell")
+	field(SELM, "All")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Time:BarDwell-Cmd")
+	field(DISV, "1")
+	field(DO1,  "100")
+	field(DO2,  "100")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Time:BarDwell-SP PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}Time:BarSetl-SP PP")
+}
+
+record(seq, "XF:23ID-VA:01{RGA:01}DB:BarDwell2Time-Seq_")
+{
+	field(DESC, "Low Noise Dwell")
+	field(SELM, "All")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Time:BarDwell-Cmd")
+	field(DISV, "0")
+	field(DO1,  "400")
+	field(DO2,  "400")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Time:BarDwell-SP PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}Time:BarSetl-SP PP")
+}
+
+# Set settle time
+record(longout, "XF:23ID-VA:01{RGA:01}Time:BarSetl-SP")
+{
+	field(DESC, "Set SettleK")
+	field(LOPR, "1")
+	field(HOPR, "6000")
+	field(VAL,  "100")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the cycle number
+record(longout, "XF:23ID-VA:01{RGA:01}Cnt:BarCyc-SP")
+{
+	field(DESC, "Set Cycles")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cnt:BarCont-Cmd")
+{
+	field(DESC, "Continuous Cycles")
+	field(ZNAM, "NO")
+	field(ONAM, "YES")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cnt:BarCont-SP")
+        field(ASG,  "VAWRITE")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Cnt:BarCont-SP")
+{
+	field(DESC, "Continuous Cycles")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Cnt:BarCont-Cmd")
+	field(DISV, "0")
+	field(VAL,  "0")
+	field(OUT,  "XF:23ID-VA:01{RGA:01}Cnt:BarCyc-SP")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Parameters set for bar mode download to RGA
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:BarSet-Cmd")
+{
+	field(DESC, "Set Bar Para")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto barSet(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+        field(ASG,  "VAWRITE")
+}
+
+# Initialize and Set up bar scan
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:BarStart-Cmd")
+{
+	field(DESC, "Set Bar Scan")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto barStart(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:Bar-FOut_")
+        field(ASG,  "VAWRITE")
+}
+
+record(fanout, "XF:23ID-VA:01{RGA:01}DB:Bar-FOut_")
+{
+	field(DESC, "Bar Scan Fanout")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}DB:BarStart-Seq_")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}ID:BarTask-I")
+}
+
+# Get task id
+record(longin, "XF:23ID-VA:01{RGA:01}ID:BarTask-I")
+{
+	field(DESC, "Bar Task ID")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}ID:BarJob-I")
+}
+
+record(longin, "XF:23ID-VA:01{RGA:01}ID:BarJob-I")
+{
+	field(DESC, "Bar Job ID")
+}
+
+#  Enable 'data' command and reset all buffers
+record(seq, "XF:23ID-VA:01{RGA:01}DB:BarStart-Seq_")
+{
+	field(DESC, "Start Bar Scan")
+	field(SELM, "All")
+	field(DO1,  "6")
+	field(DO2,  "1")
+	field(DO3,  "0")
+	field(DO4,  "0")
+	field(DO5,  "1")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Cmd:Bar-Asyn.SCAN PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}DB:BarProc-Sts_ PP")
+	field(LNK3, "XF:23ID-VA:01{RGA:01}Mass:Bar-Buf.RES PP")
+	field(LNK4, "XF:23ID-VA:01{RGA:01}P:Bar-Buf.RES PP")
+	field(LNK5, "XF:23ID-VA:01{RGA:01}Mode:Scan-Sts PP")
+}
+
+#  Disable 'data' command
+record(seq, "XF:23ID-VA:01{RGA:01}DB:BarStop-Seq_")
+{
+	field(DESC, "Stop Bar Scan")
+	field(SELM, "All")
+	field(DO1,  "0")
+	field(DO2,  "1")
+	field(DO3,  "0")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Cmd:Bar-Asyn.SCAN PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}DB:BarProc-Sts_ PP")
+	field(LNK3, "XF:23ID-VA:01{RGA:01}Mode:Scan-Sts PP")
+}
+
+## Send 'data' command to poll measurements
+record(asyn,"XF:23ID-VA:01{RGA:01}Cmd:Bar-Asyn")
+{
+	field(DESC, "Polling data")
+	field(DTYP, "asynRecordDevice")
+	field(PORT, "P4")
+	field(ADDR, "0")
+	field(OMAX, "0")
+	field(IMAX, "0")
+	field(AOUT, "data\r\n")
+	field(IEOS, "\r\n")
+	field(IFMT, "Binary")
+	field(IMAX, "5000")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:Bar-ASub_")
+	field(TMOT, "0.1")
+}
+
+# Hold returned measurement, parse them and put value into different arrays
+record(aSub, "XF:23ID-VA:01{RGA:01}DB:Bar-ASub_")
+{
+	field(DESC, "Bar Measurement")
+	field(INAM, "asubMeasInit")
+	field(SNAM, "asubMeasBar")
+	field(INPA, "XF:23ID-VA:01{RGA:01}Cmd:Bar-Asyn.BINP")
+	field(FTA,  "CHAR")
+	field(NOA,  "5000")	
+	field(OUTA, "XF:23ID-VA:01{RGA:01}DB:BarRst-Calc_ PP")
+	field(FTVA, "LONG")
+	field(NOVA, "1")
+	field(OUTB, "XF:23ID-VA:01{RGA:01}DB:BarStop-Sts_ PP")
+	field(FTVB, "LONG")
+	field(NOVB, "1")
+	field(OUTC, "XF:23ID-VA:01{RGA:01}DB:BarProc-Sts_ PP")
+	field(FTVC, "LONG")
+	field(NOVC, "1")	
+	field(OUTD, "XF:23ID-VA:01{RGA:01}Mass:BarRaw-Wf")
+	field(FTVD, "DOUBLE")	
+	field(NOVD, "100")
+	field(OUTE, "XF:23ID-VA:01{RGA:01}P:BarRaw-Wf")
+	field(FTVE, "DOUBLE")	
+	field(NOVE, "100")
+	field(OUTF, "XF:23ID-VA:01{RGA:01}Time:Bar-I PP")
+	field(FTVF, "LONG")	
+	field(NOVF, "1")	
+	field(OUTG, "XF:23ID-VA:01{RGA:01}Mass:BarRaw-Wf.NELM PP")
+	field(FTVG, "LONG")
+	field(NOVG, "1")
+	field(OUTH, "XF:23ID-VA:01{RGA:01}P:BarRaw-Wf.NELM PP")
+	field(FTVH, "LONG")
+	field(NOVH, "1")
+	field(OUTI, "XF:23ID-VA:01{RGA:01}Cnt:BarCyc-I PP")
+        field(FTVI, "LONG")
+        field(NOVI, "1")
+
+}
+
+# Reset the compress record for each cycle
+record(calcout, "XF:23ID-VA:01{RGA:01}DB:BarRst-Calc_")
+{
+	field(DESC, "Reset Compress")
+	field(INPA, "XF:23ID-VA:01{RGA:01}DB:Bar-ASub_.VALA")
+	field(INPB, "0")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:Bar-ASub_.VALA")
+	field(DISV, "0")
+	field(CALC, "B")
+	field(OUT,  "XF:23ID-VA:01{RGA:01}DB:BarRst-DFOut_ PP")
+}
+
+record (dfanout, "XF:23ID-VA:01{RGA:01}DB:BarRst-DFOut_")
+{
+	field(DESC, "Bar Reset Fanout")
+	field(OUTA, "XF:23ID-VA:01{RGA:01}Mass:Bar-Buf.RES")
+	field(OUTB, "XF:23ID-VA:01{RGA:01}P:Bar-Buf.RES")
+}
+
+# Stop polling 'data' command when scan finished
+record(bi, "XF:23ID-VA:01{RGA:01}DB:BarStop-Sts_")
+{
+	field(DESC, "Bar Stop Sts")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:Bar-ASub_.VALB")
+	field(DISV, "0")
+	field(ZNAM, "NO")
+	field(ONAM, "YES")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cmd:BarStop-Cmd")
+}
+
+# No data processing if there's no reply
+record(bi, "XF:23ID-VA:01{RGA:01}DB:BarProc-Sts_")
+{
+	field(DESC, "Bar Data Sts")
+	field(ZNAM, "Process")
+	field(ONAM, "No Process")
+}
+
+# Hold returned mass in use for each data polling
+record(subArray, "XF:23ID-VA:01{RGA:01}Mass:BarRaw-Wf")
+{
+	field(DESC, "Raw Bar Mass Wf")
+	field(DTYP, "Soft Channel")
+	field(MALM, "100")
+	field(INP,  "XF:23ID-VA:01{RGA:01}DB:Bar-ASub_.VALD")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:BarProc-Sts_")
+	field(DISV, "1")
+	field(FTVL, "DOUBLE")
+	field(INDX, "0")
+	field(PREC, "2")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Mass:Bar-Buf")
+}
+
+# Hold mass in use for each cycle
+record(compress, "XF:23ID-VA:01{RGA:01}Mass:Bar-Buf")
+{
+	field(DESC, "Bar Mass Buf")
+	field(ALG,  "Circular Buffer")
+	field(NSAM, "100")
+	field(INP,  "XF:23ID-VA:01{RGA:01}Mass:BarRaw-Wf")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:BarProc-Sts_")
+	field(DISV, "1")
+}
+
+# Hold returned mass measurement for each data polling
+record(subArray, "XF:23ID-VA:01{RGA:01}P:BarRaw-Wf")
+{
+	field(DESC, "Raw Bar Mass Wf")
+	field(DTYP, "Soft Channel")
+	field(MALM, "100")
+	field(INP,  "XF:23ID-VA:01{RGA:01}DB:Bar-ASub_.VALE")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:BarProc-Sts_")
+        field(DISV, "1")
+	field(FTVL, "DOUBLE")
+	field(INDX, "0")
+	field(PREC, "6")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}P:Bar-Buf")
+}
+
+# Hold mass measurement for each cycle
+record(compress, "XF:23ID-VA:01{RGA:01}P:Bar-Buf")
+{
+	field(DESC, "Bar Val Buf")
+	field(ALG,  "Circular Buffer")
+	field(NSAM, "100")
+	field(INP,  "XF:23ID-VA:01{RGA:01}P:BarRaw-Wf")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:BarProc-Sts_")
+	field(DISV, "1")
+}
+
+record(longin, "XF:23ID-VA:01{RGA:01}DB:BarNUSE-I_")
+{
+        field(DESC,  "Bar Mass NUSE")
+        field(INP,  "XF:23ID-VA:01{RGA:01}Mass:Bar-Buf.NUSE")
+	field(SCAN, "1 second")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:BarMeas-Calc_")
+}
+
+# Compare if it's the  the compress record for each cycle
+record(calcout, "XF:23ID-VA:01{RGA:01}DB:BarMeas-Calc_")
+{
+	field(DESC, "Meas Proc Calc")
+	field(INPA, "XF:23ID-VA:01{RGA:01}DB:BarNUSE-I_")
+	field(INPB, "XF:23ID-VA:01{RGA:01}Cnt:Bar-Calc")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Cmd:Bar-Asyn.SCAN")
+	field(DISV, "0")
+	field(CALC, "A=B?1:0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:BarMeas-ASub_")
+}
+
+# Scan cycle count
+record(longin, "XF:23ID-VA:01{RGA:01}Cnt:BarCyc-I")
+{
+        field(DESC,  "Bar Cycle")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:Bar-ASub_.VALI")
+        field(SDIS, "XF:23ID-VA:01{RGA:01}Mode:Scan-Sts")
+        field(DISV, "0")
+}
+
+# Process to get measurement for one cycle
+record(aSub, "XF:23ID-VA:01{RGA:01}DB:BarMeas-ASub_")
+{
+        field(DESC, "Bar Measurement")
+        field(INAM, "asubMeasInit")
+        field(SNAM, "asubMeasProc")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:BarMeas-Calc_")
+        field(DISV, "0")
+	field(INPA, "XF:23ID-VA:01{RGA:01}Mass:Bar-Buf NPP NMS")
+        field(FTA,  "DOUBLE")
+        field(NOA,  "100")
+	field(INPB, "XF:23ID-VA:01{RGA:01}P:Bar-Buf NPP NMS")
+        field(FTB,  "DOUBLE")
+        field(NOB,  "100")
+	field(OUTA, "XF:23ID-VA:01{RGA:01}Mass:Bar-Wf PP")
+	field(FTVA, "DOUBLE")
+        field(NOVA, "100")
+        field(OUTB, "XF:23ID-VA:01{RGA:01}P:Bar-Wf PP")
+        field(FTVB, "DOUBLE")
+        field(NOVB, "100")
+}
+
+record(waveform, "XF:23ID-VA:01{RGA:01}Mass:Bar-Wf")
+{
+        field(DESC, "Bar Val Buf")
+	field(FTVL, "DOUBLE")
+        field(NELM, "100")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:BarMeas-ASub_.VALA")
+}
+
+record(waveform, "XF:23ID-VA:01{RGA:01}P:Bar-Wf")
+{
+        field(DESC, "Bar Val Buf")
+        field(FTVL, "DOUBLE")
+        field(NELM, "100")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:BarMeas-ASub_.VALB")
+}
+
+# Hold the measurement time
+record(longin, "XF:23ID-VA:01{RGA:01}Time:Bar-I")
+{
+	field(DESC, "Meas Time")
+	field(EGU,  "ms")
+}
+
+## Stop the recall of data
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:BarStop-Cmd")
+{
+	field(DESC, "Stop Task")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto barStop(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Cmd:Bar-Asyn.SCAN")
+	field(DISV, "0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:BarStop-Seq_")
+        field(ASG,  "VAWRITE")
+}
+
+# Pause scan
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:BarPause-Cmd")
+{
+	field(DESC, "Pause Scan")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto scanPause P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:BarPause-Cmd_")
+        field(ASG,  "VAWRITE")
+}
+
+#  Disable 'data' command 
+record(bo, "XF:23ID-VA:01{RGA:01}DB:BarPause-Cmd_")
+{
+        field(DESC, "Pause Scan")
+        field(OUT,  "XF:23ID-VA:01{RGA:01}Cmd:Bar-Asyn.SCAN")
+	field(VAL,  "0")
+}
+
+# Continue scan
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:BarCont-Cmd")
+{
+	field(DESC, "Continue Scan")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto scanContinue P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:BarCont-Cmd_")
+        field(ASG,  "VAWRITE")
+}
+
+#  Enable 'data' command 
+record(bo, "XF:23ID-VA:01{RGA:01}DB:BarCont-Cmd_")
+{
+        field(DESC, "Continue Scan")
+        field(OUT,  "XF:23ID-VA:01{RGA:01}Cmd:Bar-Asyn.SCAN")
+        field(VAL,  "6")
+}
+
+# Stop at the end of current cycle
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:BarStopEnd-Cmd")
+{
+	field(DESC, "Stop Scan at end")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto scanStop P4")
+        field(ASG,  "VAWRITE")
+}
+
+#  Local environment
+record(longout, "XF:23ID-VA:01{RGA:01}E:BarFocus-SP")
+{
+	field(DESC, "Bar Focus")
+	field(LOPR, "-200")
+	field(HOPR, "0")
+	field(EGU,  "V")
+	field(VAL,  "-90")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}E:BarDeltaM-SP")
+{
+	field(DESC, "Bar Delta-M")
+	field(LOPR, "-100")
+	field(HOPR, "100")
+	field(EGU,  "%")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Res:Bar-SP")
+{
+	field(DESC, "Bar Resolution")
+	field(LOPR, "-100")
+	field(HOPR, "100")
+	field(EGU,  "%")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}E:BarCage-SP")
+{
+	field(DESC, "Bar Cage")
+	field(PREC, "1")
+	field(LOPR, "-10")
+	field(HOPR, "10")
+	field(EGU,  "V")
+	field(VAL,  "3")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Enrgy:BarE-SP")
+{
+	field(DESC, "Bar E-Energy")
+	field(LOPR, "4")
+	field(HOPR, "150")
+	field(PREC, "1")
+	field(EGU,  "V")
+	field(VAL,  "70")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Emis:Bar-SP")
+{
+	field(DESC, "Bar Emission")
+	field(PREC, "3")
+	field(LOPR, "20")
+	field(HOPR, "5000")
+	field(EGU,  "uA")
+	field(VAL,  "200")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Mass:Bar-SP")
+{
+	field(DESC, "Bar Mass")
+	field(PREC, "2")
+	field(LOPR, "0.4")
+	field(HOPR, "100")
+	field(EGU,  "amu")
+	field(VAL,  "5.5")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Time:BarModeChngDly-SP")
+{
+	field(DESC, "Bar Mode-C-Dly")
+	field(LOPR, "0")
+	field(HOPR, "10000000")
+	field(EGU,  "ms")
+	field(VAL,  "1000")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:BarEnv-Cmd")
+{
+	field(DESC, "Environment Cmd")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto localSet(XF:23ID-VA:01,{RGA:01},Bar) P4")	
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+        field(ASG,  "VAWRITE")
+}
+## Database for Hiden RC Interface RGA
+
+## Set up parameters for profile mode
+# Set the start mass
+record(ao, "XF:23ID-VA:01{RGA:01}Mass:PrflStart-SP")
+{
+	field(DESC, "Set Start Mass")
+	field(PREC, "2")
+	field(LOPR, "1.0")
+	field(HOPR, "100.0")
+	field(VAL,  "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cnt:Prfl-Calc")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the stop mass
+record(ao, "XF:23ID-VA:01{RGA:01}Mass:PrflStop-SP")
+{
+	field(DESC, "Set Stop Mass")
+	field(PREC, "2")
+	field(LOPR, "1.0")
+	field(HOPR, "100.0")
+	field(VAL,  "100")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cnt:Prfl-Calc")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set steps
+record(ao, "XF:23ID-VA:01{RGA:01}Step:Prfl-SP")
+{
+	field(DESC, "Set Step")
+	field(PREC, "2")
+	field(VAL,  "0.13")
+	field(LOPR, "0.02")
+	field(HOPR, "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cnt:Prfl-Calc")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(calc, "XF:23ID-VA:01{RGA:01}Cnt:Prfl-Calc")
+{
+	field(DESC, "Point Calc")
+	field(INPA, "XF:23ID-VA:01{RGA:01}Mass:PrflStart-SP")
+	field(INPB, "XF:23ID-VA:01{RGA:01}Mass:PrflStop-SP")
+	field(INPC, "XF:23ID-VA:01{RGA:01}Step:Prfl-SP")
+	field(CALC, "FLOOR((B-A)/C+1)")
+	field(VAL,  "762")
+}
+
+# Set detector type
+record(mbbo, "XF:23ID-VA:01{RGA:01}Type:PrflDetr-Sel")
+{
+	field(DESC, "Set Detector Type")
+	field(ZRST, "Faraday")
+	field(ONST, "SEM")
+	field(VAL,  "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:PrflRng-FOut_")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+#  Check autoranging
+record(bo, "XF:23ID-VA:01{RGA:01}P:PrflAutoRng-Sel")
+{
+	field(DESC, "Set Autoranging")
+	field(ZNAM, "NO")
+	field(ONAM, "YES")
+	field(VAL,  "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:PrflRng-FOut_")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Download data to controller
+record(fanout, "XF:23ID-VA:01{RGA:01}DB:PrflRng-FOut_")
+{
+	field(DESC, "Range Fanout")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}P:PrflAutoRng-Sel")
+	field(DISV, "0")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}DB:PrflF_Rng-Seq_")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}DB:PrflSEM_Rng-Seq_")
+}
+
+#  Set autorange 
+record(seq, "XF:23ID-VA:01{RGA:01}DB:PrflF_Rng-Seq_")
+{
+	field(DESC, "Faraday Range")
+	field(SELM, "All")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Type:PrflDetr-Sel")
+	field(DISV, "1")
+	field(DOL1, "XF:23ID-VA:01{RGA:01}P:F_RngMin-RB PP")
+	field(DOL2, "XF:23ID-VA:01{RGA:01}P:F_RngMax-RB PP")
+	field(DOL3, "XF:23ID-VA:01{RGA:01}P:F_RngMax-RB PP")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}P:PrflLo-SP PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}P:PrflHi-SP PP")
+	field(LNK3, "XF:23ID-VA:01{RGA:01}P:PrflCurt-SP PP")
+}
+
+record(seq, "XF:23ID-VA:01{RGA:01}DB:PrflSEM_Rng-Seq_")
+{
+	field(DESC, "SEM Range")
+	field(SELM, "All")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Type:PrflDetr-Sel")
+	field(DISV, "0")
+	field(DOL1, "XF:23ID-VA:01{RGA:01}P:SEM_RngMin-RB PP")
+	field(DOL2, "XF:23ID-VA:01{RGA:01}P:SEM_RngMax-RB PP")
+	field(DOL3, "XF:23ID-VA:01{RGA:01}P:SEM_RngMax-RB PP")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}P:PrflLo-SP PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}P:PrflHi-SP PP")
+	field(LNK3, "XF:23ID-VA:01{RGA:01}P:PrflCurt-SP PP")
+}
+# Set the low pressure range limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:PrflLo-SP")
+{
+	field(DESC, "Set Low Pr")
+	field(LOPR, "-13")
+	field(HOPR, "-10")
+	field(VAL,  "-13")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the high pressure limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:PrflHi-SP")
+{
+	field(DESC, "Set High Pr")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the initial range
+record(longout, "XF:23ID-VA:01{RGA:01}P:PrflCurt-SP")
+{
+	field(DESC, "Set Current")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set dwell time
+record(longout, "XF:23ID-VA:01{RGA:01}Time:PrflDwell-SP")
+{
+	field(DESC, "Set Dwell Time")
+	field(LOPR, "1")
+	field(HOPR, "6000")
+	field(VAL,  "100")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set settle time
+record(longout, "XF:23ID-VA:01{RGA:01}Time:PrflSetl-SP")
+{
+	field(DESC, "Set Settle Time")
+	field(LOPR, "1")
+	field(HOPR, "6000")
+	field(VAL,  "100")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Time:PrflDwell-Cmd")
+{
+	field(DESC, "Dwell Time Opt")
+	field(ZNAM, "Normal")
+	field(ONAM, "Low Noise")
+	field(VAL,  "0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:PrflDwellTime-FOut_")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Download data to controller
+record(fanout, "XF:23ID-VA:01{RGA:01}DB:PrflDwellTime-FOut_")
+{
+	field(DESC, "DwellK Fanout")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}DB:PrflDwell1Time-Seq_")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}DB:PrflDwell2Time-Seq_")
+}
+
+#  Set autorange 
+record(seq, "XF:23ID-VA:01{RGA:01}DB:PrflDwell1Time-Seq_")
+{
+	field(DESC, "Normal Dwell")
+	field(SELM, "All")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Time:PrflDwell-Cmd")
+	field(DISV, "1")
+	field(DO1,  "100")
+	field(DO2,  "100")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Time:PrflDwell-SP PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}Time:PrflSetl-SP PP")
+}
+
+record(seq, "XF:23ID-VA:01{RGA:01}DB:PrflDwell2Time-Seq_")
+{
+	field(DESC, "Low Noise Dwell")
+	field(SELM, "All")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Time:PrflDwell-Cmd")
+	field(DISV, "0")
+	field(DO1,  "400")
+	field(DO2,  "400")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Time:PrflDwell-SP PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}Time:PrflSetl-SP PP")
+}
+
+# Set the cycle number
+record(longout, "XF:23ID-VA:01{RGA:01}Cnt:PrflCyc-SP")
+{
+	field(DESC, "Set Cycles")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cnt:PrflCont-Cmd")
+{
+	field(DESC, "Continuous Cycles")
+	field(ZNAM, "NO")
+	field(ONAM, "YES")
+	field(VAL,  "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cnt:PrflCont-SP")
+        field(ASG,  "VAWRITE")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Cnt:PrflCont-SP")
+{
+	field(DESC, "Continuous Cycles")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Cnt:PrflCont-Cmd")
+	field(DISV, "0")
+	field(VAL,  "0")
+	field(OUT,  "XF:23ID-VA:01{RGA:01}Cnt:PrflCyc-SP")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Parameters set for prof mode download to RGA
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:PrflSet-Cmd")
+{
+	field(DESC, "Set Prfl Para")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto prflSet(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+        field(ASG,  "VAWRITE")
+}
+
+# Initialize and Set up prof scan
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:PrflStart-Cmd")
+{
+	field(DESC, "Set Prfl Scan")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto prflStart(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:Prfl-FOut_")
+        field(ASG,  "VAWRITE")
+}
+
+record(fanout, "XF:23ID-VA:01{RGA:01}DB:Prfl-FOut_")
+{
+	field(DESC, "Prfl Scan Fanout")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}DB:PrflStart-Seq_")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}ID:PrflTask-I")
+}
+
+# Get task id
+record(longin, "XF:23ID-VA:01{RGA:01}ID:PrflTask-I")
+{
+	field(DESC, "Prfl Task ID")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}ID:PrflJob-I")
+}
+
+record(longin, "XF:23ID-VA:01{RGA:01}ID:PrflJob-I")
+{
+	field(DESC, "Prfl Job ID")
+}
+
+#  Enable 'data' command and reset all buffers
+record(seq, "XF:23ID-VA:01{RGA:01}DB:PrflStart-Seq_")
+{
+	field(DESC, "Start Prfl Scan")
+	field(SELM, "All")
+	field(DO1,  "6")
+	field(DO2,  "1")
+	field(DO3,  "0")
+	field(DO4,  "0")
+	field(DO5,  "2")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Cmd:Prfl-Asyn.SCAN PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}DB:PrflProc-Sts_ PP")
+	field(LNK3, "XF:23ID-VA:01{RGA:01}Mass:Prfl-Buf.RES PP")
+	field(LNK4, "XF:23ID-VA:01{RGA:01}P:Prfl-Buf.RES PP")
+	field(LNK5, "XF:23ID-VA:01{RGA:01}Mode:Scan-Sts PP")
+}
+
+#  Disable 'data' command
+record(seq, "XF:23ID-VA:01{RGA:01}DB:PrflStop-Seq_")
+{
+	field(DESC, "Stop Prfl Scan")
+	field(SELM, "All")
+	field(DO1,  "0")
+	field(DO2,  "1")
+	field(DO3,  "0")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Cmd:Prfl-Asyn.SCAN PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}DB:PrflProc-Sts_ PP")
+	field(LNK3, "XF:23ID-VA:01{RGA:01}Mode:Scan-Sts PP")
+}
+
+## Send 'data' command to poll measurements
+record(asyn,"XF:23ID-VA:01{RGA:01}Cmd:Prfl-Asyn")
+{
+	field(DESC, "Polling data")
+	field(DTYP, "asynRecordDevice")
+	field(PORT, "P4")
+	field(ADDR, "0")
+	field(OMAX, "0")
+	field(IMAX, "0")
+	field(AOUT, "data\r")
+	field(IEOS, "\r\n")
+	field(IFMT, "Binary")
+	field(IMAX, "5000")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:Prfl-ASub_")
+	field(TMOT, "0.1")
+}
+
+# Hold returned measurement, parse them and put value into different arrays
+record(aSub, "XF:23ID-VA:01{RGA:01}DB:Prfl-ASub_")
+{
+	field(DESC, "Prfl Measurement")
+	field(INAM, "asubMeasInit")
+	field(SNAM, "asubMeasBar")
+	field(INPA, "XF:23ID-VA:01{RGA:01}Cmd:Prfl-Asyn.BINP")
+	field(FTA,  "CHAR")
+	field(NOA,  "5000")	
+	field(OUTA, "XF:23ID-VA:01{RGA:01}DB:PrflRst-Calc_ PP")
+	field(FTVA, "LONG")
+	field(NOVA, "1")
+	field(OUTB, "XF:23ID-VA:01{RGA:01}DB:PrflStop-Sts_ PP")
+	field(FTVB, "LONG")
+	field(NOVB, "1")
+	field(OUTC, "XF:23ID-VA:01{RGA:01}DB:PrflProc-Sts_ PP")
+	field(FTVC, "LONG")
+	field(NOVC, "1")	
+	field(OUTD, "XF:23ID-VA:01{RGA:01}Mass:PrflRaw-Wf")
+	field(FTVD, "DOUBLE")	
+	field(NOVD, "50")
+	field(OUTE, "XF:23ID-VA:01{RGA:01}P:PrflRaw-Wf")
+	field(FTVE, "DOUBLE")	
+	field(NOVE, "50")
+	field(OUTF, "XF:23ID-VA:01{RGA:01}Time:Prfl-I PP")
+	field(FTVF, "LONG")	
+	field(NOVF, "1")	
+	field(OUTG, "XF:23ID-VA:01{RGA:01}Mass:PrflRaw-Wf.NELM PP")
+	field(FTVG, "LONG")
+	field(NOVG, "1")
+	field(OUTH, "XF:23ID-VA:01{RGA:01}P:PrflRaw-Wf.NELM PP")
+	field(FTVH, "LONG")
+	field(NOVH, "1")
+	field(OUTI, "XF:23ID-VA:01{RGA:01}Cnt:PrflCyc-I PP")
+        field(FTVI, "SHORT")
+        field(NOVI, "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:PrflDisp-ASub_")
+}
+
+# Reset the compress record for each cycle
+record(calcout, "XF:23ID-VA:01{RGA:01}DB:PrflRst-Calc_")
+{
+	field(DESC, "Reset Compress")
+	field(INPA, "XF:23ID-VA:01{RGA:01}DB:Prfl-ASub_.VALA")
+	field(INPB, "0")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:Prfl-ASub_.VALA")
+	field(DISV, "0")
+	field(CALC, "B")
+	field(OUT,  "XF:23ID-VA:01{RGA:01}DB:PrflRst-DFOut_ PP")
+}
+
+record (dfanout, "XF:23ID-VA:01{RGA:01}DB:PrflRst-DFOut_")
+{
+	field(DESC, "Prfl Reset Fanout")
+	field (OUTA, "XF:23ID-VA:01{RGA:01}Mass:Prfl-Buf.RES")
+	field (OUTB, "XF:23ID-VA:01{RGA:01}P:Prfl-Buf.RES")
+}
+
+# Stop polling 'data' command when scan finished
+record(bi, "XF:23ID-VA:01{RGA:01}DB:PrflStop-Sts_")
+{
+	field(DESC, "Prfl Stop Sts")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:Prfl-ASub_.VALB")
+	field(DISV, "0")
+	field(ZNAM, "NO")
+	field(ONAM, "YES")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cmd:PrflStop-Cmd")
+}
+
+# No data processing if there's no reply
+record(bi, "XF:23ID-VA:01{RGA:01}DB:PrflProc-Sts_")
+{
+	field(DESC, "Prfl Data Sts")
+	field(ZNAM, "Process")
+	field(ONAM, "No Process")
+}
+
+# Hold returned mass in use for each data polling
+record(subArray, "XF:23ID-VA:01{RGA:01}Mass:PrflRaw-Wf")
+{
+	field(DESC, "Raw Prfl Mass Wf")
+	field(DTYP, "Soft Channel")
+	field(MALM, "100")
+	field(INP,  "XF:23ID-VA:01{RGA:01}DB:Prfl-ASub_.VALD")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:PrflProc-Sts_")
+	field(DISV, "1")
+	field(FTVL, "DOUBLE")
+	field(INDX, "0")
+	field(PREC, "2")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Mass:Prfl-Buf")
+}
+
+# Hold mass in use for each cycle
+record(compress, "XF:23ID-VA:01{RGA:01}Mass:Prfl-Buf")
+{
+	field(DESC, "Prfl Mass Buf")
+	field(ALG,  "Circular Buffer")
+	field(NSAM, "5000")
+	field(INP,  "XF:23ID-VA:01{RGA:01}Mass:PrflRaw-Wf")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:PrflProc-Sts_")
+	field(DISV, "1")
+}
+
+record(longin, "XF:23ID-VA:01{RGA:01}DB:PrflNUSE-I_")
+{
+        field(DESC,  "Prfl Mass NUSE")
+        field(INP,  "XF:23ID-VA:01{RGA:01}Mass:Prfl-Buf.NUSE")
+	field(SCAN, "1 second")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:PrflMeas-Calc_")
+}
+
+# Hold returned mass measurement for each data polling
+record(subArray, "XF:23ID-VA:01{RGA:01}P:PrflRaw-Wf")
+{
+	field(DESC, "Raw Prfl Val Wf")
+	field(DTYP, "Soft Channel")
+	field(MALM, "100")
+	field(INP,  "XF:23ID-VA:01{RGA:01}DB:Prfl-ASub_.VALE")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:PrflProc-Sts_")
+	field(DISV, "1")
+	field(FTVL, "DOUBLE")
+	field(INDX, "0")
+	field(PREC, "6")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}P:Prfl-Buf")
+}
+
+# Hold mass measurement for each cycle
+record(compress, "XF:23ID-VA:01{RGA:01}P:Prfl-Buf")
+{
+	field(DESC, "Prfl Val Buf")
+	field(ALG,  "Circular Buffer")
+	field(NSAM, "5000")
+	field(INP,  "XF:23ID-VA:01{RGA:01}P:PrflRaw-Wf")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:PrflProc-Sts_")
+	field(DISV, "1")
+}
+
+# Compare if it's the  the compress record for each cycle
+record(calcout, "XF:23ID-VA:01{RGA:01}DB:PrflMeas-Calc_")
+{
+	field(DESC, "Meas Proc Calc")
+	field(INPA, "XF:23ID-VA:01{RGA:01}DB:PrflNUSE-I_")
+	field(INPB, "XF:23ID-VA:01{RGA:01}Cnt:Prfl-Calc")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Cmd:Prfl-Asyn.SCAN")
+	field(DISV, "0")
+	field(CALC, "A=B?1:0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:PrflMeas-ASub_")
+}
+
+# Scan cycle count
+record(longin, "XF:23ID-VA:01{RGA:01}Cnt:PrflCyc-I")
+{
+        field(DESC,  "Prfl Cycle")
+	field(INP,  "XF:23ID-VA:01{RGA:01}DB:Prfl-ASub_.VALI")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Mode:Scan-Sts")
+	field(DISV, "0")
+}
+
+# Process to get measurement for one cycle
+record(aSub, "XF:23ID-VA:01{RGA:01}DB:PrflMeas-ASub_")
+{
+        field(DESC, "Prfl Measurement")
+        field(INAM, "asubMeasInit")
+        field(SNAM, "asubMeasProc")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:PrflMeas-Calc_")
+        field(DISV, "0")
+	field(INPA, "XF:23ID-VA:01{RGA:01}Mass:Prfl-Buf NPP NMS")
+        field(FTA,  "DOUBLE")
+        field(NOA,  "5000")
+	field(INPB, "XF:23ID-VA:01{RGA:01}P:Prfl-Buf NPP NMS")
+        field(FTB,  "DOUBLE")
+        field(NOB,  "5000")
+	field(OUTA, "XF:23ID-VA:01{RGA:01}Mass:Prfl-Wf PP")
+	field(FTVA, "DOUBLE")
+        field(NOVA, "5000")
+        field(OUTB, "XF:23ID-VA:01{RGA:01}P:Prfl-Wf PP")
+        field(FTVB, "DOUBLE")
+        field(NOVB, "5000")
+}
+
+record(waveform, "XF:23ID-VA:01{RGA:01}Mass:Prfl-Wf")
+{
+        field(DESC, "Prfl Val Buf")
+	field(FTVL, "DOUBLE")
+        field(NELM, "5000")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:PrflMeas-ASub_.VALA")
+}
+
+record(waveform, "XF:23ID-VA:01{RGA:01}P:Prfl-Wf")
+{
+        field(DESC, "Prfl Val Buf")
+        field(FTVL, "DOUBLE")
+        field(NELM, "5000")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:PrflMeas-ASub_.VALB")
+}
+
+# Process to get measurement for display
+record(aSub, "XF:23ID-VA:01{RGA:01}DB:PrflDisp-ASub_")
+{
+	field(DESC, "Prfl Display")
+	field(INAM, "asubPrflDispInit")
+	field(SNAM, "asubPrflDispProc")
+	field(INPA, "XF:23ID-VA:01{RGA:01}Mass:Prfl-Wf NPP NMS")
+	field(FTA,  "DOUBLE")
+	field(NOA,  "5000")
+	field(INPB, "XF:23ID-VA:01{RGA:01}Mass:Prfl-Buf NPP NMS")
+	field(FTB,  "DOUBLE")
+	field(NOB,  "5000")
+	field(INPC, "XF:23ID-VA:01{RGA:01}P:Prfl-Wf NPP NMS")
+	field(FTC,  "DOUBLE")
+	field(NOC,  "5000")
+	field(INPD, "XF:23ID-VA:01{RGA:01}P:Prfl-Buf NPP NMS")
+	field(FTD,  "DOUBLE")
+	field(NOD,  "5000")
+	field(INPE, "XF:23ID-VA:01{RGA:01}Cnt:Prfl-Calc PP")
+	field(FTE,  "SHORT")
+	field(NOE,  "1")
+	field(OUTA, "XF:23ID-VA:01{RGA:01}Mass:PrflDisp-Wf PP")
+	field(FTVA, "DOUBLE")
+	field(NOVA, "5000")
+	field(OUTB, "XF:23ID-VA:01{RGA:01}P:PrflDisp-Wf PP")
+	field(FTVB, "DOUBLE")
+	field(NOVB, "5000")
+	field(OUTC, "XF:23ID-VA:01{RGA:01}DB:PrflDisp-Wf PP")
+	field(FTVC, "DOUBLE")
+	field(NOVC, "5000")
+}
+
+record(waveform, "XF:23ID-VA:01{RGA:01}Mass:PrflDisp-Wf")
+{
+        field(DESC, "Prfl Mass Disp")
+        field(FTVL, "DOUBLE")
+        field(NELM, "5000")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:PrflDisp-ASub_.VALA")
+}
+
+record(waveform, "XF:23ID-VA:01{RGA:01}P:PrflDisp-Wf")
+{
+        field(DESC, "Prfl P Disp")
+        field(FTVL, "DOUBLE")
+        field(NELM, "5000")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:PrflDisp-ASub_.VALB")
+}
+
+record(waveform, "XF:23ID-VA:01{RGA:01}DB:PrflDisp-Wf")
+{
+        field(DESC, "Prfl X Disp")
+        field(FTVL, "DOUBLE")
+        field(NELM, "5000")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:PrflDisp-ASub_.VALC")
+}
+
+# Hold the measurement time
+record(longin, "XF:23ID-VA:01{RGA:01}Time:Prfl-I")
+{
+	field(DESC, "Meas Time")
+	field(INP,  "XF:23ID-VA:01{RGA:01}DB:Prfl-ASub_.VALF")
+	field(EGU,  "ms")
+}
+
+## Stop the recall of data
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:PrflStop-Cmd")
+{
+	field(DESC, "Stop Task")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto prflStop(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Cmd:Prfl-Asyn.SCAN")
+	field(DISV, "0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:PrflStop-Seq_")
+        field(ASG,  "VAWRITE")
+}
+
+# Pause scan
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:PrflPause-Cmd")
+{
+	field(DESC, "Pause Scan")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto scanPause P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:PrflPause-Cmd_")
+        field(ASG,  "VAWRITE")
+}
+
+#  Disable 'data' command 
+record(bo, "XF:23ID-VA:01{RGA:01}DB:PrflPause-Cmd_")
+{
+	field(DESC, "Pause Scan")
+	field(VAL,  "0")
+	field(OUT, "XF:23ID-VA:01{RGA:01}Cmd:Prfl-Asyn.SCAN")
+}
+
+# Continue scan
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:PrflCont-Cmd")
+{
+	field(DESC, "Continue Scan")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto scanContinue P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:PrflCont-Cmd_")
+        field(ASG,  "VAWRITE")
+}
+
+#  Enable 'data' command 
+record(bo, "XF:23ID-VA:01{RGA:01}DB:PrflCont-Cmd_")
+{
+	field(DESC, "Continue Scan")
+	field(VAL,  "6")
+	field(OUT, "XF:23ID-VA:01{RGA:01}Cmd:Prfl-Asyn.SCAN")
+}
+
+# Stop at the end of current cycle
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:PrflStopEnd-Cmd")
+{
+        field(DESC, "Stop Scan at end")
+        field(DTYP, "stream")
+        field(OUT,  "@hiden_rga.proto scanStop P4")
+        field(ASG,  "VAWRITE")
+}
+
+#  Local environment
+record(longout, "XF:23ID-VA:01{RGA:01}E:PrflFocus-SP")
+{
+	field(DESC, "Prfl Focus")
+	field(LOPR, "-200")
+	field(HOPR, "0")
+	field(EGU,  "V")
+	field(VAL,  "-90")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}E:PrflDeltaM-SP")
+{
+	field(DESC, "Prfl Delta-M")
+	field(LOPR, "-100")
+	field(HOPR, "100")
+	field(EGU,  "%")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Res:Prfl-SP")
+{
+	field(DESC, "Prfl Resolution")
+	field(LOPR, "-100")
+	field(HOPR, "100")
+	field(EGU,  "%")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}E:PrflCage-SP")
+{
+	field(DESC, "Prfl Cage")
+	field(PREC, "1")
+	field(LOPR, "-10")
+	field(HOPR, "10")
+	field(EGU,  "V")
+	field(VAL,  "3")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Enrgy:PrflE-SP")
+{
+	field(DESC, "Prfl E-Energy")
+	field(LOPR, "4")
+	field(HOPR, "150")
+	field(PREC, "1")
+	field(EGU,  "V")
+	field(VAL,  "70")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Emis:Prfl-SP")
+{
+	field(DESC, "Prfl Emission")
+	field(PREC, "3")
+	field(LOPR, "20")
+	field(HOPR, "5000")
+	field(EGU,  "uA")
+	field(VAL,  "200")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Mass:Prfl-SP")
+{
+	field(DESC, "Prfl Mass")
+	field(PREC, "2")
+	field(LOPR, "0.4")
+	field(HOPR, "100")
+	field(EGU,  "amu")
+	field(VAL,  "5.5")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Time:PrflModeChngDly-SP")
+{
+	field(DESC, "Prfl Mode-C-Dly")
+	field(LOPR, "0")
+	field(HOPR, "10000000")
+	field(EGU,  "ms")
+	field(VAL,  "1000")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:PrflEnv-Cmd")
+{
+	field(DESC, "Environment Cmd")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto localSet(XF:23ID-VA:01,{RGA:01},Prfl) P4")	
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+        field(ASG,  "VAWRITE")
+}
+## Database for Hiden RC Interface RGA
+
+
+## Set up parameters for MID mode
+# Set particular mass 1
+record(longout, "XF:23ID-VA:01{RGA:01}Mass:MID1-SP")
+{
+	field(DESC, "Set Start Mass")
+	field(LOPR, "1")
+	field(HOPR, "100")
+	field(VAL,  "2")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set detector type
+record(mbbo, "XF:23ID-VA:01{RGA:01}Type:MID1Detr-Sel")
+{
+	field(DESC, "Set Detector Type")
+	field(ZRST, "Faraday")
+	field(ONST, "SEM")
+	field(VAL,  "1")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the low pressure range limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID1Lo-SP")
+{
+	field(DESC, "Set Low Pr")
+	field(LOPR, "-13")
+	field(HOPR, "-10")
+	field(VAL,  "-13")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the high pressure limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID1Hi-SP")
+{
+	field(DESC, "Set High Pr")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the initial range
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID1Curt-SP")
+{
+	field(DESC, "Set Current")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Parameters set for MID mode download to RGA
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID1Set-Cmd")
+{
+	field(DESC, "Set MID Para")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto midSet1(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+        field(ASG,  "VAWRITE")
+}
+
+# Set particular mass 2
+record(longout, "XF:23ID-VA:01{RGA:01}Mass:MID2-SP")
+{
+	field(DESC, "Set Start Mass")
+	field(LOPR, "1")
+	field(HOPR, "100")
+	field(VAL,  "18")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set detector type
+record(mbbo, "XF:23ID-VA:01{RGA:01}Type:MID2Detr-Sel")
+{
+	field(DESC, "Set Detector Type")
+	field(ZRST, "Faraday")
+	field(ONST, "SEM")
+	field(VAL,  "1")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+
+# Set the low pressure range limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID2Lo-SP")
+{
+	field(DESC, "Set Low Pr")
+	field(LOPR, "-13")
+	field(HOPR, "-10")
+	field(VAL,  "-13")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the high pressure limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID2Hi-SP")
+{
+	field(DESC, "Set High Pr")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the initial range
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID2Curt-SP")
+{
+	field(DESC, "Set Current")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Parameters set for MID mode download to RGA
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID2Set-Cmd")
+{
+	field(DESC, "Set MID Para")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto midSet2(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+        field(ASG,  "VAWRITE")
+}
+
+# Set particular mass 3
+record(longout, "XF:23ID-VA:01{RGA:01}Mass:MID3-SP")
+{
+	field(DESC, "Set Start Mass")
+	field(LOPR, "1")
+	field(HOPR, "100")
+	field(VAL,  "28")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set detector type
+record(mbbo, "XF:23ID-VA:01{RGA:01}Type:MID3Detr-Sel")
+{
+	field(DESC, "Set Detector Type")
+	field(ZRST, "Faraday")
+	field(ONST, "SEM")
+	field(VAL,  "1")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the low pressure range limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID3Lo-SP")
+{
+	field(DESC, "Set Low Pr")
+	field(LOPR, "-13")
+	field(HOPR, "-10")
+	field(VAL,  "-13")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the high pressure limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID3Hi-SP")
+{
+	field(DESC, "Set High Pr")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the initial range
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID3Curt-SP")
+{
+	field(DESC, "Set Current")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Parameters set for MID mode download to RGA
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID3Set-Cmd")
+{
+	field(DESC, "Set MID Para")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto midSet3(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+        field(ASG,  "VAWRITE")
+}
+
+# Set particular mass 4
+record(longout, "XF:23ID-VA:01{RGA:01}Mass:MID4-SP")
+{
+	field(DESC, "Set Start Mass")
+	field(LOPR, "1")
+	field(HOPR, "100")
+	field(VAL,  "32")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set detector type
+record(mbbo, "XF:23ID-VA:01{RGA:01}Type:MID4Detr-Sel")
+{
+	field(DESC, "Set Detector Type")
+	field(ZRST, "Faraday")
+	field(ONST, "SEM")
+	field(VAL,  "1")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the low pressure range limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID4Lo-SP")
+{
+	field(DESC, "Set Low Pr")
+	field(LOPR, "-13")
+	field(HOPR, "-10")
+	field(VAL,  "-13")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the high pressure limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID4Hi-SP")
+{
+	field(DESC, "Set High Pr")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the initial range
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID4Curt-SP")
+{
+	field(DESC, "Set Current")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Parameters set for MID mode download to RGA
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID4Set-Cmd")
+{
+	field(DESC, "Set MID Para")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto midSet4(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+        field(ASG,  "VAWRITE")
+}
+
+# Set particular mass 5
+record(longout, "XF:23ID-VA:01{RGA:01}Mass:MID5-SP")
+{
+	field(DESC, "Set Start Mass")
+	field(LOPR, "1")
+	field(HOPR, "100")
+	field(VAL,  "40")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set detector type
+record(mbbo, "XF:23ID-VA:01{RGA:01}Type:MID5Detr-Sel")
+{
+	field(DESC, "Set Detector Type")
+	field(ZRST, "Faraday")
+	field(ONST, "SEM")
+	field(VAL,  "1")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the low pressure range limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID5Lo-SP")
+{
+	field(DESC, "Set Low Pr")
+	field(LOPR, "-13")
+	field(HOPR, "-10")
+	field(VAL,  "-13")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the high pressure limit for autoranging
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID5Hi-SP")
+{
+	field(DESC, "Set High Pr")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Set the initial range
+record(longout, "XF:23ID-VA:01{RGA:01}P:MID5Curt-SP")
+{
+	field(DESC, "Set Current")
+	field(LOPR, "-10")
+	field(HOPR, "-5")
+	field(VAL,  "-7")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Parameters set for MID mode download to RGA
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID5Set-Cmd")
+{
+	field(DESC, "Set MID Para")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto midSet5(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+        field(ASG,  "VAWRITE")
+}
+
+# Set the cycle number
+record(longout, "XF:23ID-VA:01{RGA:01}Cnt:MID_Cyc-SP")
+{
+	field(DESC, "Set Cycles")
+	field(VAL,  "10")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cnt:MID_Cont-Cmd")
+{
+	field(DESC, "Continuous Cycles")
+	field(ZNAM, "NO")
+	field(ONAM, "YES")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cnt:MID_Cont-SP")
+        field(ASG,  "VAWRITE")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Cnt:MID_Cont-SP")
+{
+	field(DESC, "Continuous Cycles")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Cnt:MID_Cont-Cmd")
+	field(DISV, "0")
+	field(VAL,  "0")
+	field(OUT,  "XF:23ID-VA:01{RGA:01}Cnt:MID_Cyc-SP")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+# Parameters set for MID mode download to RGA
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID_Set-Cmd")
+{
+	field(DESC, "Set MID Para")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto midSet(XF:23ID-VA:01,{RGA:01}) P4")
+        field(ASG,  "VAWRITE")
+}
+
+# Initialize and set up mid scan
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID_Start-Cmd")
+{
+	field(DESC, "Set MID Scan")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto midStart(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+        field(DISV, "1")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:MID-FOut_")
+        field(ASG,  "VAWRITE")
+}
+
+record(fanout, "XF:23ID-VA:01{RGA:01}DB:MID-FOut_")
+{
+	field(DESC, "MID Scan Fanout")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}DB:MID_Start-Seq_")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}ID:MID_Task-I")
+}
+
+
+# Get task id
+record(longin, "XF:23ID-VA:01{RGA:01}ID:MID_Task-I")
+{
+	field(DESC, "MID Task ID")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}ID:MID_Job-I")
+}
+
+record(longin, "XF:23ID-VA:01{RGA:01}ID:MID_Job-I")
+{
+	field(DESC, "MID Job ID")
+}
+
+# Start to poll 'data' command
+record(seq, "XF:23ID-VA:01{RGA:01}DB:MID_Start-Seq_")
+{
+	field(DESC, "Start MID Scan")
+	field(DO1,  "6")
+	field(DO2,  "3")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Cmd:MID-Asyn.SCAN PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}Mode:Scan-Sts PP")
+}
+
+#  Disable 'data' command
+record(seq, "XF:23ID-VA:01{RGA:01}DB:MID_Stop-Seq_")
+{
+	field(DESC, "Stop MID Scan")
+	field(SELM, "All")
+	field(DO1,  "0")
+	field(DO2,  "0")
+	field(LNK1, "XF:23ID-VA:01{RGA:01}Cmd:MID-Asyn.SCAN PP")
+	field(LNK2, "XF:23ID-VA:01{RGA:01}Mode:Scan-Sts PP")
+}
+
+## Send 'data' command to poll measurements
+record(asyn,"XF:23ID-VA:01{RGA:01}Cmd:MID-Asyn")
+{
+	field(DESC, "Polling data")
+	field(DTYP, "asynRecordDevice")
+	field(PORT, "P4")
+	field(ADDR, "0")
+	field(OMAX, "0")
+	field(IMAX, "0")
+	field(AOUT, "data\r")
+	field(IEOS, "\r\n")
+	field(IFMT, "Binary")
+	field(IMAX, "5000")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_")
+	field(TMOT, "0.1")
+}
+
+# Hold returned measurement, parse them and put value into different arrays
+record(aSub, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_")
+{
+	field(DESC, "MID Measurement")
+	field(INAM, "asubMeasInit")
+	field(SNAM, "asubMeasMID")
+	field(INPA, "XF:23ID-VA:01{RGA:01}Cmd:MID-Asyn.BINP")
+	field(FTA,  "CHAR")
+	field(NOA,  "5000")	
+	field(INPB, "XF:23ID-VA:01{RGA:01}Mass:MID1-SP")
+	field(FTB,  "SHORT")
+	field(NOB,  "1")
+	field(INPC, "XF:23ID-VA:01{RGA:01}Mass:MID2-SP")
+        field(FTC,  "SHORT")
+        field(NOC,  "1")
+	field(INPD, "XF:23ID-VA:01{RGA:01}Mass:MID3-SP")
+        field(FTD,  "SHORT")
+        field(NOD,  "1")
+	field(INPE, "XF:23ID-VA:01{RGA:01}Mass:MID4-SP")
+        field(FTE,  "SHORT")
+        field(NOE,  "1")
+	field(INPF, "XF:23ID-VA:01{RGA:01}Mass:MID5-SP")
+	field(FTF,  "SHORT")
+	field(NOF,  "1")
+	field(OUTA, "XF:23ID-VA:01{RGA:01}DB:MID_Stop-Sts_ PP")
+	field(FTVA, "LONG")
+	field(NOVA, "1")
+	field(OUTB, "XF:23ID-VA:01{RGA:01}DB:MID1Proc-Sts_ PP")
+	field(FTVB, "LONG")
+	field(NOVB, "1")	
+	field(OUTC, "XF:23ID-VA:01{RGA:01}DB:MID2Proc-Sts_ PP")
+        field(FTVC, "LONG")
+        field(NOVC, "1")
+	field(OUTD, "XF:23ID-VA:01{RGA:01}DB:MID3Proc-Sts_ PP")
+        field(FTVD, "LONG")
+        field(NOVD, "1")
+	field(OUTE, "XF:23ID-VA:01{RGA:01}DB:MID4Proc-Sts_ PP")
+        field(FTVE, "LONG")
+        field(NOVE, "1")
+	field(OUTF, "XF:23ID-VA:01{RGA:01}DB:MID5Proc-Sts_ PP")
+        field(FTVF, "LONG")
+        field(NOVF, "1")
+	field(OUTG, "XF:23ID-VA:01{RGA:01}DB:MID1P-I_ PP")
+	field(FTVG, "DOUBLE")	
+	field(NOVG, "1")
+	field(OUTH, "XF:23ID-VA:01{RGA:01}DB:MID2P-I_ PP")
+	field(FTVH, "DOUBLE")	
+	field(NOVH, "1")	
+	field(OUTI, "XF:23ID-VA:01{RGA:01}DB:MID3P-I_ PP")
+        field(FTVI, "DOUBLE")
+        field(NOVI, "1")
+        field(OUTJ, "XF:23ID-VA:01{RGA:01}DB:MID4P-I_ PP")
+        field(FTVJ, "DOUBLE")
+        field(NOVJ, "1")
+	field(OUTK, "XF:23ID-VA:01{RGA:01}DB:MID5P-I_ PP")
+        field(FTVK, "DOUBLE")
+        field(NOVK, "1")
+}
+
+# Stop polling 'data' command when scan finished
+record(bi, "XF:23ID-VA:01{RGA:01}DB:MID_Stop-Sts_")
+{
+	field(DESC, "MID Stop Sts")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALA")
+	field(DISV, "0")
+	field(ZNAM, "NO")
+	field(ONAM, "YES")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}Cmd:MID_Stop-Cmd")
+}
+
+# Get processed measurement
+record(bi, "XF:23ID-VA:01{RGA:01}DB:MID1Proc-Sts_")
+{
+        field(DESC, "Mass1 Proc Sts")
+        field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALB")
+        field(DISV, "0")
+        field(ZNAM, "NO")
+        field(ONAM, "YES")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}DB:MID2Proc-Sts_")
+{
+        field(DESC, "Mass2 Proc Sts")
+        field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALC")
+        field(DISV, "0")
+        field(ZNAM, "NO")
+        field(ONAM, "YES")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}DB:MID3Proc-Sts_")
+{
+        field(DESC, "Mass3 Proc Sts")
+        field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALD")
+        field(DISV, "0")
+        field(ZNAM, "NO")
+        field(ONAM, "YES")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}DB:MID4Proc-Sts_")
+{
+        field(DESC, "Mass4 Proc Sts")
+        field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALE")
+        field(DISV, "0")
+        field(ZNAM, "NO")
+        field(ONAM, "YES")
+}
+
+record(bi, "XF:23ID-VA:01{RGA:01}DB:MID5Proc-Sts_")
+{
+        field(DESC, "Mass5 Proc Sts")
+        field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALF")
+        field(DISV, "0")
+        field(ZNAM, "NO")
+        field(ONAM, "YES")
+}
+
+# Get measurement value for each mass
+record(ai, "XF:23ID-VA:01{RGA:01}DB:MID1P-I_")
+{
+	field(DESC, "Mass1 Val")
+	field(PREC, "2")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALB")
+        field(DISV, "0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}P:MID1-I")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}P:MID1-I")
+{
+        field(DESC,  "Mass1 Meas")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:MID1P-I_")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}DB:MID2P-I_")
+{
+        field(DESC, "Mass2 Val")
+        field(PREC, "2")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALC")
+        field(DISV, "0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}P:MID2-I")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}P:MID2-I")
+{
+        field(DESC,  "Mass2 Meas")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:MID2P-I_")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}DB:MID3P-I_")
+{
+        field(DESC, "Mass3 Val")
+        field(PREC, "2")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALD")
+        field(DISV, "0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}P:MID3-I")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}P:MID3-I")
+{
+        field(DESC,  "Mass3 Meas")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:MID3P-I_")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}DB:MID4P-I_")
+{
+        field(DESC, "Mass4 Val")
+        field(PREC, "2")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALE")
+        field(DISV, "0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}P:MID4-I")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}P:MID4-I")
+{
+        field(DESC,  "Mass4 Meas")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:MID4P-I_")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}DB:MID5P-I_")
+{
+        field(DESC, "Mass5 Val")
+        field(PREC, "2")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:MID-ASub_.VALF")
+        field(DISV, "0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}P:MID5-I")
+}
+
+record(ai, "XF:23ID-VA:01{RGA:01}P:MID5-I")
+{
+        field(DESC,  "Mass5 Meas")
+        field(INP,  "XF:23ID-VA:01{RGA:01}DB:MID5P-I_")
+}
+
+## Stop the recall of data
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID_Stop-Cmd")
+{
+	field(DESC, "Stop Task")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto midStop(XF:23ID-VA:01,{RGA:01}) P4")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}Cmd:MID-Asyn.SCAN")
+	field(DISV, "0")
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:MID_Stop-Seq_")
+        field(ASG,  "VAWRITE")
+}
+
+# Pause scan
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID_Pause-Cmd")
+{
+	field(DESC, "Pause Scan")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto scanPause P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:MID_Pause-Cmd_")
+        field(ASG,  "VAWRITE")
+}
+
+#  Disable 'data' command 
+record(bo, "XF:23ID-VA:01{RGA:01}DB:MID_Pause-Cmd_")
+{
+	field(DESC, "Pause Scan")
+	field(VAL,  "0")
+	field(OUT, "XF:23ID-VA:01{RGA:01}Cmd:MID-Asyn.SCAN")
+}
+
+# Continue scan
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID_Cont-Cmd")
+{
+	field(DESC, "Continue Scan")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto scanContinue P4")	
+	field(FLNK, "XF:23ID-VA:01{RGA:01}DB:MID_Cont-Cmd_")
+        field(ASG,  "VAWRITE")
+}
+
+#  Enable 'data' command 
+record(bo, "XF:23ID-VA:01{RGA:01}DB:MID_Cont-Cmd_")
+{
+	field(DESC, "Cont. Scan")
+	field(VAL,  "6")
+	field(OUT, "XF:23ID-VA:01{RGA:01}Cmd:MID-Asyn.SCAN")
+}
+
+# Stop at the end of current cycle
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID_StopEnd-Cmd")
+{
+	field(DESC, "Stop Scan at end")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto scanStop P4")	
+        field(ASG,  "VAWRITE")
+}
+
+#  Local environment
+record(longout, "XF:23ID-VA:01{RGA:01}E:MID_Focus-SP")
+{
+	field(DESC, "MID Focus")
+	field(LOPR, "-200")
+	field(HOPR, "0")
+	field(EGU,  "V")
+	field(VAL,  "-90")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}E:MID_DeltaM-SP")
+{
+	field(DESC, "MID Delta-M")
+	field(LOPR, "-100")
+	field(HOPR, "100")
+	field(EGU,  "%")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Res:MID-SP")
+{
+	field(DESC, "MID Resolution")
+	field(LOPR, "-100")
+	field(HOPR, "100")
+	field(EGU,  "%")
+	field(VAL,  "0")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}E:MID_Cage-SP")
+{
+	field(DESC, "MID Cage")
+	field(PREC, "1")
+	field(LOPR, "-10")
+	field(HOPR, "10")
+	field(EGU,  "V")
+	field(VAL,  "3")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Enrgy:MID_E-SP")
+{
+	field(DESC, "MID E-Energy")
+	field(LOPR, "4")
+	field(HOPR, "150")
+	field(PREC, "1")
+	field(EGU,  "V")
+	field(VAL,  "70")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Emis:MID-SP")
+{
+	field(DESC, "MID Emission")
+	field(PREC, "3")
+	field(LOPR, "20")
+	field(HOPR, "5000")
+	field(EGU,  "uA")
+	field(VAL,  "200")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(ao, "XF:23ID-VA:01{RGA:01}Mass:MID-SP")
+{
+	field(DESC, "MID Mass")
+	field(PREC, "2")
+	field(LOPR, "0.4")
+	field(HOPR, "100")
+	field(EGU,  "amu")
+	field(VAL,  "5.5")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}Time:MID_ModeChngDly-SP")
+{
+	field(DESC, "MID Mode-C-Dly")
+	field(LOPR, "0")
+	field(HOPR, "10000000")
+	field(EGU,  "ms")
+	field(VAL,  "1000")
+        field(ASG,  "VAWRITE")
+        info(autosaveFields_pass0, "VAL")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:MID_Env-Cmd")
+{
+	field(DESC, "Environment Cmd")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto localMIDSet(XF:23ID-VA:01,{RGA:01}) P4")	
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:ScanMode-Calc_")
+	field(DISV, "1")
+        field(ASG,  "VAWRITE")
+}
+
+
+## Database for Hiden RC Interface RGA
+
+## Degas setting
+## Get multiplier ID
+record(longin, "XF:23ID-VA:01{RGA:01}ID:Multp-I")
+{
+	field(DESC, "Multiplier ID")
+	field(DTYP, "stream")
+	field(INP,  "@hiden_rga.proto getMultpID() P4")
+	field(PINI, 1)
+}
+
+#  Set degas setting
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:DegasFil1-Cmd")
+{
+	field(DESC, "F1 Cmd")
+	field(ZNAM, "0")
+	field(ONAM, "1")
+	field(VAL,  "0")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:DegasFil2-Cmd")
+{
+	field(DESC, "F2 Cmd")
+	field(ZNAM, "0")
+	field(ONAM, "1")
+	field(VAL,  "1")
+}
+
+record(longin, "XF:23ID-VA:01{RGA:01}E:Multp-RB")
+{
+	field(DESC, "Multiplier E")
+	field(EGU,  "V")
+}
+
+record(longout, "XF:23ID-VA:01{RGA:01}DB:DegasTime-SP")
+{
+        field(DESC, "Degas Time")
+        field(EGU,  "Minute")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}DB:DegasStart-Cmd")
+{
+	field(DESC, "Degas Start")
+	field(ZNAM, "0")
+	field(ONAM, "1")
+	field(HIGH, "1")
+	field(OUT,  "XF:23ID-VA:01{RGA:01}Cmd:DegasStart-Cmd PP")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:Lck-Sts")
+	field(DISV, "1")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:DegasStart-Cmd")
+{
+	field(DESC, "Degas Start")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto startDegas(XF:23ID-VA:01,{RGA:01}) P4")	
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:DegasStart-Cmd")
+	field(DISV, "0")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}DB:DegasStop-Cmd")
+{
+	field(DESC, "Degas Stop")
+	field(ZNAM, "0")
+	field(ONAM, "1")
+	field(HIGH, "1")
+	field(OUT,  "XF:23ID-VA:01{RGA:01}Cmd:DegasStop-Cmd PP")
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:Lck-Sts")
+	field(DISV, "1")
+}
+
+record(bo, "XF:23ID-VA:01{RGA:01}Cmd:DegasStop-Cmd")
+{
+	field(DESC, "Degas Stop")
+	field(DTYP, "stream")
+	field(OUT,  "@hiden_rga.proto stopDegas(XF:23ID-VA:01,{RGA:01}) P4")	
+	field(SDIS, "XF:23ID-VA:01{RGA:01}DB:DegasStop-Cmd")
+	field(DISV, "0")
+}

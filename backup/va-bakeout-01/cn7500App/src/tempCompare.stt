@@ -1,0 +1,51 @@
+program tempCompare
+
+%%#include <unistd.h> /* for sleep() */
+
+int control;
+assign control to "{Sys}{Dev}Ctl-Cmd";
+monitor control;
+
+int pause;
+assign pause to "{Sys}{Dev}PID-Cmd";
+monitor pause;
+
+int t;
+assign t to "{Sys}{Dev}K-I";
+monitor t;
+
+int compare;
+assign compare to "{Sys}{Dev}T-Calc";
+monitor compare;
+
+option +r;
+
+ss bakeout {
+    state init {
+	when () {
+		t = 0;
+		pvPut(t);
+	} state check
+    }
+
+    state check {
+	when ( control == 1 && pause ==0  ) {
+		if ( compare == 1 && t < 300 ) {
+			t++;
+			pvPut(t);
+			sleep(1);
+		} 
+		if ( compare == 0 ) {
+			t = 0;
+			pvPut(t);
+		}	
+		if ( t >= 300 ) {
+			pause = 0;
+			pvPut(pause);		
+		}
+	   } state check
+
+	when ( control ==0 || pause == 1) {
+	} state init
+    }
+}

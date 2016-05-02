@@ -1,0 +1,44 @@
+program overTemp
+
+int control;
+assign control to "{Pri}{Sec-Sys}{Sec-Sec}{Sec-Cel}{Sec-Ver}{Sec-Seq}{Dev}Ctl-Cmd";
+monitor control;
+
+int t;
+assign t to "{Pri}{Sec-Sys}{Sec-Sec}{Sec-Cel}{Sec-Ver}{Sec-Seq}{Dev}K-I";
+monitor t;
+
+double pv;
+assign pv to "{Pri}{Sec-Sys}{Sec-Sec}{Sec-Cel}{Sec-Ver}{Sec-Seq}{Dev}T-I";
+monitor pv;
+
+double maxv;
+assign maxv to "{P}T:Max-SP";
+
+option +r;
+
+ss bakeout {
+    state init {
+	when () {
+		t = 0;
+		pvPut(t);
+		pvGet(maxv);
+	} state check
+    }
+
+    state check {
+	when ( control == 1  ) {
+		if ( pv >= maxv && t < 300 ) {
+			t++;
+			pvPut(t);
+			sleep(1);
+		} 
+		if ( t >= 300 ) {
+		control = 0;
+		pvPut(control);
+		}
+		} state check
+	when ( control ==0 ) {
+	} state init
+    }
+}

@@ -1,0 +1,3 @@
+include "firewireWinDCAMSupport.dbd"
+include "commonDriverSupport.dbd"
+include "NDFileMagick.dbd"

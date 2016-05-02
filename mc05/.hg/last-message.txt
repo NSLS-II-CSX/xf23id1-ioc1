@@ -1,0 +1,2 @@
+Update pmac config with homing PLC.
+

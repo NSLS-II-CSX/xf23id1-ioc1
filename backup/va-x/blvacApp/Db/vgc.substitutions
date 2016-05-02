@@ -1,0 +1,69 @@
+file $(EPICS_BASE)/db/mks937b_controller.db
+{
+  pattern
+ { Sys	, Cntl	, 	PORT	, ADR	}
+ { XF:23ID-VA:X01	, "{VGC:01}"	, P0	, 253 }
+# { XF:23ID-VA:X01	, "{VGC:02}"	, P1	, 253 }
+}
+
+file $(EPICS_BASE)/db/mks937b_ccg.db
+{
+ pattern
+ { Sys	,  Dev	,	CHAN  ,	PORT,     ADR   ,Cntl	}
+ { XF:23ID-VA:X01	, "{CCG:01}"     , 1     , P0	, 253   , "{VGC:01}"	}
+ { XF:23ID-VA:X01	, "{CCG:02}"     , 3     , P0	, 253   , "{VGC:01}"	}
+
+# { XF:23ID-VA:X01	, "{CCG:03}"     , 1     , P1	, 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01	, "{CCG:04}"     , 3     , P1	, 253   , "{VGC:02}"	}
+}
+
+file $(EPICS_BASE)/db/mks937b_relay_ccg.db
+{
+ pattern
+ { Sys	,    Dev        , SPNUM , PORT, ADR   ,    Cntl		}
+ { XF:23ID-VA:X01	, "{CCG:01}"     , 1     , P0	, 253   , "{VGC:01}"	}
+ { XF:23ID-VA:X01	, "{CCG:01}"     , 2     , P0	, 253   , "{VGC:01}"	}
+ { XF:23ID-VA:X01	, "{CCG:01}"     , 3     , P0	, 253   , "{VGC:01}"	}
+ { XF:23ID-VA:X01	, "{CCG:01}"     , 4     , P0	, 253   , "{VGC:01}"	}
+ { XF:23ID-VA:X01	, "{CCG:02}"     , 5     , P0	, 253   , "{VGC:01}"	}
+ { XF:23ID-VA:X01	, "{CCG:02}"     , 6     , P0	, 253   , "{VGC:01}"	}
+ { XF:23ID-VA:X01	, "{CCG:02}"     , 7     , P0	, 253   , "{VGC:01}"	}
+ { XF:23ID-VA:X01	, "{CCG:02}"     , 8     , P0	, 253   , "{VGC:01}"	}
+
+# { XF:23ID-VA:X01	, "{CCG:03}"     , 1     , P1	, 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01	, "{CCG:03}"     , 2     , P1	, 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01	, "{CCG:03}"     , 3     , P1	, 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01	, "{CCG:03}"     , 4     , P1	, 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01	, "{CCG:04}"     , 5     , P1	, 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01	, "{CCG:04}"     , 6     , P1	, 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01	, "{CCG:04}"     , 7     , P1	, 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01	, "{CCG:04}"     , 8     , P1	, 253   , "{VGC:02}"	}
+}
+
+
+file $(EPICS_BASE)/db/mks937b_pirg.db
+{
+ pattern
+ { Sys	,    Dev         , CHAN , PORT, ADR   , Cntl		}
+ { XF:23ID-VA:X01	, "{TCG:01}"     , 5     , P0  , 253   , "{VGC:01}"	}
+
+# { XF:23ID-VA:X01	, "{TCG:03}"     , 5     , P1  , 253   , "{VGC:02}"	}
+}
+
+
+file $(EPICS_BASE)/db/mks937b_relay_pirg.db
+{
+ pattern
+ { Sys	,     Dev       , SPNUM , PORT, ADR   , Cntl		}
+ { XF:23ID-VA:X01	, "{TCG:01}"     , 9     , P0	, 253   , "{VGC:01}"	}
+ { XF:23ID-VA:X01	, "{TCG:01}"     , 10    , P0  , 253   , "{VGC:01}"	}
+# { XF:23ID-VA:X01, "{TCG:02}"     , 11    , P0  , 253   , "{VGC:01}"	}
+# { XF:23ID-VA:X01, "{TCG:02}"     , 12    , P0  , 253   , "{VGC:01}"	}
+
+# { XF:23ID-VA:X01	, "{TCG:03}"     , 9     , P1	, 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01	, "{TCG:03}"     , 10    , P1  , 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01, "{TCG:04}"     , 11    , P1  , 253   , "{VGC:02}"	}
+# { XF:23ID-VA:X01, "{TCG:04}"     , 12    , P1  , 253   , "{VGC:02}"	}
+}
+
+

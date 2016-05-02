@@ -1,0 +1,14 @@
+file "db/motor.db"
+{
+
+pattern
+{ P,                M,                        MOTOR,  ADDR,   DESC,                       DTYP }
+{ "XF:23ID1-OP", "{Slt:2-Ax:XGap}Mtr",    "CS2",  6,      "X gap",          asynMotor }
+{ "XF:23ID1-OP", "{Slt:2-Ax:XCtr}Mtr",    "CS2",  7,      "X center",       asynMotor }
+{ "XF:23ID1-OP", "{Slt:2-Ax:YGap}Mtr",    "CS3",  6,      "Y gap",          asynMotor }
+{ "XF:23ID1-OP", "{Slt:2-Ax:YCtr}Mtr",    "CS3",  7,      "Y center",       asynMotor }
+
+{ "XF:23ID1-OP", "{Mir:3-Ax:P}Mtr",      "CS4",  6,      "Pitch",               asynMotor }
+{ "XF:23ID1-OP", "{Mir:3-Ax:XAvg}Mtr",   "CS4",  7,      "X Avg",               asynMotor }
+}
+

@@ -1,0 +1,75 @@
+file "db/SAI_MotorRecord.template" {
+    pattern {	ASYNPORT,	PMACPORT,	TMOT,	PMAC_MTR,	Sys,		Dev,	DESC,			MRES,			PREC,	EGU,	VEL,	TACC,	OFFS,	HSLM,	LSLM}
+        { 	"pmac2",	"PMAC2",	1.0,	1,		"XF:23ID1-OP",	"{Mono-Ax:MirP}",		"Mirror Pitch",		0.0000006103515625,	6,	"deg",	0.13,	0.1,	0.0,	20,	-20}
+        { 	"pmac2",	"PMAC2",	1.0,	2,		"XF:23ID1-OP",	"{Mono-Ax:GrtP}",		"Grating Pitch",	0.0000006103515625,	6,	"deg",	0.13,	0.1,	0.0,	20,	-20}
+        { 	"pmac2",	"PMAC2",	1.0,	3,		"XF:23ID1-OP",	"{Mono-Ax:MirX}",		"Mirror Translation",	-0.0001,		3,	"mm",	3,	0.1,	0.0,	200,	-200}
+        { 	"pmac2",	"PMAC2",	1.0,	4,		"XF:23ID1-OP",	"{Mono-Ax:GrtX}",		"Grating Translation",	-0.0001,		3,	"mm",	3,	0.1,	0.0,	200,	-200}
+}
+
+file "db/SAI_8MotorStatus.db" {
+    pattern { ASYNPORT, TMOT,   SCAN,   Sys,    Dev}
+        {   "pmac2",  "1",    ".2 second",  "XF:23ID1-CT", "{MC:02}"}
+}
+
+file "db/SAI_SingleMotorStatus.template" {
+    pattern {	Sys,		Dev,		MSys,	MDev,		PMAC_MTR}
+        { 	"XF:23ID1-OP",	"{Mono-Ax:MirP}",		"XF:23ID1-CT",	"{MC:02}",		1}
+        { 	"XF:23ID1-OP",	"{Mono-Ax:GrtP}",		"XF:23ID1-CT",	"{MC:02}",		2}
+        { 	"XF:23ID1-OP",	"{Mono-Ax:MirX}",		"XF:23ID1-CT",	"{MC:02}",		3}
+        { 	"XF:23ID1-OP",	"{Mono-Ax:GrtX}",		"XF:23ID1-CT",	"{MC:02}",		4}
+}
+
+file "db/SAI_MotorHoming.template" {
+    pattern {	ASYNPORT,	TMOT,	SCAN,		PMAC_MTR,	Sys,	Dev,	EGU,	AXISSCALE,	HVEL}
+        { 	"pmac2",	1.0,	".2 second",	"1",		"XF:23ID1-OP","{Mono-Ax:MirP}" ,"deg",	32,		0.15	}
+        { 	"pmac2",	1.0,	".2 second",	"2",		"XF:23ID1-OP","{Mono-Ax:GrtP}" ,"deg",	32,		0.15	}
+        { 	"pmac2",	1.0,	".2 second",	"3",		"XF:23ID1-OP","{Mono-Ax:MirX}" ,"mm",	1,		3	}
+        { 	"pmac2",	1.0,	".2 second",	"4",		"XF:23ID1-OP","{Mono-Ax:GrtX}" ,"mm",	1,		3	}
+}
+
+file "db/SAI_EncoderLoss.template" {
+pattern {	Sys,		Dev,	SCAN, 		ASYNPORT, 	VARSTS, VARCLR}
+        { 	"XF:23ID1-OP",	"{Mono-Ax:MirP}",".2 second",	"pmac2",	"P401",	"P400"}
+        { 	"XF:23ID1-OP",	"{Mono-Ax:GrtP}",".2 second",	"pmac2",	"P402",	"P400"}
+        { 	"XF:23ID1-OP",	"{Mono-Ax:MirX}",".2 second",	"pmac2",	"P403",	"P400"}
+        { 	"XF:23ID1-OP",	"{Mono-Ax:GrtX}",".2 second",	"pmac2",	"P404",	"P400"}
+}
+
+file "db/gratings.template" {
+  pattern { Sys, Dev }
+  { "XF:23ID1-OP", "{Mono-Grt:01}" }
+  { "XF:23ID1-OP", "{Mono-Grt:02}" }
+  { "XF:23ID1-OP", "{Mono-Grt:03}" }
+  { "XF:23ID1-OP", "{Mono-Grt:04}" }
+  { "XF:23ID1-OP", "{Mono-Grt:05}" }
+  { "XF:23ID1-OP", "{Mono-Grt:06}" }
+  { "XF:23ID1-OP", "{Mono-Grt:07}" }
+  { "XF:23ID1-OP", "{Mono-Grt:08}" }
+  { "XF:23ID1-OP", "{Mono-Grt:09}" }
+  { "XF:23ID1-OP", "{Mono-Grt:10}" }
+}
+
+file "db/HPMC_PGM_PMAC_Global.db" {
+    pattern {	ASYNPORT,	Sys,	MDev,	GDev, CSys, CDev, SCAN}
+        { 	"pmac2",	"XF:23ID1-OP","{Mono-Ax:MirX}",	"{Mono-Ax:GrtX}", "XF:23ID1-CT", "{MC:02}", ".2 second"}
+}
+
+file "db/HPMC_PGM.db" {
+    pattern {	Sys,	Dev,	GDev, MDev, GMDev, CSys,	CDev,	MXDev, GXDev, E_LOW,	E_HIGH, ASYNPORT,	SCAN, GDev1, GDev2, GDev3, GDev4, GDev5, GDev6, GDev7, GDev8, GDev9, GDev10, ID1 , ID2 }
+        { 	"XF:23ID1-OP","{Mono}",	"{Mono-Grt}", "{Mono-Ax:MirP}","{Mono-Ax:GrtP}", "XF:23ID1-CT", "{MC:02}", "{Mono-Ax:MirX}","{Mono-Ax:GrtX}", 200 ,	2000,	pmac2,		".2 second", 
+            "{Mono-Grt:01}", "{Mono-Grt:02}", "{Mono-Grt:03}", "{Mono-Grt:04}", "{Mono-Grt:05}", "{Mono-Grt:06}", 
+            "{Mono-Grt:07}", "{Mono-Grt:08}", "{Mono-Grt:09}", "{Mono-Grt:10}", "XF:23ID-CT{EPU:1}Sts:Move-Sts", "XF:23ID-CT{EPU:2}Sts:Move-Sts"
+        }
+}
+
+file "db/Optics_Change.template" {
+  pattern {
+   	ASYNPORT,	SCAN,		Sys, 		Dev, 	XDev,	PDev, AXIS_NO,DCPL_VAR, DCPL_PROG, EGU, PREC, NAME1,NAME2,NAME3,NAME4,NAME5,NAME6,NAME7,NAME8,NAME9,NAME10,
+    GDev1, GDev2, GDev3, GDev4, GDev5, GDev6, GDev7, GDev8, GDev9, GDev10}
+    { 	"pmac2", 	"1 second",	"XF:23ID1-OP",	"{Mono-Grt}", "{Mono-Ax:GrtX}","{Mono-Ax:GrtP}","4","P461", "14", "mm", "1",
+        "Grating 1","Grating 2","Grating 3","Grating 4","Grating 5","Grating 6","Grating 7","Grating 8","Grating 9","Grating 10",
+        "{Mono-Grt:01}", "{Mono-Grt:02}", "{Mono-Grt:03}", "{Mono-Grt:04}", "{Mono-Grt:05}", "{Mono-Grt:06}", 
+        "{Mono-Grt:07}", "{Mono-Grt:08}", "{Mono-Grt:09}", "{Mono-Grt:10}"
+    }
+}
+

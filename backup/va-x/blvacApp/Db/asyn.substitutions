@@ -1,0 +1,9 @@
+file $(EPICS_BASE)/db/asynRecord.db
+{
+pattern
+{ P,										R,		PORT,	ADDR,	IMAX,	OMAX }
+{ XF:23ID-VA:X01,	"{VGC:01}Asyn",	P0,	0,	80,	80 }
+#{ XF:23ID-VA:X01,	"{VGC:02}Asyn",	P1,	0,	80,	80 }
+{ XF:23ID-VA:X01,	"{IPC:01}Asyn",	P1,	0,	80,	80 }
+#{ XF:23ID-VA:X01,	"{IPC:03}Asyn",	P3,	0,	80,	80 }
+#{ XF:23ID-VA:X01,	"{RGA:01}Asyn",	P4,	0,	80,	80 }

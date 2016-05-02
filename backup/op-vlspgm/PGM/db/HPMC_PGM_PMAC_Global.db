@@ -1,0 +1,136 @@
+# Global PGM interlock database
+#
+# Macro explanations
+#ASYNPORTcommunications port
+#SCANscan period
+#Pprefix of the pv name
+#Rmain part of the pv name
+#record(longout, "$(CSys)$(CDev):IL_ERR_CLEAR_CMD") {
+#  field(DESC, "Clear interlock error")
+#  field(DTYP, "stream")
+#  field(OUT, "@devPmacPGM.proto sendSPInt(P299) $(ASYNPORT)")
+#}
+#
+#record(longout, "$(CSys)$(CDev):COL_RESET_CMD") {
+#  field(DESC, "Collision recovery")
+#  field(DTYP, "stream")
+#  field(OUT, "@devPmacPGM.proto sendSPInt(P298) $(ASYNPORT)")
+#}
+#
+#### collect a lot of pmac vars such as:
+####  "M11 M13 M14 M15 M39 I51 M320 M420 M115 M215 M315 M415"
+record(calcout, "$(CSys)$(CDev)IL_STS_") {
+  field(SCAN, "$(SCAN)")
+  field(DESC, "PGM Interlock Status")
+  field(DTYP, "stream")
+  field(OUT, "@devPmacPGM.proto readPGMInterlockStatus $(ASYNPORT)")
+}
+#
+#record(bi, "$(CSys)$(CDev):COL_STS") {
+#  field(DESC, "Collision Status")
+#  field(INP, "$(CSys)$(CDev):IL_STS.B CP NMS")
+#  field(ONAM, "Ok")
+#  field(ZNAM, "Tripped")
+#  field(ZSV, "MAJOR")
+#}
+#
+#record(bi, "$(CSys)$(CDev):ESTP_STS") {
+#  field(DESC, "Emergency Stop Status")
+#  field(INP, "$(CSys)$(CDev):IL_STS.C CP NMS")
+#  field(ONAM, "Ok")
+#  field(ZNAM, "Tripped")
+#  field(ZSV, "MAJOR")
+#}
+#
+#record(bi, "$(CSys)$(CDev):EXIL_STS") {
+#  field(DESC, "External Interlock Status")
+#  field(INP, "$(CSys)$(CDev):IL_STS.D CP NMS")
+#  field(ONAM, "Ok")
+#  field(ZNAM, "Error")
+#  field(ZSV, "MAJOR")
+#}
+#
+#record(bi, "$(CSys)$(CDev):IL_ERR_STS") {
+#  field(DESC, "Interlock Error Status")
+#  field(INP, "$(CSys)$(CDev):IL_STS.E CP NMS")
+#  field(ZNAM, "Ok")
+#  field(ONAM, "Error")
+#  field(OSV, "MAJOR")
+#}
+
+record(bi, "$(Sys)$(MDev)Sts:Dcpl-Sts") {
+  field(DESC, "Mirror Decoupl. Status")
+  field(INP, "$(CSys)$(CDev)IL_STS_.G CP NMS")
+  field(ZNAM, "Coupled")
+  field(ONAM, "Decoupled")
+  field(ZSV, "MINOR")
+}
+
+record(bi, "$(Sys)$(GDev)Sts:Dcpl-Sts") {
+  field(DESC, "Grating Decoupl. Status")
+  field(INP, "$(CSys)$(CDev)IL_STS_.H CP NMS")
+  field(ZNAM, "Coupled")
+  field(ONAM, "Decoupled")
+  field(ZSV, "MINOR")
+}
+
+#record(bi, "$(CSys)$(CDev):OVTR1_STS") {
+#  field(DESC, "Overtravel Status Axis 1")
+#  field(INP, "$(CSys)$(CDev):IL_STS.I CP NMS")
+#  field(ZNAM, "Ok")
+#  field(ONAM, "Tripped")
+#  field(OSV, "MAJOR")
+#}
+#
+#record(bi, "$(CSys)$(CDev):OVTR2_STS") {
+#  field(DESC, "Overtravel Status Axis 2")
+#  field(INP, "$(CSys)$(CDev):IL_STS.J CP NMS")
+#  field(ZNAM, "Ok")
+#  field(ONAM, "Tripped")
+#  field(OSV, "MAJOR")
+#}
+#
+#record(bi, "$(CSys)$(CDev):OVTR3_STS") {
+#  field(DESC, "Overtravel Status Axis 3")
+#  field(INP, "$(CSys)$(CDev):IL_STS.K CP NMS")
+#  field(ZNAM, "Ok")
+#  field(ONAM, "Tripped")
+#  field(OSV, "MAJOR")
+#}
+#
+#record(bi, "$(CSys)$(CDev):OVTR4_STS") {
+#  field(DESC, "Overtravel Status Axis 4")
+#  field(INP, "$(CSys)$(CDev):IL_STS.L CP NMS")
+#  field(ZNAM, "Ok")
+#  field(ONAM, "Tripped")
+#  field(OSV, "MAJOR")
+#}
+#
+#record(longout, "$(CSys)$(CDev):OVTR1_RESET_CMD") {
+#  field(DESC, "Collision recovery")
+#  field(DTYP, "stream")
+#  field(VAL, "1")
+#  field(OUT, "@devPmacPGM.proto sendSPInt(P2198) $(ASYNPORT)")
+#}
+#
+#record(longout, "$(CSys)$(CDev):OVTR2_RESET_CMD") {
+#  field(DESC, "Collision recovery")
+#  field(DTYP, "stream")
+#  field(VAL, "1")
+#  field(OUT, "@devPmacPGM.proto sendSPInt(P2298) $(ASYNPORT)")
+#}
+#
+#record(longout, "$(CSys)$(CDev):OVTR3_RESET_CMD") {
+#  field(DESC, "Collision recovery")
+#  field(DTYP, "stream")
+#  field(VAL, "1")
+#  field(OUT, "@devPmacPGM.proto sendSPInt(P2398) $(ASYNPORT)")
+#}
+#
+#record(longout, "$(CSys)$(CDev):OVTR4_RESET_CMD") {
+#  field(DESC, "Collision recovery")
+#  field(DTYP, "stream")
+#  field(VAL, "1")
+#  field(OUT, "@devPmacPGM.proto sendSPInt(P2498) $(ASYNPORT)")
+#}
+

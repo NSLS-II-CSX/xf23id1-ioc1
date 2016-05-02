@@ -1,0 +1,4 @@
+NAME=sample-app
+USER=softioc
+PORT=5050
+HOST=localhost

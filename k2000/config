@@ -1,0 +1,4 @@
+NAME=k2000
+USER=softioc
+PORT=6000
+HOST=xf23id1-ioc1

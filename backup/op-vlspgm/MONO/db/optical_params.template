@@ -1,0 +1,115 @@
+record(ai, "$(Sys)$(Dev)Val:Density-RB"){
+  field(DTYP, "stream")
+  field(DESC, "Grating Density")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P182) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(EGU,  "l/mm")
+  field(PREC, "2")
+}
+
+record(ai, "$(Sys)$(Dev)Val:CFF-RB"){
+  field(DTYP, "stream")
+  field(DESC, "CFF")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P184) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(PREC, "3")
+}
+
+record(ai, "$(Sys)$(Dev)Val:GrtOff-RB"){
+  field(DTYP, "stream")
+  field(DESC, "Grating Offset")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P121) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(EGU,  "deg")
+  field(PREC, "6")
+}
+
+record(ai, "$(Sys)$(Dev)Val:MirOff-RB"){
+  field(DTYP, "stream")
+  field(DESC, "Mirror Offset")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P120) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(EGU,  "deg")
+  field(PREC, "6")
+}
+
+record(ai, "$(Sys)$(Dev)Val:Tune0-RB"){
+  field(DTYP, "stream")
+  field(DESC, "Tune 0")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P140) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(PREC, "6")
+}
+
+record(ai, "$(Sys)$(Dev)Val:Tune1-RB"){
+  field(DTYP, "stream")
+  field(DESC, "Tune 1")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P141) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(PREC, "6")
+}
+
+record(ai, "$(Sys)$(Dev)Val:Tune2-RB"){
+  field(DTYP, "stream")
+  field(DESC, "Tune 2")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P142) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(PREC, "6")
+}
+
+record(ai, "$(Sys)$(Dev)Val:Tune3-RB"){
+  field(DTYP, "stream")
+  field(DESC, "Tune 3")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P143) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(PREC, "6")
+}
+
+record(ai, "$(Sys)$(Dev)Val:EntArm-RB"){
+  field(DTYP, "stream")
+  field(DESC, "Entrance Arm")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P193) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(EGU,  "mm")
+  field(PREC, "1")
+}
+
+record(ai, "$(Sys)$(Dev)Val:ExitArm-RB"){
+  field(DTYP, "stream")
+  field(DESC, "Exit Arm")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P194) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(EGU,  "mm")
+  field(PREC, "1")
+}
+
+record(ai, "$(Sys)$(Dev)Val:b2-RB"){
+  field(DTYP, "stream")
+  field(DESC, "b2")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P195) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(PREC, "6")
+}
+
+record(ai, "$(Sys)$(Dev)Val:CtoDeg-RB"){
+  field(DTYP, "stream")
+  field(DESC, "b2")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P180) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+}
+
+record(ai, "$(Sys)$(Dev)Val:EtoL-RB"){
+  field(DTYP, "stream")
+  field(DESC, "b2")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P181) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+  field(PREC, "8")
+}
+
+record(ai, "$(Sys)$(Dev)Val:Order-RB"){
+  field(DTYP, "stream")
+  field(DESC, "Diffraction Order")
+  field(INP,  "@devPmacPGM.proto readSetpoint(P133) $(ASYNPORT)")
+  field(SCAN, "$(SCAN)")
+}
+

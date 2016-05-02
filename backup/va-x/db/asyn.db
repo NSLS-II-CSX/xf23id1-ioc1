@@ -1,0 +1,18 @@
+record(asyn,"XF:23ID-VA:X01{VGC:01}Asyn")
+{
+    field(DTYP,"asynRecordDevice")
+    field(PORT,"P0")
+    field(ADDR,"0")
+    field(OMAX,"80")
+    field(IMAX,"80")
+}
+
+record(asyn,"XF:23ID-VA:X01{IPC:01}Asyn")
+{
+    field(DTYP,"asynRecordDevice")
+    field(PORT,"P1")
+    field(ADDR,"0")
+    field(OMAX,"80")
+    field(IMAX,"80")
+}
+

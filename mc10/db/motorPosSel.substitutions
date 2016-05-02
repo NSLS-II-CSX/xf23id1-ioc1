@@ -1,0 +1,6 @@
+file "db/motorPosSel.template"
+{
+  pattern {Sys, Dev, OLNK}
+  { "XF:23ID1-OP", "{Slt:3-Ax:X}", "XF:23ID1-OP{Slt:3-Ax:X}Mtr"}
+  { "XF:23ID1-OP", "{Slt:3-Ax:Y}", "XF:23ID1-OP{Slt:3-Ax:Y}Mtr"}
+}

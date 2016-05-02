@@ -1,0 +1,23 @@
+--- st.cmd
++++ st.cmd
+@@ -9,6 +9,7 @@
+ 
+ epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST", "NO")
+ epicsEnvSet("EPICS_CA_ADDR_LIST", "10.xx.0.255")
++epicsEnvSet("STREAM_PROTOCOL_PATH", "/usr/share/epics-pmacutil-dev/protocol")
+ 
+ ## Register all support components
+ dbLoadDatabase("dbd/tpmac.dbd",0,0)
+@@ -67,6 +68,12 @@
+ ## Load record instances
+ dbLoadTemplate("db/motor.substitutions")
+ dbLoadRecords("db/asynComm.db","P=Pri-Sys{Dev},PORT=P0,ADDR=0")
++#dbLoadTemplate("db/motorstatus.substitutions")
++#dbLoadRecords("db/pmacStatus.db","SYS=XF:33ID1-CT,PMAC=MC:03,VERSION=1,PLC=5,PORT=P0,NAXES=8")
++#dbLoadTemplate("db/pmac_asyn_motor.substitutions")
++#dbLoadTemplate("db/autohome.substitutions")
++#dbLoadTemplate("db/cs.substitutions")
++#dbLoadRecords("db/iocAdminSoft.db","IOC=XF:33ID1-CT{IOC:MC03}")
+ 
+ ## autosave/restore machinery
+ save_restoreSet_Debug(0)

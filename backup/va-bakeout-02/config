@@ -1,0 +1,4 @@
+NAME=va-bakeout-02
+USER=softioc
+HOST=xf23id1-ioc1
+PORT=4003

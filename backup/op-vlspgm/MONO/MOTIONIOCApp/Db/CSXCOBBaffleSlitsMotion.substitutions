@@ -1,0 +1,45 @@
+file "db/SAI_MotorRecord.template" {
+
+    pattern {	ASYNPORT,	PMACPORT,	TMOT	PMAC_MTR	P,		R,		AXIS,		DESC,			MRES,		PREC,	EGU,	VEL,	TACC,	OFFS,	LSLM,	HSLM}
+        { 	"pmac1",	"PMAC1",	1.0,	1,		"XF:23ID1-OP",	"{Slt:1",	"-Ax:T}Mtr",	"Upper Blade",			-0.0001,	4,	"mm",	4.5,	0.05,	0.0,	-200,	200} 
+        { 	"pmac1",	"PMAC1",	1.0,	2,		"XF:23ID1-OP",	"{Slt:1",	"-Ax:B}Mtr",	"Lower Blade",		+0.0001,	4,	"mm",	4.5,	0.05,	0.0,	-200,	200} 
+        { 	"pmac1",	"PMAC1",	1.0,	3,		"XF:23ID1-OP",	"{Slt:1",	"-Ax:O}Mtr",	"Outboard Blade",	-0.0001,	4,	"mm",	4.5,	0.05,	0.0,	-200,	200} 
+        { 	"pmac1",	"PMAC1",	1.0,	4,		"XF:23ID1-OP",	"{Slt:1",	"-Ax:I}Mtr",	"Inboard Blade",	+0.0001,	4,	"mm",	4.5,	0.05,	0.0,	-200,	200} 
+}
+
+file "db/SAI_8MotorStatus.db" {
+    pattern {	ASYNPORT,	TMOT,		SCAN,		P,		R}
+        { 	"pmac1",	"1",		".2 second",	"XF:23ID1-OP",	"MCTR01"}
+}
+
+file "db/SAI_SingleMotorStatus.template" {
+    pattern {	P,		P1,		R,		AXIS,		PMAC_MTR}
+        { 	"XF:23ID1-OP",	"MCTR01",	"{Slt:1",	"-Ax:T}Mtr",	1}
+        { 	"XF:23ID1-OP",	"MCTR01",	"{Slt:1",	"-Ax:B}Mtr",	2}
+        { 	"XF:23ID1-OP",	"MCTR01",	"{Slt:1",	"-Ax:O}Mtr",	3}
+        { 	"XF:23ID1-OP",	"MCTR01",	"{Slt:1",	"-Ax:I}Mtr",	4}
+}
+
+file "db/SAI_MotorHoming.template" {
+    pattern {	ASYNPORT,	TMOT,	SCAN,		PMAC_MTR	P,		R,		AXIS,		EGU,	AXISSCALE,	HVEL}
+        { 	"pmac1",	1.0,	".5 second",	"1",		"XF:23ID1-OP",	"{Slt:1",	"-Ax:T}Mtr",		"mm",	1,		-4.5}
+        { 	"pmac1",	1.0,	".5 second",	"2",		"XF:23ID1-OP",	"{Slt:1",	"-Ax:B}Mtr",	"mm",	1,		4.5}
+        { 	"pmac1",	1.0,	".5 second",	"3",		"XF:23ID1-OP",	"{Slt:1",	"-Ax:O}Mtr",	"mm",	1,		-4.5}
+        { 	"pmac1",	1.0,	".5 second",	"4",		"XF:23ID1-OP",	"{Slt:1",	"-Ax:I}Mtr",	"mm",	1,		4.5}
+}
+
+file "db/SAI_EncoderLoss.template" {
+pattern {	P,		R,	AXIS,		SCAN, 		ASYNPORT, 	VARSTS, VARCLR}
+        { 	"XF:23ID1-OP",	"{Slt:1"	"-Ax:T}Mtr",		".2 second",	"pmac1",	"P401",	"P400"}
+        { 	"XF:23ID1-OP",	"{Slt:1"	"-Ax:B}Mtr",	".2 second",	"pmac1",	"P402",	"P400"}
+        { 	"XF:23ID1-OP",	"{Slt:1"	"-Ax:O}Mtr",	".2 second",	"pmac1",	"P403",	"P400"}
+        { 	"XF:23ID1-OP",	"{Slt:1"	"-Ax:I}Mtr",	".2 second",	"pmac1",	"P404",	"P400"}
+}
+
+## SlitDatabase
+file "db/Slit.db" {
+    pattern {	P,		R,		mXp,		mXn,		EGU,	PREC	}
+        { 	"XF:23ID1-OP",	"{Slt:1",	"-Ax:T}Mtr",	"-Ax:B}Mtr",	"mm",	4	}
+        { 	"XF:23ID1-OP",	"{Slt:1",	"-Ax:O}Mtr",	"-Ax:I}Mtr",	"mm",	4	}
+}
+

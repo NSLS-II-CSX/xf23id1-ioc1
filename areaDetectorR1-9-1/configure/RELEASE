@@ -1,0 +1,50 @@
+#RELEASE Location of external products
+# Run "gnumake clean uninstall install" in the application
+# top directory each time this file is changed.
+
+TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+
+# If you don't want to install into $(TOP) then
+# define INSTALL_LOCATION_APP here
+#INSTALL_LOCATION_APP=<fullpathname>
+
+# To include GraphicsMagick support set the following to YES
+# To not use it comment out the line or set it to NO
+# GraphicsMagick is required for NDFileMagick and the URL driver.
+USE_GRAPHICSMAGICK=YES
+
+SUPPORT=/corvette/home/epics/devel
+-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
+
+#SUPPORT=/epics/modules
+
+# ASYN is needed for base classes 
+#ASYN=$(SUPPORT)/asyn4-21
+ASYN=/usr/lib/epics
+
+# BUSY is needed for busy record
+#BUSY=$(SUPPORT)/busy-1-6
+BUSY=/usr/lib/epics
+
+# SSCAN is needed for scanning threshold on Pilatus and general scanning
+#SSCAN=$(SUPPORT)/sscan-2-9
+SSCAN=/usr/lib/epics
+
+# CALC is needed for scalcout record that SSCAN uses
+#CALC=$(SUPPORT)/calc-3-2
+CALC=/usr/lib/epics
+
+#AUTOSAVE is needed for save_restore
+#AUTOSAVE=$(SUPPORT)/autosave-5-1
+AUTOSAVE=/usr/lib/epics
+
+AREA_DETECTOR=/epics/iocs/areaDetectorR1-9-1
+
+# EPICS_BASE usually appears last so other apps can override stuff:
+#EPICS_BASE=/epics/base-3.14.12.3
+EPICS_BASE=/usr/lib/epics
+-include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH)
+
+#Capfast users may need the following definitions
+#CAPFAST_TEMPLATES=
+#SCH2EDIF_PATH=

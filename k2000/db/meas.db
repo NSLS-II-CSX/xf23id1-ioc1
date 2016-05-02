@@ -1,0 +1,22 @@
+record(ai, "$(Sys)$(Dev)E-I"){
+	field(DTYP, "stream")
+	field(INP,  "@k2000.proto read $(PORT)")
+}
+
+record(calc, "$(Sys)$(Dev)P:Raw-I"){
+	field(INPA, "$(Sys)$(Dev)E-I PP MS")
+	field(CALC, "150*A/5.0")
+	field(SCAN, ".01 second")
+	field(FLNK, "$(Sys)$(Dev)P-I_")
+}
+
+record(ai, "$(Sys)$(Dev)P-I_"){
+	field(INP, "$(Sys)$(Dev)P:Raw-I MS")
+	field(SMOO, "0.999")
+}
+
+record(ai, "$(Sys)$(Dev)P-I"){
+	field(INP, "$(Sys)$(Dev)P-I_ MS")
+	field(SCAN, "1 second")
+}
+

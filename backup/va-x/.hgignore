@@ -1,0 +1,11 @@
+syntax: glob
+*/lib/*
+dbd/*
+db/*
+*/O.*
+bin/*
+*.swp
+envPaths
+records.dbl
+*as/req/*.req
+*as/save/*.sav*

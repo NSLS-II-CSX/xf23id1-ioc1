@@ -1,0 +1,2843 @@
+## Database for MKS 937B Gauge Cntls
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+
+
+# Enable/Disable parameter setting
+# Query parameter setting, user calibration setting, front panel setting, and unit
+record(bi, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts") 
+{
+	field(DESC, "Get Parameter")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSPM(253) P0")
+	field(FLNK, "XF:23ID-VA:X01{VGC:01}DB:Scan-Calc_") 
+	field(SCAN, "10 second")
+	field(ZNAM, "Disable")
+	field(ONAM, "Enable")
+}
+
+record(bo, "XF:23ID-VA:X01{VGC:01}Lck:Par-Cmd") 
+{
+	field(DESC, "Set Parameter")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setSPM(253) P0")
+	field(FLNK, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts") 
+	field(ASG,  "VAWRITE")
+
+	field(ZNAM, "Disable")
+	field(ONAM, "Enable")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{VGC:01}DB:Scan-Calc_") 
+{
+	field(DESC, "Scan Calc")
+	field(CALC, "(A<B)?(A+C):D")
+	field(INPA, "XF:23ID-VA:X01{VGC:01}DB:Scan-Calc_")
+	field(INPB, "10")
+	field(INPC, "1")
+	field(INPD, "1")
+	field(OUT,  "XF:23ID-VA:X01{VGC:01}DB:Scan-FOut_.SELN")
+	field(FLNK, "XF:23ID-VA:X01{VGC:01}DB:Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{VGC:01}DB:Scan-FOut_")
+{
+	field(DESC, "Scan Fanout")
+	field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{VGC:01}Lck:Cal-Sts")
+	field(LNK2, "XF:23ID-VA:X01{VGC:01}Lck:Lcl-Sts")
+	field(LNK3, "XF:23ID-VA:X01{VGC:01}EU-Sts")
+}	
+
+# Enable/Disable user calibration
+record(bi, "XF:23ID-VA:X01{VGC:01}Lck:Cal-Sts") 
+{
+	field(DESC, "Get User Cal")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCalibration(253) P0")
+	field(ZNAM, "Disable")
+	field(ONAM, "Enable")
+}
+
+record(bo, "XF:23ID-VA:X01{VGC:01}Lck:Cal-Cmd") 
+{
+	field(DESC, "Set User Cal")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setCalibration(253) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{VGC:01}Lck:Cal-Sts") 
+	field(ASG,  "VAWRITE")
+
+	field(ZNAM, "Disable")
+	field(ONAM, "Enable")
+}
+
+# Enable/Disable front panel lock
+record(bi, "XF:23ID-VA:X01{VGC:01}Lck:Lcl-Sts") 
+{
+	field(DESC, "Set Lock")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getLock(253) P0")
+	field(ZNAM, "Local")
+	field(ONAM, "Remote")
+
+}
+
+record(bo, "XF:23ID-VA:X01{VGC:01}Lck:Lcl-Cmd") 
+{
+	field(DESC, "Set Lock")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setLock(253) P0")
+	field(DISV, "0")
+        field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")
+	field(FLNK, "XF:23ID-VA:X01{VGC:01}Lck:Lcl-Sts")
+	field(ASG,  "VAWRITE")
+
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+}
+
+# Get pressure unit
+record(mbbi, "XF:23ID-VA:X01{VGC:01}EU-Sts")
+{
+	field(DESC, "Get Pressure Unit")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getUnit(253) P0")
+	field(ZRST, "TORR")
+	field(ONST, "MBAR")
+	field(TWST, "PASCAL")
+	field(THST, "MICRON")
+}
+
+# Display sensor module type
+record(mbbi, "XF:23ID-VA:X01{VGC:01}Type:A-Sts")
+{
+	field(DESC, "Get Module TypeA")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSensorType(253,XF:23ID-VA:X01,{VGC:01}) P0")
+	field(FLNK, "XF:23ID-VA:X01{VGC:01}Ver:Fw1-I")
+	field(PINI, "1")
+	field(ZRST, "CC")
+	field(ONST, "PR")
+	field(TWST, "CP")
+	field(THST, "PR")
+	field(FRST, "NC")
+}
+
+record(mbbi, "XF:23ID-VA:X01{VGC:01}Type:B-Sts")
+{
+	field(DESC, "Get Module TypeB")
+	field(ZRST, "CC")
+	field(ONST, "PR")
+	field(TWST, "CP")
+	field(THST, "PR")
+	field(FRST, "NC")
+}
+
+record(mbbi, "XF:23ID-VA:X01{VGC:01}Type:C-Sts")
+{
+	field(DESC, "Get Module TypeC")
+	field(ZRST, "CC")
+	field(ONST, "PR")
+	field(TWST, "CP")
+	field(THST, "PR")
+	field(FRST, "NC")
+}
+
+# Get firmware version
+record(stringin, "XF:23ID-VA:X01{VGC:01}Ver:Fw1-I")
+{
+	field(DESC, "Get SlotA FV")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getFw(253,XF:23ID-VA:X01,{VGC:01}) P0")
+}
+
+record(stringin, "XF:23ID-VA:X01{VGC:01}Ver:Fw2-I")
+{
+	field(DESC, "Get SlotB FV")
+}
+
+record(stringin, "XF:23ID-VA:X01{VGC:01}Ver:Fw3-I")
+{
+	field(DESC, "Get SlotC FV")
+}
+
+record(stringin, "XF:23ID-VA:X01{VGC:01}Ver:FwAIO-I")
+{
+	field(DESC, "Get AIO FV")
+}
+
+record(stringin, "XF:23ID-VA:X01{VGC:01}Ver:FwMain-I")
+{
+	field(DESC, "Get MAIN FV")
+}
+
+# Get serial number
+record(stringin, "XF:23ID-VA:X01{VGC:01}ID-I")
+{
+	field(DESC, "Get Serial No")
+}
+## Database for MKS 937B settings for cold cathode gauges
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys	-	System
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## ADR	- 	Device address
+## PORT	-	IP or Serial port name
+## CHAN -	CC channel, 1,3,5
+
+
+# Get Pressure status
+record(stringin, "XF:23ID-VA:X01{CCG:01}P:Raw-I")
+{
+	field(DESC, "Raw Pr Reading")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto pStat(253,1) P0")
+	field(SCAN, ".5 second")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Stat-ASub_")
+}
+
+# Calc for enabling/disabling presSsure reading
+record(aSub, "XF:23ID-VA:X01{CCG:01}P:Stat-ASub_")
+{
+	field(DESC, "Raw Pr Proc")
+	field(INAM, "asubInit")
+	field(SNAM, "asubPressure")
+	field(INPA, "XF:23ID-VA:X01{CCG:01}P:Raw-I MSS")
+	field(FTA,  "STRING")
+	field(NOA,  "20")	
+	field(OUTA, "XF:23ID-VA:X01{CCG:01}P-I PP MS")
+	field(FTVA, "DOUBLE")
+	field(NOVA, "1")
+	field(OUTB, "XF:23ID-VA:X01{CCG:01}P-Sts PP MS")
+	field(FTVB, "SHORT")
+	field(NOVB, "1")
+}
+
+# Get pressure status
+record(mbbi, "XF:23ID-VA:X01{CCG:01}P-Sts")
+{
+	field(DESC, "Pressure Status")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:SV-Calc_")
+	field(ZRST, "OK")
+	field(ONST, "LO<E-11")
+	field(TWST, "LO<E-04")
+	field(THST, "LO<E-03")
+	field(FRST, "ATM")
+	field(FVST, "OFF")
+	field(SXST, "RP_OFF")
+	field(SVST, "WAIT")
+	field(EIST, "CTRL_OFF")
+	field(NIST, "PROT_OFF")
+	field(TEST, "MISCONN")
+	field(ELST, "NOGAUGE")
+	
+	field(UNSV, "INVALID")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "NO_ALARM")
+  	field(TWSV, "INVALID")
+	field(THSV, "INVALID")
+	field(FRSV, "MAJOR")
+	field(FVSV, "MINOR")
+	field(SXSV, "MINOR")
+	field(SVSV, "NO_ALARM")
+	field(EISV, "MAJOR")
+	field(NISV, "MINOR")
+	field(TESV, "INVALID")
+	field(ELSV, "INVALID")
+}
+
+# Read pressure 
+record(ai, "XF:23ID-VA:X01{CCG:01}P-I")
+{
+	field(DESC, "Pressure Reading")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Adel-Calc_")
+	field(EGU,  "Torr")
+	field(PREC, "1")
+	field(HOPR, "1.0E-3")
+	field(LOPR, "1.0E-11")	
+	field(HIHI, "2.0E-7")
+	field(LOLO, "1.0E-11")
+	field(HHSV, "MAJOR")
+	info(autosaveFields_pass1, "HIGH")
+	info(autosaveFields_pass2, "HIHI")
+}
+
+# Get severity
+record(calc, "XF:23ID-VA:X01{CCG:01}DB:SV-Calc_")
+{
+        field(DESC, "Severity Calc")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}P-Sts MSS NPP")
+	field(INPB, "XF:23ID-VA:X01{CCG:01}P-I NMS NPP")
+}
+
+# Calc pressure archive deadband
+record(calcout, "XF:23ID-VA:X01{CCG:01}P:Adel-Calc_") 
+{
+	field(DESC, "Deadband Calc")
+	field(CALC, "A/B")
+	field(INPA, "XF:23ID-VA:X01{CCG:01}P-I MSS")
+	field(INPB, "20")
+	field(OUT,  "XF:23ID-VA:X01{CCG:01}P-I.ADEL")
+}
+
+## Scan records
+record(bo, "XF:23ID-VA:X01{CCG:01}DB:Scan-Cmd_")
+{
+	field(DESC, "Scan Record")
+	field(SCAN, "2 second")
+	field(FLNK,  "XF:23ID-VA:X01{CCG:01}DB:Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{CCG:01}DB:Scan-Calc_") 
+{
+	field(DESC, "Scan Calc")
+	field(CALC, "(A<B)?(A+C):D")
+	field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Scan-Calc_")
+	field(INPB, "7")
+	field(INPC, "1")
+	field(INPD, "1")
+	field(OUT,  "XF:23ID-VA:X01{CCG:01}DB:Scan-FOut_.SELN")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{CCG:01}DB:Scan-FOut_")
+{
+	field(DESC, "Scan Fanout")
+	field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{CCG:01}P:Prot-RB")
+	field(LNK2, "XF:23ID-VA:X01{CCG:01}P:Ctrl-RB")
+	field(LNK3, "XF:23ID-VA:X01{CCG:01}Chan:Ctrl-Sts")
+	field(LNK4, "XF:23ID-VA:X01{CCG:01}Mode:CtrlGauge-Sts")
+	field(LNK5, "XF:23ID-VA:X01{CCG:01}Pwr-Sts") 
+	field(LNK6, "XF:23ID-VA:X01{CCG:01}Sts") 
+}	
+
+# Get/Set protection setpoint value
+record(ai, "XF:23ID-VA:X01{CCG:01}P:Prot-RB")
+{
+	field(DESC, "Get PRO")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getPRO(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}Val:GasCF-I")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "1.0E-02")
+	field(LOPR, "1.0E-05")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:Prot-SP")
+{
+	field(DESC, "Set PRO")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setPRO(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Prot-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "1.0E-02")
+	field(DRVL, "1.0E-05")
+}
+
+# Get/Set control setpoint value
+record(ai, "XF:23ID-VA:X01{CCG:01}P:Ctrl-RB")
+{
+	field(DESC, "Get CSP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCSP(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:CtrlHyst-RB")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "1.0E-02")
+	field(LOPR, "2.0E-03")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:Ctrl-SP")
+{
+	field(DESC, "Set CSP")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setCSP(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Ctrl-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{CCG:01}Chan:Ctrl-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "1.0E-02")
+	field(DRVL, "2.0E-03")
+}
+
+# Get/Set control setpoint hysteresis value
+record(ai, "XF:23ID-VA:X01{CCG:01}P:CtrlHyst-RB")
+{
+	field(DESC, "Get CHP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCHP(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow2-I_")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(LOPR, "1.1E-02")
+	field(HOPR, "2.2E-03")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:CtrlHyst-SP")
+{
+	field(DESC, "Set CHP")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setCHP(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:CtrlHyst-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{CCG:01}Chan:Ctrl-Sts")    
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+   
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVL, "1.1E-02")
+	field(DRVH, "2.2E-03")
+}
+
+# Enable/Disable control channel statust
+record(mbbi, "XF:23ID-VA:X01{CCG:01}Chan:Ctrl-Sts")
+{
+	field(DESC, "Get Control Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCSE(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow3-I_")
+	field(ZRST, "OFF")
+	field(ONST, "C1")
+	field(TWST, "C2")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:01}Chan:Ctrl-Sel")
+{
+	field(DESC, "Set Control Stat")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setCSE(253,1) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")   
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}Chan:Ctrl-Sts")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "OFF")
+	field(ONST, "C1")
+	field(TWST, "C2")
+}
+
+# Get/Set ion gauge turn on/off option
+record(mbbi, "XF:23ID-VA:X01{CCG:01}Mode:CtrlGauge-Sts")
+{
+	field(DESC, "Get Control Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCTL(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}Type:Gas-Sts") 
+	field(ZRST, "OFF")
+	field(ONST, "AUTO")
+	field(TWST, "SAFE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:01}Mode:CtrlGauge-Sel")
+{
+	field(DESC, "Set Control Stat")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setCTL(253,1) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{CCG:01}Chan:Ctrl-Sts")   
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}Mode:CtrlGauge-Sts")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "OFF")
+	field(ONST, "AUTO")
+	field(TWST, "SAFE")
+}
+
+# Get/Set channel power status
+record(bi, "XF:23ID-VA:X01{CCG:01}Pwr-Sts") 
+{
+	field(DESC, "Power Status")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getChanPower(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}Time:Dly-I")
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+}
+
+record(bo, "XF:23ID-VA:X01{CCG:01}Pwr-Cmd") 
+{
+	field(DESC, "Turn On/Off Power")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setChanPower(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}Pwr-Sts")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+	
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+}
+
+# Get a gas correction for a CC gauge
+record(ai, "XF:23ID-VA:X01{CCG:01}Val:GasCF-I")
+{
+	field(DESC, "Get CC GasCor")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getGasCorrection(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow1-I_")
+	field(PREC, "1")
+	field(HOPR, "10")
+	field(LOPR, "0.1")
+}
+
+# Get gas type 
+record(mbbi, "XF:23ID-VA:X01{CCG:01}Type:Gas-Sts") 
+{
+	field(DESC, "Get Gastype")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getGasType(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow4-I_")
+	field(ZRST, "N2")
+	field(ONST, "He")
+	field(TWST, "Ar")
+}
+
+# Get ion gauge status
+record(mbbi, "XF:23ID-VA:X01{CCG:01}Sts") 
+{
+	field(DESC, "Get Gauge Status")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCCGStatus(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:FastRly-I")
+	field(ZRST, "OFF")
+	field(ONST, "WAIT")
+	field(TWST, "GOOD")
+	field(THST, "PROTECT")
+	field(FRST, "Control")
+	field(FVST, "Rear Ctrl Off")
+	field(ZRSV, "MINOR")
+}
+
+# Get time delay for starting CCG
+record(longin, "XF:23ID-VA:X01{CCG:01}Time:Dly-I")
+{
+	field(DESC, "Get Time Delay")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getTDC(253,1) P0")
+	field(HOPR, "300")
+	field(LOPR, "3")
+	field(EGU,  "s")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow5-I_")
+}
+
+# Get the pressure to trigger fast relay control output
+record(ai, "XF:23ID-VA:X01{CCG:01}P:FastRly-I")
+{
+	field(DESC, "Get Fast Relay")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getFRC(253,1) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "5.0E-03")
+	field(LOPR, "2.0E-10")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow6-I_")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow1-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:01}Val:GasCF-I NPP")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow2-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:01}P:CtrlHyst-RB NPP")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow3-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:01}Chan:Ctrl-Sts NPP")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow4-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:01}Type:Gas-Sts NPP")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow5-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:01}Time:Dly-I NPP")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:01}DB:DiffSlow6-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:01}P:FastRly-I NPP")
+}
+## Database for MKS 937B settings for cold cathode gauges
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys	-	System
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## ADR	- 	Device address
+## PORT	-	IP or Serial port name
+## CHAN -	CC channel, 1,3,5
+
+
+# Get Pressure status
+record(stringin, "XF:23ID-VA:X01{CCG:02}P:Raw-I")
+{
+	field(DESC, "Raw Pr Reading")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto pStat(253,3) P0")
+	field(SCAN, ".5 second")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Stat-ASub_")
+}
+
+# Calc for enabling/disabling presSsure reading
+record(aSub, "XF:23ID-VA:X01{CCG:02}P:Stat-ASub_")
+{
+	field(DESC, "Raw Pr Proc")
+	field(INAM, "asubInit")
+	field(SNAM, "asubPressure")
+	field(INPA, "XF:23ID-VA:X01{CCG:02}P:Raw-I MSS")
+	field(FTA,  "STRING")
+	field(NOA,  "20")	
+	field(OUTA, "XF:23ID-VA:X01{CCG:02}P-I PP MS")
+	field(FTVA, "DOUBLE")
+	field(NOVA, "1")
+	field(OUTB, "XF:23ID-VA:X01{CCG:02}P-Sts PP MS")
+	field(FTVB, "SHORT")
+	field(NOVB, "1")
+}
+
+# Get pressure status
+record(mbbi, "XF:23ID-VA:X01{CCG:02}P-Sts")
+{
+	field(DESC, "Pressure Status")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:SV-Calc_")
+	field(ZRST, "OK")
+	field(ONST, "LO<E-11")
+	field(TWST, "LO<E-04")
+	field(THST, "LO<E-03")
+	field(FRST, "ATM")
+	field(FVST, "OFF")
+	field(SXST, "RP_OFF")
+	field(SVST, "WAIT")
+	field(EIST, "CTRL_OFF")
+	field(NIST, "PROT_OFF")
+	field(TEST, "MISCONN")
+	field(ELST, "NOGAUGE")
+	
+	field(UNSV, "INVALID")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "NO_ALARM")
+  	field(TWSV, "INVALID")
+	field(THSV, "INVALID")
+	field(FRSV, "MAJOR")
+	field(FVSV, "MINOR")
+	field(SXSV, "MINOR")
+	field(SVSV, "NO_ALARM")
+	field(EISV, "MAJOR")
+	field(NISV, "MINOR")
+	field(TESV, "INVALID")
+	field(ELSV, "INVALID")
+}
+
+# Read pressure 
+record(ai, "XF:23ID-VA:X01{CCG:02}P-I")
+{
+	field(DESC, "Pressure Reading")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Adel-Calc_")
+	field(EGU,  "Torr")
+	field(PREC, "1")
+	field(HOPR, "1.0E-3")
+	field(LOPR, "1.0E-11")	
+	field(HIHI, "2.0E-7")
+	field(LOLO, "1.0E-11")
+	field(HHSV, "MAJOR")
+	info(autosaveFields_pass1, "HIGH")
+	info(autosaveFields_pass2, "HIHI")
+}
+
+# Get severity
+record(calc, "XF:23ID-VA:X01{CCG:02}DB:SV-Calc_")
+{
+        field(DESC, "Severity Calc")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}P-Sts MSS NPP")
+	field(INPB, "XF:23ID-VA:X01{CCG:02}P-I NMS NPP")
+}
+
+# Calc pressure archive deadband
+record(calcout, "XF:23ID-VA:X01{CCG:02}P:Adel-Calc_") 
+{
+	field(DESC, "Deadband Calc")
+	field(CALC, "A/B")
+	field(INPA, "XF:23ID-VA:X01{CCG:02}P-I MSS")
+	field(INPB, "20")
+	field(OUT,  "XF:23ID-VA:X01{CCG:02}P-I.ADEL")
+}
+
+## Scan records
+record(bo, "XF:23ID-VA:X01{CCG:02}DB:Scan-Cmd_")
+{
+	field(DESC, "Scan Record")
+	field(SCAN, "2 second")
+	field(FLNK,  "XF:23ID-VA:X01{CCG:02}DB:Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{CCG:02}DB:Scan-Calc_") 
+{
+	field(DESC, "Scan Calc")
+	field(CALC, "(A<B)?(A+C):D")
+	field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Scan-Calc_")
+	field(INPB, "7")
+	field(INPC, "1")
+	field(INPD, "1")
+	field(OUT,  "XF:23ID-VA:X01{CCG:02}DB:Scan-FOut_.SELN")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{CCG:02}DB:Scan-FOut_")
+{
+	field(DESC, "Scan Fanout")
+	field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{CCG:02}P:Prot-RB")
+	field(LNK2, "XF:23ID-VA:X01{CCG:02}P:Ctrl-RB")
+	field(LNK3, "XF:23ID-VA:X01{CCG:02}Chan:Ctrl-Sts")
+	field(LNK4, "XF:23ID-VA:X01{CCG:02}Mode:CtrlGauge-Sts")
+	field(LNK5, "XF:23ID-VA:X01{CCG:02}Pwr-Sts") 
+	field(LNK6, "XF:23ID-VA:X01{CCG:02}Sts") 
+}	
+
+# Get/Set protection setpoint value
+record(ai, "XF:23ID-VA:X01{CCG:02}P:Prot-RB")
+{
+	field(DESC, "Get PRO")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getPRO(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}Val:GasCF-I")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "1.0E-02")
+	field(LOPR, "1.0E-05")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:Prot-SP")
+{
+	field(DESC, "Set PRO")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setPRO(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Prot-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "1.0E-02")
+	field(DRVL, "1.0E-05")
+}
+
+# Get/Set control setpoint value
+record(ai, "XF:23ID-VA:X01{CCG:02}P:Ctrl-RB")
+{
+	field(DESC, "Get CSP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCSP(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:CtrlHyst-RB")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "1.0E-02")
+	field(LOPR, "2.0E-03")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:Ctrl-SP")
+{
+	field(DESC, "Set CSP")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setCSP(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Ctrl-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{CCG:02}Chan:Ctrl-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "1.0E-02")
+	field(DRVL, "2.0E-03")
+}
+
+# Get/Set control setpoint hysteresis value
+record(ai, "XF:23ID-VA:X01{CCG:02}P:CtrlHyst-RB")
+{
+	field(DESC, "Get CHP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCHP(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow2-I_")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(LOPR, "1.1E-02")
+	field(HOPR, "2.2E-03")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:CtrlHyst-SP")
+{
+	field(DESC, "Set CHP")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setCHP(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:CtrlHyst-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{CCG:02}Chan:Ctrl-Sts")    
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+   
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVL, "1.1E-02")
+	field(DRVH, "2.2E-03")
+}
+
+# Enable/Disable control channel statust
+record(mbbi, "XF:23ID-VA:X01{CCG:02}Chan:Ctrl-Sts")
+{
+	field(DESC, "Get Control Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCSE(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow3-I_")
+	field(ZRST, "OFF")
+	field(ONST, "C1")
+	field(TWST, "C2")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:02}Chan:Ctrl-Sel")
+{
+	field(DESC, "Set Control Stat")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setCSE(253,3) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")   
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}Chan:Ctrl-Sts")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "OFF")
+	field(ONST, "C1")
+	field(TWST, "C2")
+}
+
+# Get/Set ion gauge turn on/off option
+record(mbbi, "XF:23ID-VA:X01{CCG:02}Mode:CtrlGauge-Sts")
+{
+	field(DESC, "Get Control Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCTL(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}Type:Gas-Sts") 
+	field(ZRST, "OFF")
+	field(ONST, "AUTO")
+	field(TWST, "SAFE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:02}Mode:CtrlGauge-Sel")
+{
+	field(DESC, "Set Control Stat")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setCTL(253,3) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{CCG:02}Chan:Ctrl-Sts")   
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}Mode:CtrlGauge-Sts")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "OFF")
+	field(ONST, "AUTO")
+	field(TWST, "SAFE")
+}
+
+# Get/Set channel power status
+record(bi, "XF:23ID-VA:X01{CCG:02}Pwr-Sts") 
+{
+	field(DESC, "Power Status")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getChanPower(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}Time:Dly-I")
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+}
+
+record(bo, "XF:23ID-VA:X01{CCG:02}Pwr-Cmd") 
+{
+	field(DESC, "Turn On/Off Power")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setChanPower(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}Pwr-Sts")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+	
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+}
+
+# Get a gas correction for a CC gauge
+record(ai, "XF:23ID-VA:X01{CCG:02}Val:GasCF-I")
+{
+	field(DESC, "Get CC GasCor")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getGasCorrection(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow1-I_")
+	field(PREC, "1")
+	field(HOPR, "10")
+	field(LOPR, "0.1")
+}
+
+# Get gas type 
+record(mbbi, "XF:23ID-VA:X01{CCG:02}Type:Gas-Sts") 
+{
+	field(DESC, "Get Gastype")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getGasType(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow4-I_")
+	field(ZRST, "N2")
+	field(ONST, "He")
+	field(TWST, "Ar")
+}
+
+# Get ion gauge status
+record(mbbi, "XF:23ID-VA:X01{CCG:02}Sts") 
+{
+	field(DESC, "Get Gauge Status")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getCCGStatus(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:FastRly-I")
+	field(ZRST, "OFF")
+	field(ONST, "WAIT")
+	field(TWST, "GOOD")
+	field(THST, "PROTECT")
+	field(FRST, "Control")
+	field(FVST, "Rear Ctrl Off")
+	field(ZRSV, "MINOR")
+}
+
+# Get time delay for starting CCG
+record(longin, "XF:23ID-VA:X01{CCG:02}Time:Dly-I")
+{
+	field(DESC, "Get Time Delay")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getTDC(253,3) P0")
+	field(HOPR, "300")
+	field(LOPR, "3")
+	field(EGU,  "s")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow5-I_")
+}
+
+# Get the pressure to trigger fast relay control output
+record(ai, "XF:23ID-VA:X01{CCG:02}P:FastRly-I")
+{
+	field(DESC, "Get Fast Relay")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getFRC(253,3) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "5.0E-03")
+	field(LOPR, "2.0E-10")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow6-I_")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow1-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:02}Val:GasCF-I NPP")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow2-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:02}P:CtrlHyst-RB NPP")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow3-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:02}Chan:Ctrl-Sts NPP")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow4-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:02}Type:Gas-Sts NPP")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow5-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:02}Time:Dly-I NPP")
+}
+
+record(sub, "XF:23ID-VA:X01{CCG:02}DB:DiffSlow6-I_")
+{
+	field(DESC, "Time Diff Slow")
+        field(INAM, "TimeDiffInit")
+        field(SNAM, "TimeDiff")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Scan-Cmd_ NPP")
+        field(INPB, "XF:23ID-VA:X01{CCG:02}P:FastRly-I NPP")
+}
+## Database for MKS 937B Relay settings for CCG
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## SPNUM 	-	Relay channel, 1-12
+
+# Scan 
+record(bo, "XF:23ID-VA:X01{CCG:01}DB:Rly1Scan-Cmd_")
+{
+	field(DESC, "CCG  Rly Scan")
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:Rly1Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{CCG:01}DB:Rly1Scan-Calc_")
+{
+        field(DESC, "Scan Calc")
+        field(CALC, "(A<B)?(A+C):D")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Rly1Scan-Calc_")
+        field(INPB, "7")
+        field(INPC, "1")
+        field(INPD, "1")
+        field(OUT,  "XF:23ID-VA:X01{CCG:01}DB:Rly1Scan-FOut_.SELN")
+        field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:Rly1Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{CCG:01}DB:Rly1Scan-FOut_")
+{
+        field(DESC, "Scan Fanout")
+        field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{CCG:01}P:Rly1-RB")
+        field(LNK2, "XF:23ID-VA:X01{CCG:01}P:Rly1Hyst-RB")
+        field(LNK3, "XF:23ID-VA:X01{CCG:01}Dir:Rly1-Sts")
+        field(LNK4, "XF:23ID-VA:X01{CCG:01}Enbl:Rly1-Sts")
+        field(LNK5, "XF:23ID-VA:X01{CCG:01}Sts:Rly1-Sts")
+}
+
+# Get/Set a setpoint for relay
+record(ai, "XF:23ID-VA:X01{CCG:01}P:Rly1-RB")
+{
+	field(DESC, "Get RLY1 SP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSP(253,1) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "5.0E-3")
+	field(LOPR, "2.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:Rly1-SP")
+{
+	field(DESC, "Set RLY1 SP")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSP(253,1) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Rly1-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(DRVH, "5.0E-3")
+	field(DRVL, "2.0E-10")
+	field(EGU,  "Torr")
+}
+
+# Get/Set a hysteresis for relay
+record(ai, "XF:23ID-VA:X01{CCG:01}P:Rly1Hyst-RB")
+{
+	field(DESC, "Get RLY1 Hys")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSH(253,1) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "7.5E-3")
+	field(LOPR, "3.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:Rly1Hyst-SP")
+{
+	field(DESC, "Set RLY1 Hys")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSH(253,1) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Rly1Hyst-RB")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "7.5E-3")
+	field(DRVL, "3.0E-10")
+}
+
+# Get relay direction
+record(bi, "XF:23ID-VA:X01{CCG:01}Dir:Rly1-Sts")
+{
+	field(DESC, "Get RLY1 Dir")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSD(253,1) P0")
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+# Get/Set enable status for relay
+record(mbbi, "XF:23ID-VA:X01{CCG:01}Enbl:Rly1-Sts")
+{
+	field(DESC, "Get RLY1 Enable Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getEN(253,1) P0")
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:01}Enbl:Rly1-Sel")
+{
+	field(DESC, "Set RLY1 Enable")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setEN(253,1) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")  
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}Enbl:Rly1-Sts")     
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+# Get the setpoint status
+record(bi, "XF:23ID-VA:X01{CCG:01}Sts:Rly1-Sts")
+{
+	field(DESC, "Get RLY1 Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSS(253,1) P0")
+	field(ZNAM, "CLEAR")
+	field(ONAM, "SET")	
+}
+
+
+
+
+
+## Database for MKS 937B Relay settings for CCG
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## SPNUM 	-	Relay channel, 1-12
+
+# Scan 
+record(bo, "XF:23ID-VA:X01{CCG:01}DB:Rly2Scan-Cmd_")
+{
+	field(DESC, "CCG  Rly Scan")
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:Rly2Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{CCG:01}DB:Rly2Scan-Calc_")
+{
+        field(DESC, "Scan Calc")
+        field(CALC, "(A<B)?(A+C):D")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Rly2Scan-Calc_")
+        field(INPB, "7")
+        field(INPC, "1")
+        field(INPD, "1")
+        field(OUT,  "XF:23ID-VA:X01{CCG:01}DB:Rly2Scan-FOut_.SELN")
+        field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:Rly2Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{CCG:01}DB:Rly2Scan-FOut_")
+{
+        field(DESC, "Scan Fanout")
+        field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{CCG:01}P:Rly2-RB")
+        field(LNK2, "XF:23ID-VA:X01{CCG:01}P:Rly2Hyst-RB")
+        field(LNK3, "XF:23ID-VA:X01{CCG:01}Dir:Rly2-Sts")
+        field(LNK4, "XF:23ID-VA:X01{CCG:01}Enbl:Rly2-Sts")
+        field(LNK5, "XF:23ID-VA:X01{CCG:01}Sts:Rly2-Sts")
+}
+
+# Get/Set a setpoint for relay
+record(ai, "XF:23ID-VA:X01{CCG:01}P:Rly2-RB")
+{
+	field(DESC, "Get RLY2 SP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSP(253,2) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "5.0E-3")
+	field(LOPR, "2.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:Rly2-SP")
+{
+	field(DESC, "Set RLY2 SP")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSP(253,2) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Rly2-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(DRVH, "5.0E-3")
+	field(DRVL, "2.0E-10")
+	field(EGU,  "Torr")
+}
+
+# Get/Set a hysteresis for relay
+record(ai, "XF:23ID-VA:X01{CCG:01}P:Rly2Hyst-RB")
+{
+	field(DESC, "Get RLY2 Hys")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSH(253,2) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "7.5E-3")
+	field(LOPR, "3.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:Rly2Hyst-SP")
+{
+	field(DESC, "Set RLY2 Hys")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSH(253,2) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Rly2Hyst-RB")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "7.5E-3")
+	field(DRVL, "3.0E-10")
+}
+
+# Get relay direction
+record(bi, "XF:23ID-VA:X01{CCG:01}Dir:Rly2-Sts")
+{
+	field(DESC, "Get RLY2 Dir")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSD(253,2) P0")
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+# Get/Set enable status for relay
+record(mbbi, "XF:23ID-VA:X01{CCG:01}Enbl:Rly2-Sts")
+{
+	field(DESC, "Get RLY2 Enable Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getEN(253,2) P0")
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:01}Enbl:Rly2-Sel")
+{
+	field(DESC, "Set RLY2 Enable")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setEN(253,2) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")  
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}Enbl:Rly2-Sts")     
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+# Get the setpoint status
+record(bi, "XF:23ID-VA:X01{CCG:01}Sts:Rly2-Sts")
+{
+	field(DESC, "Get RLY2 Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSS(253,2) P0")
+	field(ZNAM, "CLEAR")
+	field(ONAM, "SET")	
+}
+
+
+
+
+
+## Database for MKS 937B Relay settings for CCG
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## SPNUM 	-	Relay channel, 1-12
+
+# Scan 
+record(bo, "XF:23ID-VA:X01{CCG:01}DB:Rly3Scan-Cmd_")
+{
+	field(DESC, "CCG  Rly Scan")
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:Rly3Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{CCG:01}DB:Rly3Scan-Calc_")
+{
+        field(DESC, "Scan Calc")
+        field(CALC, "(A<B)?(A+C):D")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Rly3Scan-Calc_")
+        field(INPB, "7")
+        field(INPC, "1")
+        field(INPD, "1")
+        field(OUT,  "XF:23ID-VA:X01{CCG:01}DB:Rly3Scan-FOut_.SELN")
+        field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:Rly3Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{CCG:01}DB:Rly3Scan-FOut_")
+{
+        field(DESC, "Scan Fanout")
+        field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{CCG:01}P:Rly3-RB")
+        field(LNK2, "XF:23ID-VA:X01{CCG:01}P:Rly3Hyst-RB")
+        field(LNK3, "XF:23ID-VA:X01{CCG:01}Dir:Rly3-Sts")
+        field(LNK4, "XF:23ID-VA:X01{CCG:01}Enbl:Rly3-Sts")
+        field(LNK5, "XF:23ID-VA:X01{CCG:01}Sts:Rly3-Sts")
+}
+
+# Get/Set a setpoint for relay
+record(ai, "XF:23ID-VA:X01{CCG:01}P:Rly3-RB")
+{
+	field(DESC, "Get RLY3 SP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSP(253,3) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "5.0E-3")
+	field(LOPR, "2.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:Rly3-SP")
+{
+	field(DESC, "Set RLY3 SP")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSP(253,3) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Rly3-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(DRVH, "5.0E-3")
+	field(DRVL, "2.0E-10")
+	field(EGU,  "Torr")
+}
+
+# Get/Set a hysteresis for relay
+record(ai, "XF:23ID-VA:X01{CCG:01}P:Rly3Hyst-RB")
+{
+	field(DESC, "Get RLY3 Hys")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSH(253,3) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "7.5E-3")
+	field(LOPR, "3.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:Rly3Hyst-SP")
+{
+	field(DESC, "Set RLY3 Hys")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSH(253,3) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Rly3Hyst-RB")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "7.5E-3")
+	field(DRVL, "3.0E-10")
+}
+
+# Get relay direction
+record(bi, "XF:23ID-VA:X01{CCG:01}Dir:Rly3-Sts")
+{
+	field(DESC, "Get RLY3 Dir")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSD(253,3) P0")
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+# Get/Set enable status for relay
+record(mbbi, "XF:23ID-VA:X01{CCG:01}Enbl:Rly3-Sts")
+{
+	field(DESC, "Get RLY3 Enable Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getEN(253,3) P0")
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:01}Enbl:Rly3-Sel")
+{
+	field(DESC, "Set RLY3 Enable")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setEN(253,3) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")  
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}Enbl:Rly3-Sts")     
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+# Get the setpoint status
+record(bi, "XF:23ID-VA:X01{CCG:01}Sts:Rly3-Sts")
+{
+	field(DESC, "Get RLY3 Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSS(253,3) P0")
+	field(ZNAM, "CLEAR")
+	field(ONAM, "SET")	
+}
+
+
+
+
+
+## Database for MKS 937B Relay settings for CCG
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## SPNUM 	-	Relay channel, 1-12
+
+# Scan 
+record(bo, "XF:23ID-VA:X01{CCG:01}DB:Rly4Scan-Cmd_")
+{
+	field(DESC, "CCG  Rly Scan")
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:Rly4Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{CCG:01}DB:Rly4Scan-Calc_")
+{
+        field(DESC, "Scan Calc")
+        field(CALC, "(A<B)?(A+C):D")
+        field(INPA, "XF:23ID-VA:X01{CCG:01}DB:Rly4Scan-Calc_")
+        field(INPB, "7")
+        field(INPC, "1")
+        field(INPD, "1")
+        field(OUT,  "XF:23ID-VA:X01{CCG:01}DB:Rly4Scan-FOut_.SELN")
+        field(FLNK, "XF:23ID-VA:X01{CCG:01}DB:Rly4Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{CCG:01}DB:Rly4Scan-FOut_")
+{
+        field(DESC, "Scan Fanout")
+        field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{CCG:01}P:Rly4-RB")
+        field(LNK2, "XF:23ID-VA:X01{CCG:01}P:Rly4Hyst-RB")
+        field(LNK3, "XF:23ID-VA:X01{CCG:01}Dir:Rly4-Sts")
+        field(LNK4, "XF:23ID-VA:X01{CCG:01}Enbl:Rly4-Sts")
+        field(LNK5, "XF:23ID-VA:X01{CCG:01}Sts:Rly4-Sts")
+}
+
+# Get/Set a setpoint for relay
+record(ai, "XF:23ID-VA:X01{CCG:01}P:Rly4-RB")
+{
+	field(DESC, "Get RLY4 SP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSP(253,4) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "5.0E-3")
+	field(LOPR, "2.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:Rly4-SP")
+{
+	field(DESC, "Set RLY4 SP")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSP(253,4) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Rly4-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(DRVH, "5.0E-3")
+	field(DRVL, "2.0E-10")
+	field(EGU,  "Torr")
+}
+
+# Get/Set a hysteresis for relay
+record(ai, "XF:23ID-VA:X01{CCG:01}P:Rly4Hyst-RB")
+{
+	field(DESC, "Get RLY4 Hys")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSH(253,4) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "7.5E-3")
+	field(LOPR, "3.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:01}P:Rly4Hyst-SP")
+{
+	field(DESC, "Set RLY4 Hys")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSH(253,4) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}P:Rly4Hyst-RB")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "7.5E-3")
+	field(DRVL, "3.0E-10")
+}
+
+# Get relay direction
+record(bi, "XF:23ID-VA:X01{CCG:01}Dir:Rly4-Sts")
+{
+	field(DESC, "Get RLY4 Dir")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSD(253,4) P0")
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+# Get/Set enable status for relay
+record(mbbi, "XF:23ID-VA:X01{CCG:01}Enbl:Rly4-Sts")
+{
+	field(DESC, "Get RLY4 Enable Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getEN(253,4) P0")
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:01}Enbl:Rly4-Sel")
+{
+	field(DESC, "Set RLY4 Enable")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setEN(253,4) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")  
+	field(FLNK, "XF:23ID-VA:X01{CCG:01}Enbl:Rly4-Sts")     
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+# Get the setpoint status
+record(bi, "XF:23ID-VA:X01{CCG:01}Sts:Rly4-Sts")
+{
+	field(DESC, "Get RLY4 Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSS(253,4) P0")
+	field(ZNAM, "CLEAR")
+	field(ONAM, "SET")	
+}
+
+
+
+
+
+## Database for MKS 937B Relay settings for CCG
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## SPNUM 	-	Relay channel, 1-12
+
+# Scan 
+record(bo, "XF:23ID-VA:X01{CCG:02}DB:Rly5Scan-Cmd_")
+{
+	field(DESC, "CCG  Rly Scan")
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:Rly5Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{CCG:02}DB:Rly5Scan-Calc_")
+{
+        field(DESC, "Scan Calc")
+        field(CALC, "(A<B)?(A+C):D")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Rly5Scan-Calc_")
+        field(INPB, "7")
+        field(INPC, "1")
+        field(INPD, "1")
+        field(OUT,  "XF:23ID-VA:X01{CCG:02}DB:Rly5Scan-FOut_.SELN")
+        field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:Rly5Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{CCG:02}DB:Rly5Scan-FOut_")
+{
+        field(DESC, "Scan Fanout")
+        field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{CCG:02}P:Rly5-RB")
+        field(LNK2, "XF:23ID-VA:X01{CCG:02}P:Rly5Hyst-RB")
+        field(LNK3, "XF:23ID-VA:X01{CCG:02}Dir:Rly5-Sts")
+        field(LNK4, "XF:23ID-VA:X01{CCG:02}Enbl:Rly5-Sts")
+        field(LNK5, "XF:23ID-VA:X01{CCG:02}Sts:Rly5-Sts")
+}
+
+# Get/Set a setpoint for relay
+record(ai, "XF:23ID-VA:X01{CCG:02}P:Rly5-RB")
+{
+	field(DESC, "Get RLY5 SP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSP(253,5) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "5.0E-3")
+	field(LOPR, "2.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:Rly5-SP")
+{
+	field(DESC, "Set RLY5 SP")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSP(253,5) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Rly5-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(DRVH, "5.0E-3")
+	field(DRVL, "2.0E-10")
+	field(EGU,  "Torr")
+}
+
+# Get/Set a hysteresis for relay
+record(ai, "XF:23ID-VA:X01{CCG:02}P:Rly5Hyst-RB")
+{
+	field(DESC, "Get RLY5 Hys")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSH(253,5) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "7.5E-3")
+	field(LOPR, "3.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:Rly5Hyst-SP")
+{
+	field(DESC, "Set RLY5 Hys")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSH(253,5) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Rly5Hyst-RB")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "7.5E-3")
+	field(DRVL, "3.0E-10")
+}
+
+# Get relay direction
+record(bi, "XF:23ID-VA:X01{CCG:02}Dir:Rly5-Sts")
+{
+	field(DESC, "Get RLY5 Dir")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSD(253,5) P0")
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+# Get/Set enable status for relay
+record(mbbi, "XF:23ID-VA:X01{CCG:02}Enbl:Rly5-Sts")
+{
+	field(DESC, "Get RLY5 Enable Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getEN(253,5) P0")
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:02}Enbl:Rly5-Sel")
+{
+	field(DESC, "Set RLY5 Enable")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setEN(253,5) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")  
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}Enbl:Rly5-Sts")     
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+# Get the setpoint status
+record(bi, "XF:23ID-VA:X01{CCG:02}Sts:Rly5-Sts")
+{
+	field(DESC, "Get RLY5 Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSS(253,5) P0")
+	field(ZNAM, "CLEAR")
+	field(ONAM, "SET")	
+}
+
+
+
+
+
+## Database for MKS 937B Relay settings for CCG
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## SPNUM 	-	Relay channel, 1-12
+
+# Scan 
+record(bo, "XF:23ID-VA:X01{CCG:02}DB:Rly6Scan-Cmd_")
+{
+	field(DESC, "CCG  Rly Scan")
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:Rly6Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{CCG:02}DB:Rly6Scan-Calc_")
+{
+        field(DESC, "Scan Calc")
+        field(CALC, "(A<B)?(A+C):D")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Rly6Scan-Calc_")
+        field(INPB, "7")
+        field(INPC, "1")
+        field(INPD, "1")
+        field(OUT,  "XF:23ID-VA:X01{CCG:02}DB:Rly6Scan-FOut_.SELN")
+        field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:Rly6Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{CCG:02}DB:Rly6Scan-FOut_")
+{
+        field(DESC, "Scan Fanout")
+        field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{CCG:02}P:Rly6-RB")
+        field(LNK2, "XF:23ID-VA:X01{CCG:02}P:Rly6Hyst-RB")
+        field(LNK3, "XF:23ID-VA:X01{CCG:02}Dir:Rly6-Sts")
+        field(LNK4, "XF:23ID-VA:X01{CCG:02}Enbl:Rly6-Sts")
+        field(LNK5, "XF:23ID-VA:X01{CCG:02}Sts:Rly6-Sts")
+}
+
+# Get/Set a setpoint for relay
+record(ai, "XF:23ID-VA:X01{CCG:02}P:Rly6-RB")
+{
+	field(DESC, "Get RLY6 SP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSP(253,6) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "5.0E-3")
+	field(LOPR, "2.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:Rly6-SP")
+{
+	field(DESC, "Set RLY6 SP")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSP(253,6) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Rly6-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(DRVH, "5.0E-3")
+	field(DRVL, "2.0E-10")
+	field(EGU,  "Torr")
+}
+
+# Get/Set a hysteresis for relay
+record(ai, "XF:23ID-VA:X01{CCG:02}P:Rly6Hyst-RB")
+{
+	field(DESC, "Get RLY6 Hys")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSH(253,6) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "7.5E-3")
+	field(LOPR, "3.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:Rly6Hyst-SP")
+{
+	field(DESC, "Set RLY6 Hys")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSH(253,6) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Rly6Hyst-RB")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "7.5E-3")
+	field(DRVL, "3.0E-10")
+}
+
+# Get relay direction
+record(bi, "XF:23ID-VA:X01{CCG:02}Dir:Rly6-Sts")
+{
+	field(DESC, "Get RLY6 Dir")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSD(253,6) P0")
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+# Get/Set enable status for relay
+record(mbbi, "XF:23ID-VA:X01{CCG:02}Enbl:Rly6-Sts")
+{
+	field(DESC, "Get RLY6 Enable Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getEN(253,6) P0")
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:02}Enbl:Rly6-Sel")
+{
+	field(DESC, "Set RLY6 Enable")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setEN(253,6) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")  
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}Enbl:Rly6-Sts")     
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+# Get the setpoint status
+record(bi, "XF:23ID-VA:X01{CCG:02}Sts:Rly6-Sts")
+{
+	field(DESC, "Get RLY6 Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSS(253,6) P0")
+	field(ZNAM, "CLEAR")
+	field(ONAM, "SET")	
+}
+
+
+
+
+
+## Database for MKS 937B Relay settings for CCG
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## SPNUM 	-	Relay channel, 1-12
+
+# Scan 
+record(bo, "XF:23ID-VA:X01{CCG:02}DB:Rly7Scan-Cmd_")
+{
+	field(DESC, "CCG  Rly Scan")
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:Rly7Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{CCG:02}DB:Rly7Scan-Calc_")
+{
+        field(DESC, "Scan Calc")
+        field(CALC, "(A<B)?(A+C):D")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Rly7Scan-Calc_")
+        field(INPB, "7")
+        field(INPC, "1")
+        field(INPD, "1")
+        field(OUT,  "XF:23ID-VA:X01{CCG:02}DB:Rly7Scan-FOut_.SELN")
+        field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:Rly7Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{CCG:02}DB:Rly7Scan-FOut_")
+{
+        field(DESC, "Scan Fanout")
+        field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{CCG:02}P:Rly7-RB")
+        field(LNK2, "XF:23ID-VA:X01{CCG:02}P:Rly7Hyst-RB")
+        field(LNK3, "XF:23ID-VA:X01{CCG:02}Dir:Rly7-Sts")
+        field(LNK4, "XF:23ID-VA:X01{CCG:02}Enbl:Rly7-Sts")
+        field(LNK5, "XF:23ID-VA:X01{CCG:02}Sts:Rly7-Sts")
+}
+
+# Get/Set a setpoint for relay
+record(ai, "XF:23ID-VA:X01{CCG:02}P:Rly7-RB")
+{
+	field(DESC, "Get RLY7 SP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSP(253,7) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "5.0E-3")
+	field(LOPR, "2.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:Rly7-SP")
+{
+	field(DESC, "Set RLY7 SP")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSP(253,7) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Rly7-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(DRVH, "5.0E-3")
+	field(DRVL, "2.0E-10")
+	field(EGU,  "Torr")
+}
+
+# Get/Set a hysteresis for relay
+record(ai, "XF:23ID-VA:X01{CCG:02}P:Rly7Hyst-RB")
+{
+	field(DESC, "Get RLY7 Hys")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSH(253,7) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "7.5E-3")
+	field(LOPR, "3.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:Rly7Hyst-SP")
+{
+	field(DESC, "Set RLY7 Hys")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSH(253,7) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Rly7Hyst-RB")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "7.5E-3")
+	field(DRVL, "3.0E-10")
+}
+
+# Get relay direction
+record(bi, "XF:23ID-VA:X01{CCG:02}Dir:Rly7-Sts")
+{
+	field(DESC, "Get RLY7 Dir")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSD(253,7) P0")
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+# Get/Set enable status for relay
+record(mbbi, "XF:23ID-VA:X01{CCG:02}Enbl:Rly7-Sts")
+{
+	field(DESC, "Get RLY7 Enable Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getEN(253,7) P0")
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:02}Enbl:Rly7-Sel")
+{
+	field(DESC, "Set RLY7 Enable")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setEN(253,7) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")  
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}Enbl:Rly7-Sts")     
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+# Get the setpoint status
+record(bi, "XF:23ID-VA:X01{CCG:02}Sts:Rly7-Sts")
+{
+	field(DESC, "Get RLY7 Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSS(253,7) P0")
+	field(ZNAM, "CLEAR")
+	field(ONAM, "SET")	
+}
+
+
+
+
+
+## Database for MKS 937B Relay settings for CCG
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## SPNUM 	-	Relay channel, 1-12
+
+# Scan 
+record(bo, "XF:23ID-VA:X01{CCG:02}DB:Rly8Scan-Cmd_")
+{
+	field(DESC, "CCG  Rly Scan")
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:Rly8Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{CCG:02}DB:Rly8Scan-Calc_")
+{
+        field(DESC, "Scan Calc")
+        field(CALC, "(A<B)?(A+C):D")
+        field(INPA, "XF:23ID-VA:X01{CCG:02}DB:Rly8Scan-Calc_")
+        field(INPB, "7")
+        field(INPC, "1")
+        field(INPD, "1")
+        field(OUT,  "XF:23ID-VA:X01{CCG:02}DB:Rly8Scan-FOut_.SELN")
+        field(FLNK, "XF:23ID-VA:X01{CCG:02}DB:Rly8Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{CCG:02}DB:Rly8Scan-FOut_")
+{
+        field(DESC, "Scan Fanout")
+        field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{CCG:02}P:Rly8-RB")
+        field(LNK2, "XF:23ID-VA:X01{CCG:02}P:Rly8Hyst-RB")
+        field(LNK3, "XF:23ID-VA:X01{CCG:02}Dir:Rly8-Sts")
+        field(LNK4, "XF:23ID-VA:X01{CCG:02}Enbl:Rly8-Sts")
+        field(LNK5, "XF:23ID-VA:X01{CCG:02}Sts:Rly8-Sts")
+}
+
+# Get/Set a setpoint for relay
+record(ai, "XF:23ID-VA:X01{CCG:02}P:Rly8-RB")
+{
+	field(DESC, "Get RLY8 SP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSP(253,8) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "5.0E-3")
+	field(LOPR, "2.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:Rly8-SP")
+{
+	field(DESC, "Set RLY8 SP")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSP(253,8) P0")
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Rly8-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(DRVH, "5.0E-3")
+	field(DRVL, "2.0E-10")
+	field(EGU,  "Torr")
+}
+
+# Get/Set a hysteresis for relay
+record(ai, "XF:23ID-VA:X01{CCG:02}P:Rly8Hyst-RB")
+{
+	field(DESC, "Get RLY8 Hys")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSH(253,8) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "7.5E-3")
+	field(LOPR, "3.0E-10")
+}
+
+record(ao, "XF:23ID-VA:X01{CCG:02}P:Rly8Hyst-SP")
+{
+	field(DESC, "Set RLY8 Hys")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSH(253,8) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}P:Rly8Hyst-RB")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "7.5E-3")
+	field(DRVL, "3.0E-10")
+}
+
+# Get relay direction
+record(bi, "XF:23ID-VA:X01{CCG:02}Dir:Rly8-Sts")
+{
+	field(DESC, "Get RLY8 Dir")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSD(253,8) P0")
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+# Get/Set enable status for relay
+record(mbbi, "XF:23ID-VA:X01{CCG:02}Enbl:Rly8-Sts")
+{
+	field(DESC, "Get RLY8 Enable Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getEN(253,8) P0")
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{CCG:02}Enbl:Rly8-Sel")
+{
+	field(DESC, "Set RLY8 Enable")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setEN(253,8) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")  
+	field(FLNK, "XF:23ID-VA:X01{CCG:02}Enbl:Rly8-Sts")     
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+# Get the setpoint status
+record(bi, "XF:23ID-VA:X01{CCG:02}Sts:Rly8-Sts")
+{
+	field(DESC, "Get RLY8 Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSS(253,8) P0")
+	field(ZNAM, "CLEAR")
+	field(ONAM, "SET")	
+}
+
+
+
+
+
+## Database for MKS 937B settings for Pirani and Convection Pirani Gauges
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## CHAN 	-	PR channel, 1-6
+
+# Get pressure status
+record(stringin, "XF:23ID-VA:X01{TCG:01}P:Raw-I")
+{
+	field(DESC, "Raw Pr Reading")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto pStat(253,5) P0")
+	field(SCAN, "1 second")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}P:Stat-ASub_")
+}
+
+# Calc for enabling/disabling presSsure reading
+record(aSub, "XF:23ID-VA:X01{TCG:01}P:Stat-ASub_")
+{
+	field(DESC, "Raw Pr Proc")
+	field(INAM, "asubInit")
+	field(SNAM, "asubPressure")
+	field(INPA, "XF:23ID-VA:X01{TCG:01}P:Raw-I MSS")
+	field(FTA,  "STRING")
+	field(NOA,  "20")	
+	field(OUTA, "XF:23ID-VA:X01{TCG:01}P-I PP MS")
+	field(FTVA, "DOUBLE")
+	field(NOVA, "1")
+	field(OUTB, "XF:23ID-VA:X01{TCG:01}P-Sts PP MS")
+	field(FTVB, "SHORT")
+	field(NOVB, "1")
+}
+
+# Get pressure status
+record(mbbi, "XF:23ID-VA:X01{TCG:01}P-Sts")
+{
+	field(DESC, "Pressure Status")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}DB:SV-Calc_")
+	field(ZRST, "OK")
+	field(ONST, "LO<E-11")
+	field(TWST, "LO<E-04")
+	field(THST, "LO<E-03")
+	field(FRST, "ATM")
+	field(FVST, "OFF")
+	field(SXST, "RP_OFF")
+	field(SVST, "WAIT")
+	field(EIST, "CTRL_OFF")
+	field(NIST, "PROT_OFF")
+	field(TEST, "MISCONN")
+	field(ELST, "NOGAUGE")
+	
+	field(UNSV, "INVALID")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "INVALID")
+  	field(TWSV, "NO_ALARM")
+	field(THSV, "NO_ALARM")
+	field(FRSV, "MAJOR")
+	field(FVSV, "MAJOR")
+	field(SXSV, "INVALID")
+	field(SVSV, "NO_ALARM")
+	field(EISV, "INVALID")
+	field(NISV, "INVALID")
+	field(TESV, "INVALID")
+	field(ELSV, "INVALID")
+}
+
+# Read pressure 
+record(ai, "XF:23ID-VA:X01{TCG:01}P-I")
+{
+	field(DESC, "Pressure Reading")
+	field(EGU,  "Torr")
+	field(PREC, "2")
+	field(HOPR, "1.0E1")
+	field(LOPR, "1.0E-4")	
+	field(HIGH, "1.0E-2")
+	field(HSV,  "MAJOR")
+}
+
+# Get severity
+record(calc, "XF:23ID-VA:X01{TCG:01}DB:SV-Calc_")
+{
+        field(DESC, "Severity Calc")
+        field(INPA, "XF:23ID-VA:X01{TCG:01}P-Sts MSS NPP")
+        field(INPB, "XF:23ID-VA:X01{TCG:01}P-I MSS NPP")
+}
+
+# Calc if pressure is at ATM
+record(calc, "XF:23ID-VA:X01{TCG:01}P:Atm-Calc_") 
+{
+	field(DESC, "ATM Pressure Calc")
+	field(INPA, "XF:23ID-VA:X01{TCG:01}P-I MSS")
+	field(CALC, "(A>1E+2)?1:0")
+}
+
+# Calc if pressure is less than 1E-2
+record(calc, "XF:23ID-VA:X01{TCG:01}P:Zro-Calc_") 
+{
+	field(DESC, "Zero Pressure Calc")
+	field(INPA, "XF:23ID-VA:X01{TCG:01}P-I MSS")
+	field(CALC, "(A<1E-2 && A>5E-4)?1:0")
+}
+
+## Scan records
+record(bo, "XF:23ID-VA:X01{TCG:01}DB:Scan-Cmd_")
+{
+        field(DESC, "Scan Record")
+        field(SCAN, "5 second")
+        field(FLNK,  "XF:23ID-VA:X01{TCG:01}DB:Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{TCG:01}DB:Scan-Calc_") 
+{
+	field(DESC, "Scan Calc")
+	field(CALC, "(A<B)?(A+C):D")
+	field(INPA, "XF:23ID-VA:X01{TCG:01}DB:Scan-Calc_")
+	field(INPB, "5")
+	field(INPC, "1")
+	field(INPD, "1")
+	field(OUT,  "XF:23ID-VA:X01{TCG:01}DB:Scan-FOut_.SELN")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}DB:Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{TCG:01}DB:Scan-FOut_")
+{
+	field(DESC, "Scan Fanout")
+	field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{TCG:01}Pwr-Sts")
+	field(LNK2, "XF:23ID-VA:X01{TCG:01}P:Atm-RB")
+	field(LNK3, "XF:23ID-VA:X01{TCG:01}Sts:AutoZro-Sts")
+	field(LNK4, "XF:23ID-VA:X01{TCG:01}Type:Gas-Sts")
+}	
+
+# Get/Set channel power status
+record(bi, "XF:23ID-VA:X01{TCG:01}Pwr-Sts") 
+{
+	field(DESC, "Power Status")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getChanPower(253,5) P0")
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+}
+
+record(bo, "XF:23ID-VA:X01{TCG:01}Pwr-Cmd") 
+{
+	field(DESC, "Turn On/Off Power")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setChanPower(253,5) P0")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}Pwr-Sts")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZNAM, "Off")
+	field(ONAM, "On")
+}
+
+## Get/Set an atmopheric pressure to perfrom ATM calibration
+record(ai, "XF:23ID-VA:X01{TCG:01}P:Atm-RB") 
+{
+	field(DESC, "Get ATM Pr")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getATM(253,5) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+}
+
+record(ao, "XF:23ID-VA:X01{TCG:01}P:Atm-SP") 
+{
+	field(DESC, "Send ATM Pr")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setATM(253,5) P0")
+	field(SDIS, "XF:23ID-VA:X01{TCG:01}P:Atm-Calc_ PP")
+	field(DISV, "0")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}P:Atm-RB")
+	field(ASG,  "VAWRITE")
+	field(EGU,  "Torr")
+	field(PREC, "2")
+	field(HOPR, "1.0E+3")
+	field(LOPR, "1.0E+1")	
+}
+
+# Get/Set an autozero control for PR/CP, or disable autozero
+record(mbbi, "XF:23ID-VA:X01{TCG:01}Sts:AutoZro-Sts") 
+{
+	field(DESC, "Autozero Status")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getAutoZero(253,5) P0")
+	field(ZRST, "NA")
+	field(ONST, "A1")
+	field(TWST, "B1")
+}
+
+record(mbbo, "XF:23ID-VA:X01{TCG:01}Cmd:AutoZro-Sel") 
+{
+	field(DESC, "Autozero Status")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto setAutoZero(253,5) P0")
+	field(SDIS, "XF:23ID-VA:X01{TCG:01}P:Zro-Calc_ PP") 
+	field(DISV, "0")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}Sts:AutoZro-Sts")
+	field(ZRST, "NA")
+	field(ONST, "A1")
+	field(TWST, "B1")
+}
+
+record(mbbi, "XF:23ID-VA:X01{TCG:01}Type:Gas-Sts") 
+{
+	field(DESC, "Get Gastype")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getGasType(253,5) P0")
+	field(ZRST, "N2")
+	field(ONST, "He")
+	field(TWST, "Ar")
+}
+
+# Zero a PR/CP
+record(bo, "XF:23ID-VA:X01{TCG:01}Cmd:Zro-Cmd") 
+{
+	field(DESC, "Zero PR/CP")
+	field(DTYP, "stream")
+	field(OUT,  "@mks937b.proto zeroTCG(253,5) P0")
+	field(SDIS, "XF:23ID-VA:X01{TCG:01}P:Zro-Calc_ PP") 
+	field(DISV, "0")
+	field(ZNAM, "NAK")
+	field(ONAM, "OK")
+}
+## Database for MKS 937B Relay settings for Pirani
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## SPNUM 	-	Relay channel, 1-12
+
+# Scan 
+record(bo, "XF:23ID-VA:X01{TCG:01}DB:Rly9Scan-Cmd_")
+{
+	field(DESC, "CCG  Rly Scan")
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}DB:Rly9Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{TCG:01}DB:Rly9Scan-Calc_")
+{
+        field(DESC, "Scan Calc")
+        field(CALC, "(A<B)?(A+C):D")
+        field(INPA, "XF:23ID-VA:X01{TCG:01}DB:Rly9Scan-Calc_")
+        field(INPB, "7")
+        field(INPC, "1")
+        field(INPD, "1")
+        field(OUT,  "XF:23ID-VA:X01{TCG:01}DB:Rly9Scan-FOut_.SELN")
+        field(FLNK, "XF:23ID-VA:X01{TCG:01}DB:Rly9Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{TCG:01}DB:Rly9Scan-FOut_")
+{
+        field(DESC, "Scan Fanout")
+        field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{TCG:01}P:Rly9-RB")
+        field(LNK2, "XF:23ID-VA:X01{TCG:01}P:Rly9Hyst-RB")
+        field(LNK3, "XF:23ID-VA:X01{TCG:01}Dir:Rly9-Sts")
+        field(LNK4, "XF:23ID-VA:X01{TCG:01}Enbl:Rly9-Sts")
+        field(LNK5, "XF:23ID-VA:X01{TCG:01}Sts:Rly9-Sts")
+}
+
+# Get/Set a setpoint for relay
+record(ai, "XF:23ID-VA:X01{TCG:01}P:Rly9-RB")
+{
+	field(DESC, "Get RLY9 SP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSP(253,9) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "1.0E-1")
+	field(LOPR, "2.0E-3")
+}
+
+record(ao, "XF:23ID-VA:X01{TCG:01}P:Rly9-SP")
+{
+	field(DESC, "Set RLY9 SP")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSP(253,9) P0")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}P:Rly9-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(DRVH, "1.0E-1")
+	field(DRVL, "2.0E-3")
+	field(EGU,  "Torr")
+}
+
+# Set/Get a hysteresis for relay
+record(ai, "XF:23ID-VA:X01{TCG:01}P:Rly9Hyst-RB")
+{
+	field(DESC, "Get RLY9 Hys")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSH(253,9) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "1.5E-1")
+	field(LOPR, "3.0E-3")
+}
+
+record(ao, "XF:23ID-VA:X01{TCG:01}P:Rly9Hyst-SP")
+{
+	field(DESC, "Set RLY9 Hys")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSH(253,9) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}P:Rly9Hyst-RB")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "1.5E-1")
+	field(DRVL, "3.0E-3")
+}
+
+# Set/Get the direction for relay
+record(bi, "XF:23ID-VA:X01{TCG:01}Dir:Rly9-Sts")
+{
+	field(DESC, "Get RLY9 Dir")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSD(253,9) P0")
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+record(bo, "XF:23ID-VA:X01{TCG:01}Dir:Rly9-Sel")
+{
+	field(DESC, "Set RLY9 Dir")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSD(253,9) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}Dir:Rly9-Sts")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+# Set/Get enable status for relay
+record(mbbi, "XF:23ID-VA:X01{TCG:01}Enbl:Rly9-Sts")
+{
+	field(DESC, "Get RLY9 Enable Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getEN(253,9) P0")
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{TCG:01}Enbl:Rly9-Sel")
+{
+	field(DESC, "Set RLY9 Enable")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setEN(253,9) P0")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}Enbl:Rly9-Sts")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+# Get the setpoint status
+record(bi, "XF:23ID-VA:X01{TCG:01}Sts:Rly9-Sts")
+{
+	field(DESC, "Get RLY9 Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSS(253,9) P0")
+	field(ZNAM, "CLEAR")
+	field(ONAM, "SET")	
+}
+
+
+
+
+
+
+
+
+
+## Database for MKS 937B Relay settings for Pirani
+## Mar 23, 2011, BNL
+
+## Substitutions:
+## Sys		-	System
+## Cntl		-	Gauge controller name
+## Dev		-	Gauge name
+## ADR		- 	Device address
+## PORT		-	IP or Serial port name
+## SPNUM 	-	Relay channel, 1-12
+
+# Scan 
+record(bo, "XF:23ID-VA:X01{TCG:01}DB:Rly10Scan-Cmd_")
+{
+	field(DESC, "CCG  Rly Scan")
+	field(SCAN, "5 second")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}DB:Rly10Scan-Calc_")
+}
+
+# Calc the sequence for scan
+record(calcout, "XF:23ID-VA:X01{TCG:01}DB:Rly10Scan-Calc_")
+{
+        field(DESC, "Scan Calc")
+        field(CALC, "(A<B)?(A+C):D")
+        field(INPA, "XF:23ID-VA:X01{TCG:01}DB:Rly10Scan-Calc_")
+        field(INPB, "7")
+        field(INPC, "1")
+        field(INPD, "1")
+        field(OUT,  "XF:23ID-VA:X01{TCG:01}DB:Rly10Scan-FOut_.SELN")
+        field(FLNK, "XF:23ID-VA:X01{TCG:01}DB:Rly10Scan-FOut_")
+}
+
+# Fanout record
+record(fanout, "XF:23ID-VA:X01{TCG:01}DB:Rly10Scan-FOut_")
+{
+        field(DESC, "Scan Fanout")
+        field(SELM, "Specified")
+	field(LNK1, "XF:23ID-VA:X01{TCG:01}P:Rly10-RB")
+        field(LNK2, "XF:23ID-VA:X01{TCG:01}P:Rly10Hyst-RB")
+        field(LNK3, "XF:23ID-VA:X01{TCG:01}Dir:Rly10-Sts")
+        field(LNK4, "XF:23ID-VA:X01{TCG:01}Enbl:Rly10-Sts")
+        field(LNK5, "XF:23ID-VA:X01{TCG:01}Sts:Rly10-Sts")
+}
+
+# Get/Set a setpoint for relay
+record(ai, "XF:23ID-VA:X01{TCG:01}P:Rly10-RB")
+{
+	field(DESC, "Get RLY10 SP")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSP(253,10) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "1.0E-1")
+	field(LOPR, "2.0E-3")
+}
+
+record(ao, "XF:23ID-VA:X01{TCG:01}P:Rly10-SP")
+{
+	field(DESC, "Set RLY10 SP")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSP(253,10) P0")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}P:Rly10-RB")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(DRVH, "1.0E-1")
+	field(DRVL, "2.0E-3")
+	field(EGU,  "Torr")
+}
+
+# Set/Get a hysteresis for relay
+record(ai, "XF:23ID-VA:X01{TCG:01}P:Rly10Hyst-RB")
+{
+	field(DESC, "Get RLY10 Hys")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSH(253,10) P0")
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(HOPR, "1.5E-1")
+	field(LOPR, "3.0E-3")
+}
+
+record(ao, "XF:23ID-VA:X01{TCG:01}P:Rly10Hyst-SP")
+{
+	field(DESC, "Set RLY10 Hys")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSH(253,10) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}P:Rly10Hyst-RB")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(PREC, "2")
+	field(EGU,  "Torr")
+	field(DRVH, "1.5E-1")
+	field(DRVL, "3.0E-3")
+}
+
+# Set/Get the direction for relay
+record(bi, "XF:23ID-VA:X01{TCG:01}Dir:Rly10-Sts")
+{
+	field(DESC, "Get RLY10 Dir")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSD(253,10) P0")
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+record(bo, "XF:23ID-VA:X01{TCG:01}Dir:Rly10-Sel")
+{
+	field(DESC, "Set RLY10 Dir")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setSD(253,10) P0")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}Dir:Rly10-Sts")
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZNAM, "BELOW >Pr")
+	field(ONAM, "ABOVE <Pr")	
+}
+
+# Set/Get enable status for relay
+record(mbbi, "XF:23ID-VA:X01{TCG:01}Enbl:Rly10-Sts")
+{
+	field(DESC, "Get RLY10 Enable Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getEN(253,10) P0")
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+record(mbbo, "XF:23ID-VA:X01{TCG:01}Enbl:Rly10-Sel")
+{
+	field(DESC, "Set RLY10 Enable")
+	field(DTYP, "stream")
+	field(OUT, "@mks937b.proto setEN(253,10) P0")
+	field(FLNK, "XF:23ID-VA:X01{TCG:01}Enbl:Rly10-Sts")
+	field(DISV, "0")
+	field(SDIS, "XF:23ID-VA:X01{VGC:01}Lck:Par-Sts")       
+	field(ASG,  "VAWRITE")
+	info(autosaveFields_pass0, "VAL")
+
+	field(ZRST, "CLEAR")
+	field(ONST, "SET")	
+	field(TWST, "ENABLE")
+}
+
+# Get the setpoint status
+record(bi, "XF:23ID-VA:X01{TCG:01}Sts:Rly10-Sts")
+{
+	field(DESC, "Get RLY10 Stat")
+	field(DTYP, "stream")
+	field(INP,  "@mks937b.proto getSS(253,10) P0")
+	field(ZNAM, "CLEAR")
+	field(ONAM, "SET")	
+}
+
+
+
+
+
+
+
+
+

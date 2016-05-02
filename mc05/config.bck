@@ -1,0 +1,4 @@
+NAME=mc05
+USER=softioc
+PORT=4010
+HOST=xf23id1-ioc1

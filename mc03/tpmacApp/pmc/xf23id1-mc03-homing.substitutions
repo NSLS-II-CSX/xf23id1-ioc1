@@ -1,0 +1,24 @@
+file "home_to_enc_ref_template.pmc" 
+{
+
+# M3-A
+pattern
+{ AXIS,   PLC,  SERVO,  TIMER }
+{ 1,      8,    701,    5511  }
+{ 2,      9,    702,    5512  }
+{ 3,      10,    703,    5611  }
+
+}
+
+file "home_to_limit_template.pmc" 
+{
+
+# Slt:3 (ADC 4-blade slits)
+pattern
+{ AXIS,   PLC,  SERVO,  TIMER }
+{ 4,      11,    704,    5612  }
+{ 5,      12,    711,    5711  }
+{ 6,      13,    712,    5712  }
+{ 7,      14,    713,    5811  }
+
+}

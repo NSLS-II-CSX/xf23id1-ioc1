@@ -1,0 +1,18 @@
+record(bi, "$(Sys)$(Dev)Sts:EncLoss-Sts") {
+  field(DESC, "Encoder Loss Status")
+  field(DTYP, "stream")
+  field(INP, "@devPmacStreamSAI.proto readVar($(VARSTS),u) $(ASYNPORT)")
+  field(ONAM, "Lost")
+  field(ZNAM, "OK")
+  field(OSV, "MAJOR")
+  field(ZSV, "NO_ALARM")
+  field(SCAN, "$(SCAN)")
+}
+
+record(stringout, "$(Sys)$(Dev)Cmd:EncLoss-Cmd") {
+  field(DESC, "Clear Encoder Loss Status")
+  field(DTYP, "stream")
+  field(VAL, "$(VARCLR)=1")
+  field(OUT, "@devPmacStreamSAI.proto sendCommand(%s) $(ASYNPORT)")
+}
+

@@ -1,0 +1,43 @@
+# JOE state file v1.0
+search
+	backwards 0
+	ignore 0
+	replace 0
+	block_restrict 0
+done
+macros
+done
+files
+	"/tmp/hg-editor-u6kHZb.txt\n"
+	"/tmp/hg-editor-Q4sGar.txt\n"
+	"/tmp/hg-editor-nx7G7G.txt\n"
+	"/tmp/hg-editor-nx7G7G.txt\n"
+	"/tmp/hg-editor-Beitwq.txt\n"
+done
+find
+done
+replace
+done
+run
+done
+build
+done
+grep
+done
+cmd
+done
+math
+done
+yank
+	"i"
+	"i"
+	"x"
+	"s"
+	"tit"
+done
+file_pos
+	0 "/tmp/hg-editor-u6kHZb.txt"
+	0 "/tmp/hg-editor-Q4sGar.txt"
+	0 "/tmp/hg-editor-nx7G7G.txt"
+	0 "/tmp/hg-editor-Beitwq.txt"
+done

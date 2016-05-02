@@ -1,0 +1,4 @@
+NAME=rga-01
+PORT=8001
+HOST=xf23id1-ioc1
+USER=softioc

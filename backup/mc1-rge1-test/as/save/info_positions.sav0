@@ -1,0 +1,41 @@
+# autosave R5.0	Automatically generated - DO NOT MODIFY - 140309-095113
+XF:23ID-Test{Dev-Ax:X}-Mtr.DVAL 2.903
+XF:23ID-Test{Dev-Ax:X}-Mtr.DIR 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.DHLM 5
+XF:23ID-Test{Dev-Ax:X}-Mtr.DLLM -5
+XF:23ID-Test{Dev-Ax:X}-Mtr.TWV 1
+XF:23ID-Test{Dev-Ax:X}-Mtr.SREV 6400
+XF:23ID-Test{Dev-Ax:X}-Mtr.MRES 0.00015625
+XF:23ID-Test{Dev-Ax:X}-Mtr.ERES 0.00015625
+XF:23ID-Test{Dev-Ax:X}-Mtr.RRES 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.VBAS 200
+XF:23ID-Test{Dev-Ax:X}-Mtr.VELO 250
+XF:23ID-Test{Dev-Ax:X}-Mtr.VMAX 500
+XF:23ID-Test{Dev-Ax:X}-Mtr.ACCL 0.1
+XF:23ID-Test{Dev-Ax:X}-Mtr.BDST 0.1
+XF:23ID-Test{Dev-Ax:X}-Mtr.BVEL 250
+XF:23ID-Test{Dev-Ax:X}-Mtr.BACC 0.1
+XF:23ID-Test{Dev-Ax:X}-Mtr.RDBD 0.00015625
+XF:23ID-Test{Dev-Ax:X}-Mtr.DESC test axis 4 demo
+XF:23ID-Test{Dev-Ax:X}-Mtr.EGU mm
+XF:23ID-Test{Dev-Ax:X}-Mtr.RTRY 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.UEIP 1
+XF:23ID-Test{Dev-Ax:X}-Mtr.URIP 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.DLY 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.RDBL 
+XF:23ID-Test{Dev-Ax:X}-Mtr.PREC 9
+XF:23ID-Test{Dev-Ax:X}-Mtr.DISA 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.DISP 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.FOFF 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.OFF 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.FRAC 1
+XF:23ID-Test{Dev-Ax:X}-Mtr.OMSL 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.JVEL 40000
+XF:23ID-Test{Dev-Ax:X}-Mtr.JAR 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.PCOF 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.ICOF 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.DCOF 0
+XF:23ID-Test{Dev-Ax:X}-Mtr.HVEL 200
+XF:23ID-Test{Dev-Ax:X}-Mtr.NTM 1
+XF:23ID-Test{Dev-Ax:X}-Mtr.NTMF 2
+<END>

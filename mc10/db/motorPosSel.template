@@ -1,0 +1,101 @@
+record(seq, "$(Sys)$(Dev)Pos-Sel_"){
+  field(DOL1, "$(Sys)$(Dev)Val:1-SP")
+  field(DOL2, "$(Sys)$(Dev)Val:2-SP")
+  field(DOL3, "$(Sys)$(Dev)Val:3-SP")
+  field(DOL4, "$(Sys)$(Dev)Val:4-SP")
+  field(DOL5, "$(Sys)$(Dev)Val:5-SP")
+  field(DOL6, "$(Sys)$(Dev)Val:6-SP")
+  field(DOL7, "$(Sys)$(Dev)Val:7-SP")
+  field(DOL8, "$(Sys)$(Dev)Val:8-SP")
+  field(DOL9, "$(Sys)$(Dev)Val:9-SP")
+  field(DOLA, "$(Sys)$(Dev)Val:10-SP")
+  field(SELM, "Specified")
+  field(SELL, "$(Sys)$(Dev)Pos-Sel")
+  field(LNK1, "$(OLNK)")
+  field(LNK2, "$(OLNK)")
+  field(LNK3, "$(OLNK)")
+  field(LNK4, "$(OLNK)")
+  field(LNK5, "$(OLNK)")
+  field(LNK6, "$(OLNK)")
+  field(LNK7, "$(OLNK)")
+  field(LNK8, "$(OLNK)")
+  field(LNK9, "$(OLNK)")
+  field(LNKA, "$(OLNK)")
+  field(FLNK, "$(OLNK)")
+}
+
+record(mbbi, "$(Sys)$(Dev)Pos-Sel"){
+  field(ZRST, "Undefined")
+  field(ONST, "Value 1")
+  field(TWST, "Value 2")
+  field(THST, "Value 3")
+  field(FRST, "Value 4")
+  field(FVST, "Value 5")
+  field(SXST, "Value 6")
+  field(SVST, "Value 7")
+  field(EIST, "Value 8")
+  field(NIST, "Value 9")
+  field(TEST, "Value 10")
+  field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "ONST TWST THST FRST FVST SXST SVST EIST NIST TEST")
+}
+
+record(ai, "$(Sys)$(Dev)Val:1-SP"){
+  field(DESC, "Value 1")
+  #field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "VAL DESC")
+}
+
+record(ai, "$(Sys)$(Dev)Val:2-SP"){
+  field(DESC, "Value 2")
+  #field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "VAL DESC")
+}
+
+record(ai, "$(Sys)$(Dev)Val:3-SP"){
+  field(DESC, "Value 3")
+  #field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "VAL DESC")
+}
+
+record(ai, "$(Sys)$(Dev)Val:4-SP"){
+  field(DESC, "Value 4")
+  #field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "VAL DESC")
+}
+
+record(ai, "$(Sys)$(Dev)Val:5-SP"){
+  field(DESC, "Value 5")
+  #field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "VAL DESC")
+}
+
+record(ai, "$(Sys)$(Dev)Val:6-SP"){
+  field(DESC, "Value 6")
+  #field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "VAL DESC")
+}
+
+record(ai, "$(Sys)$(Dev)Val:7-SP"){
+  field(DESC, "Value 7")
+  #field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "VAL DESC")
+}
+
+record(ai, "$(Sys)$(Dev)Val:8-SP"){
+  field(DESC, "Value 8")
+  #field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "VAL DESC")
+}
+
+record(ai, "$(Sys)$(Dev)Val:9-SP"){
+  field(DESC, "Value 9")
+  #field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "VAL DESC")
+}
+
+record(ai, "$(Sys)$(Dev)Val:10-SP"){
+  field(DESC, "Value 10")
+  #field(FLNK, "$(Sys)$(Dev)Pos-Sel_")
+  info(autosaveFields, "VAL DESC")
+}

@@ -1,0 +1,1585 @@
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+
+## Pump controller general commands
+#  Model number
+record(stringin, "XF:23ID-VA:X01{IPC:01}ID:Model-I") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Model Number")
+	field(INP,  "@gammampc.proto getModel P1")
+	field(PINI, "YES")
+}
+
+# Firmware revision 
+record(stringin, "XF:23ID-VA:X01{IPC:01}Ver:Fw-I")
+{
+	field(DTYP, "stream")
+	field(DESC, "Firmware Version")
+	field(INP,  "@gammampc.proto getFirmware P1")
+	field(PINI, "YES")
+}
+
+record(bo, "XF:23ID-VA:X01{IPC:01}Rst:Soft-Cmd") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Reset")
+	field(OUT,  "@gammampc.proto masterReset P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ONAM, "RESET")
+	field(ASG,  "VAWRITE")
+}
+
+# Set pressure unit
+record(mbbo, "XF:23ID-VA:X01{IPC:01}EU-Sel") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Set Unit")
+	field(OUT,  "@gammampc.proto setUnit P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ZRST, "Torr")
+	field(ONST, "Mbar")
+	field(TWST, "Pascal")
+	field(ASG,  "VAWRITE")
+}
+
+# Get line frequency
+record(ai, "XF:23ID-VA:X01{IPC:01}Freq:Line-I") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Line Freq")
+	field(INP,  "@gammampc.proto getLineFreq P1")
+	field(PINI, "YES")
+}
+
+# Turn the cooling fan on/off
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:Fan-Cmd") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Set Fan")
+	field(OUT,  "@gammampc.proto setFan P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+	field(ZSV,  "MINOR")
+	field(OSV,  "NO_ALARM")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}Sts:Fan-Sts")
+}
+
+# Unlock/Lock keypad
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:KeyLck-Cmd") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Unlock/Lock Keypad")
+	field(OUT,  "@gammampc.proto setKeypadLock P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ZNAM, "UNLOCK")
+	field(ONAM, "LOCK")
+	field(ASG,  "VAWRITE")
+}
+
+# Is fan on
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:Fan-Sts") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Fan Status")
+	field(INP,  "@gammampc.proto getFan P1")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+	field(ZSV,  "MINOR")
+	field(OSV,  "NO_ALARM")
+	field(SCAN, "2 second")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}Mode:HV_Restart-Sts") 
+}
+
+# Set HV restart mode
+record(bo, "XF:23ID-VA:X01{IPC:01}Mode:HV_Restart-Cmd") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Set HV Restart Mode")
+	field(OUT,  "@gammampc.proto setHVERestart P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ZNAM, "DISABLE")
+	field(ONAM, "ENABLE")
+	field(ASG,  "VAWRITE")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}Mode:HV_Restart-Sts")
+}
+
+# Get HV restart mode
+record(bi, "XF:23ID-VA:X01{IPC:01}Mode:HV_Restart-Sts") 
+{
+	field(DTYP, "stream")
+	field(DESC, "HV Restart Mode")
+	field(INP,  "@gammampc.proto getHVERestart P1")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")
+	field(ZSV,  "NO_ALARM")
+	field(OSV,  "MAJOR")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}Evt:Log-I") 
+}
+
+# Set event number
+record(longout, "XF:23ID-VA:X01{IPC:01}Cnt:Evt-SP") 
+{
+	field(DESC, "Set Evt Number")
+	field(LOPR, "0")
+	field(HOPR, "50")
+}
+
+# Read event log
+record(stringin, "XF:23ID-VA:X01{IPC:01}Evt:Log-I") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Event Log")
+	field(INP,  "@gammampc.proto getEventLog(XF:23ID-VA:X01,{IPC:01}) P1")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}Evt:Last-I") 
+}
+
+#Read last event
+record(stringin, "XF:23ID-VA:X01{IPC:01}Evt:Last-I") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Last Event Log")
+	field(INP,  "@gammampc.proto getLastEvent P1")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts") 
+}
+
+# Clear event log
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:ClrLog-Cmd") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Clear Log")
+	field(OUT,  "@gammampc.proto clearEventLog P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ONAM, "CLEAR")
+	field(ASG,  "VAWRITE")
+}
+
+# Set communication mode
+record(mbbo, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sel") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Set Comm Mode")
+	field(OUT,  "@gammampc.proto setCommMode P1")
+	field(ZRST, "LOCAL")
+	field(ONST, "REMOTE")
+	field(TWST, "FULL")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+}
+
+# Get communication mode
+record(mbbi, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Comm Mode")
+	field(INP,  "@gammampc.proto getCommMode P1")
+	field(ZRST, "LOCAL")
+	field(ONST, "REMOTE")
+	field(TWST, "FULL")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}Sts:AutoRestart-Sts") 
+}
+
+# Set supplies to automatically restart on power up
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:AutoRestart-Cmd") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Set Auto Restart")
+	field(OUT,  "@gammampc.proto setAutostartPower P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ZNAM, "DISABLE")
+	field(ONAM, "ENABLE")
+	field(ASG,  "VAWRITE")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}Sts:AutoRestart-Sts")
+}
+
+# Read auto restart status
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:AutoRestart-Sts") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Auto Restart Sts")
+	field(INP,  "@gammampc.proto getAutostartPower P1")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")
+	field(ZSV,  "NO_ALARM")
+	field(OSV,  "MAJOR")
+	field(PINI, "YES")
+}
+
+# Read auto restart status of supply 2
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:AutoRestart2-Cmd") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Set Auto Restart2")
+	field(OUT,  "@gammampc.proto setAutostartPower2 P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ZNAM, "DISABLE")
+	field(ONAM, "ENABLE")
+	field(ASG,  "VAWRITE")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}Sts:AutoRestart2-Sts")
+}
+
+# Set supply two to auto restart on power up
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:AutoRestart2-Sts") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Auto Restart2 Sts")
+	field(INP,  "@gammampc.proto getAutostartPower2 P1")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")
+	field(ZSV,  "NO_ALARM")
+	field(OSV,  "MAJOR")
+	field(PINI, "YES")
+}
+
+
+
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+## CHAN	-	PS channel, 1, 2
+
+## Ion Pump basic
+# Read current
+record(ai, "XF:23ID-VA:X01{IP:01}I-I") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Current")
+	field(INP, "@gammampc.proto getCurrent(1) P1")
+	field(SCAN, "1 second")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}P-I") 
+}
+
+# Read pressure
+record(ai, "XF:23ID-VA:X01{IP:01}P-I") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Pressure")
+	field(INP, "@gammampc.proto getPressure(1) P1")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}E-I")
+}
+
+# Read voltage
+record(ai, "XF:23ID-VA:X01{IP:01}E-I") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Volt")
+	field(INP, "@gammampc.proto getVoltage(1) P1")
+	field(EGU, "Volts")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}Sts:SupplyRaw-Sts") 
+}
+
+# Get supply status
+record(mbbi, "XF:23ID-VA:X01{IP:01}Sts:SupplyRaw-Sts") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Raw Supply Status")
+	field(INP, "@gammampc.proto getSupplyStatus(1) P1")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}DB:SupplySts-Calc_")
+}
+
+record(calc, "XF:23ID-VA:X01{IP:01}DB:SupplySts-Calc_")
+{
+	field(DESC, "Supply Status Calc")
+	field(CALC, "A==77?7:A==78?8:FLOOR(A/11)")
+	field(INPA, "XF:23ID-VA:X01{IP:01}Sts:SupplyRaw-Sts NPP MS")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}Sts:Supply-Sts PP")
+}
+
+record(mbbi, "XF:23ID-VA:X01{IP:01}Sts:Supply-Sts") 
+{
+	field(DESC, "Supply Status")
+	field(INP, "XF:23ID-VA:X01{IP:01}DB:SupplySts-Calc_ NPP MS")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}DB:SupplyErr-Calc_ PP")
+	field(ZRST, "SAFECONN")
+	field(ONST, "RUNNING")
+	field(TWST, "COOLDOWN")
+	field(THST, "PUMP_ERROR")
+	field(FRST, "INTERLOCK")
+	field(FVST, "SHUT_DOWN")
+	field(SXST, "CALIBRATION")
+	field(SVST, "WAIT_TO_START")
+	field(EIST, "STANDBY")
+	field(ZRSV, "MAJOR")
+	field(ONSV, "NO_ALARM")
+	field(TWSV, "MAJOR")
+	field(THSV, "MAJOR")
+	field(FRSV, "MAJOR")
+	field(FVSV, "MAJOR")
+	field(SXSV, "MAJOR")
+	field(SVSV, "MINOR")
+	field(EISV, "MAJOR")
+}
+
+record(calc, "XF:23ID-VA:X01{IP:01}DB:SupplyErr-Calc_") 
+{
+	field(DESC, "Supply Code Calc")
+	field(INPA, "XF:23ID-VA:X01{IP:01}Sts:SupplyRaw-Sts NPP MS")
+	field(CALC, "A>=77?0: A%11")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}Err:Supply-Sts PP")
+}
+
+record(mbbi, "XF:23ID-VA:X01{IP:01}Err:Supply-Sts") 
+{
+	field(DESC, "Supply Error")
+	field(INP, "XF:23ID-VA:X01{IP:01}DB:SupplyErr-Calc_ NPP MS")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}Sts:HV-Sts") 
+	field(ZRST, "NO_ERROR")
+	field(ONST, "TOO_MANY_COOLDN")
+	field(TWST, "RUN_P_HIGH")
+	field(THST, "RUN_I_HIGH")
+	field(FRST, "START_P_HIGH")
+	field(FVST, "COOL_PUMP_PWR")
+	field(SXST, "COOL_SPLY_I")
+	field(SVST, "COOL_SHORT_CIRC")
+	field(EIST, "COOL_SPLY_MLFN")
+	field(NIST, "COOL_V_LOW")
+	field(TEST, "COOL_ARC_DETCT")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MAJOR")
+	field(TWSV, "MAJOR")
+	field(THSV, "MAJOR")
+	field(FRSV, "MAJOR")
+	field(FVSV, "MAJOR")
+	field(SXSV, "MAJOR")
+	field(SVSV, "MAJOR")
+	field(EISV, "MAJOR")
+	field(NISV, "MAJOR")
+	field(TESV, "MAJOR")
+}
+
+# Get pump size
+record(ai, "XF:23ID-VA:X01{IP:01}Size:Pump-RB") 
+{
+	field(DESC, "Pump Size")
+	field(DTYP, "stream")
+	field(INP, "@gammampc.proto getPumpSize(1) P1")
+	field(PINI, "YES")
+}
+
+# Set pump size
+record(ao, "XF:23ID-VA:X01{IP:01}Size:Pump-SP") 
+{
+	field(DESC, "Set Pump Size")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}Size:Pump-RB")
+	field(OUT, "@gammampc.proto setPumpSize(1) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(HOPR, "1200")
+	field(LOPR, "10")
+	field(ASG,  "VAWRITE")
+}
+
+# Get supply size
+record(bi, "XF:23ID-VA:X01{IP:01}Size:Supply-Sts") 
+{
+	field(DESC, "Supply Size")
+	field(DTYP, "stream")
+	field(INP, "@gammampc.proto getSupplySize(1) P1")
+	field(ZNAM, "MEDIUM")
+	field(ONAM, "LARGE")
+	field(ZSV,  "NO_ALARM")
+	field(OSV,  "MAJOR")
+	field(PINI, "YES")
+}
+
+# Get calibration factor
+record(ai, "XF:23ID-VA:X01{IP:01}Val:Cal-RB") 
+{
+	field(DESC, "Cal Factor")
+	field(DTYP, "stream")
+	field(INP, "@gammampc.proto getCalFactor(1) P1")
+	field(PREC, "2")
+	field(PINI, "YES")
+}
+
+# Set calibration factor
+record(ao, "XF:23ID-VA:X01{IP:01}Val:Cal-SP") 
+{
+	field(DESC, "Set Cal Factor")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}Val:Cal-RB")
+	field(OUT,  "@gammampc.proto setCalFactor(1) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(LOPR, "0")
+	field(HOPR, "9.99")
+	field(PREC, "2")
+	field(ASG,  "VAWRITE")
+}
+
+# Get high voltage output
+record(ai, "XF:23ID-VA:X01{IP:01}E:Max-RB") 
+{
+	field(DESC, "Max E")
+	field(DTYP, "stream")
+	field(INP, "@gammampc.proto getHVStrapping(1) P1")
+	field(EGU, "V")
+	field(PINI, "YES")
+}
+
+# Set display mode 
+record(mbbo, "XF:23ID-VA:X01{IP:01}Mode:Disp-Sel") 
+{
+	field(DESC, "Set Display")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setDisplayMode(1) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ZRST, "VOLTAGE")
+	field(ONST, "CURRENT")
+	field(TWST, "PRESSURE")
+	field(ASG,  "VAWRITE")
+}
+
+# Start/Stop pump
+record(bo, "XF:23ID-VA:X01{IP:01}Cmd:HV_On-Cmd") 
+{
+	field(DESC, "Start/Stop Pump")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setHVOn(1) P1")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}Sts:HV-Sts")
+	field(SDIS, "XF:23ID-VA:X01{IP:01}DB:HV-Calc_ PP")
+	field(DISV, "1")
+	field(ZNAM, "Stop")
+	field(ONAM, "Start")
+	field(ASG,  "VAWRITE")
+}
+
+record(bo, "XF:23ID-VA:X01{IP:01}Cmd:HV_Off-Cmd") 
+{
+	field(DESC, "Start/Stop Pump")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setHVOff(1) P1")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}Sts:HV-Sts") 
+	field(SDIS, "XF:23ID-VA:X01{IP:01}DB:HV-Calc_ PP")
+	field(DISV, "0")
+	field(ZNAM, "Stop")
+	field(ONAM, "Start")
+	field(ASG,  "VAWRITE")
+}
+
+# Calculation if HV command is valid
+record(calc, "XF:23ID-VA:X01{IP:01}DB:HV-Calc_")
+{
+	field(DESC, "HV On Calc")
+	field(INPA, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(INPB, "XF:23ID-VA:X01{IP:01}Sts:HV-Sts")
+	field(CALC, "A&&B")	
+}
+
+# Get current/pressure analog output 
+record(mbbi, "XF:23ID-VA:X01{IP:01}Mode:AnalogOut-Sts") 
+{
+	field(DESC, "Analog Out")
+	field(DTYP, "stream")
+	field(INP, "@gammampc.proto getAnalogOutMode(1) P1")
+	field(SCAN, "2 second")
+	field(ZRST, "LOG_P")
+	field(ONST, "LOG_I")
+	field(TWST, "V_PER_1_UA")
+	field(THST, "V_PER_10_UA")
+	field(FRST, "V_PER_100_UA")
+	field(FVST, "V_PER_1_MA")
+	field(SXST, "V_PER_10_MA")
+	field(SVST, "V_PER_50_MA")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MAJOR")
+	field(TWSV, "MAJOR")
+	field(THSV, "MAJOR")
+	field(FRSV, "MAJOR")
+	field(FVSV, "MAJOR")
+	field(SXSV, "MAJOR")
+	field(SVSV, "MAJOR")
+	field(PINI, "YES")
+}
+
+# Set current/pressure analog output 
+record(mbbo, "XF:23ID-VA:X01{IP:01}Mode:AnalogOut-Sel") 
+{
+	field(DESC, "Set Analog Out")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setAnalogoutMode(1) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ZRST, "LOG_P")
+	field(ONST, "LOG_I")
+	field(TWST, "V_PER_1_uA")
+	field(THST, "V_PER_10_uA")
+	field(FRST, "V_PER_100_uA")
+	field(FVST, "V_PER_1_mA")
+	field(SXST, "V_PER_10_mA")
+	field(SVST, "V_PER_50_mA")
+	field(FLNK, "XF:23ID-VA:X01{IP:01}Mode:AnalogOut-Sts")
+	field(ASG,  "VACWRITE")
+}
+
+# Get HV status
+record(bi, "XF:23ID-VA:X01{IP:01}Sts:HV-Sts") 
+{
+	field(DESC, "HV Status")
+	field(DTYP, "stream")
+	field(PINI, "YES")
+	field(INP, "@gammampc.proto getHVState(1) P1")
+	field(OSV, "NO_ALARM")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+	field(ZSV,  "MINOR")
+}
+
+# Set offset for high current metering
+record(longout, "XF:23ID-VA:X01{IP:01}Offset:I_Hi-SP") 
+{
+	field(DESC, "Set High I Offset")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setIHighOffset(1) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(LOPR, "-999")
+	field(HOPR, "999")
+	field(ASG,  "VAWRITE")
+	field(EGU,  "mA")
+}
+
+
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+## CHAN	-	PS channel, 1, 2
+
+## Ion Pump basic
+# Read current
+record(ai, "XF:23ID-VA:X01{IP:02}I-I") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Current")
+	field(INP, "@gammampc.proto getCurrent(2) P1")
+	field(SCAN, "1 second")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}P-I") 
+}
+
+# Read pressure
+record(ai, "XF:23ID-VA:X01{IP:02}P-I") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Pressure")
+	field(INP, "@gammampc.proto getPressure(2) P1")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}E-I")
+}
+
+# Read voltage
+record(ai, "XF:23ID-VA:X01{IP:02}E-I") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Volt")
+	field(INP, "@gammampc.proto getVoltage(2) P1")
+	field(EGU, "Volts")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}Sts:SupplyRaw-Sts") 
+}
+
+# Get supply status
+record(mbbi, "XF:23ID-VA:X01{IP:02}Sts:SupplyRaw-Sts") 
+{
+	field(DTYP, "stream")
+	field(DESC, "Raw Supply Status")
+	field(INP, "@gammampc.proto getSupplyStatus(2) P1")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}DB:SupplySts-Calc_")
+}
+
+record(calc, "XF:23ID-VA:X01{IP:02}DB:SupplySts-Calc_")
+{
+	field(DESC, "Supply Status Calc")
+	field(CALC, "A==77?7:A==78?8:FLOOR(A/11)")
+	field(INPA, "XF:23ID-VA:X01{IP:02}Sts:SupplyRaw-Sts NPP MS")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}Sts:Supply-Sts PP")
+}
+
+record(mbbi, "XF:23ID-VA:X01{IP:02}Sts:Supply-Sts") 
+{
+	field(DESC, "Supply Status")
+	field(INP, "XF:23ID-VA:X01{IP:02}DB:SupplySts-Calc_ NPP MS")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}DB:SupplyErr-Calc_ PP")
+	field(ZRST, "SAFECONN")
+	field(ONST, "RUNNING")
+	field(TWST, "COOLDOWN")
+	field(THST, "PUMP_ERROR")
+	field(FRST, "INTERLOCK")
+	field(FVST, "SHUT_DOWN")
+	field(SXST, "CALIBRATION")
+	field(SVST, "WAIT_TO_START")
+	field(EIST, "STANDBY")
+	field(ZRSV, "MAJOR")
+	field(ONSV, "NO_ALARM")
+	field(TWSV, "MAJOR")
+	field(THSV, "MAJOR")
+	field(FRSV, "MAJOR")
+	field(FVSV, "MAJOR")
+	field(SXSV, "MAJOR")
+	field(SVSV, "MINOR")
+	field(EISV, "MAJOR")
+}
+
+record(calc, "XF:23ID-VA:X01{IP:02}DB:SupplyErr-Calc_") 
+{
+	field(DESC, "Supply Code Calc")
+	field(INPA, "XF:23ID-VA:X01{IP:02}Sts:SupplyRaw-Sts NPP MS")
+	field(CALC, "A>=77?0: A%11")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}Err:Supply-Sts PP")
+}
+
+record(mbbi, "XF:23ID-VA:X01{IP:02}Err:Supply-Sts") 
+{
+	field(DESC, "Supply Error")
+	field(INP, "XF:23ID-VA:X01{IP:02}DB:SupplyErr-Calc_ NPP MS")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}Sts:HV-Sts") 
+	field(ZRST, "NO_ERROR")
+	field(ONST, "TOO_MANY_COOLDN")
+	field(TWST, "RUN_P_HIGH")
+	field(THST, "RUN_I_HIGH")
+	field(FRST, "START_P_HIGH")
+	field(FVST, "COOL_PUMP_PWR")
+	field(SXST, "COOL_SPLY_I")
+	field(SVST, "COOL_SHORT_CIRC")
+	field(EIST, "COOL_SPLY_MLFN")
+	field(NIST, "COOL_V_LOW")
+	field(TEST, "COOL_ARC_DETCT")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MAJOR")
+	field(TWSV, "MAJOR")
+	field(THSV, "MAJOR")
+	field(FRSV, "MAJOR")
+	field(FVSV, "MAJOR")
+	field(SXSV, "MAJOR")
+	field(SVSV, "MAJOR")
+	field(EISV, "MAJOR")
+	field(NISV, "MAJOR")
+	field(TESV, "MAJOR")
+}
+
+# Get pump size
+record(ai, "XF:23ID-VA:X01{IP:02}Size:Pump-RB") 
+{
+	field(DESC, "Pump Size")
+	field(DTYP, "stream")
+	field(INP, "@gammampc.proto getPumpSize(2) P1")
+	field(PINI, "YES")
+}
+
+# Set pump size
+record(ao, "XF:23ID-VA:X01{IP:02}Size:Pump-SP") 
+{
+	field(DESC, "Set Pump Size")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}Size:Pump-RB")
+	field(OUT, "@gammampc.proto setPumpSize(2) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(HOPR, "1200")
+	field(LOPR, "10")
+	field(ASG,  "VAWRITE")
+}
+
+# Get supply size
+record(bi, "XF:23ID-VA:X01{IP:02}Size:Supply-Sts") 
+{
+	field(DESC, "Supply Size")
+	field(DTYP, "stream")
+	field(INP, "@gammampc.proto getSupplySize(2) P1")
+	field(ZNAM, "MEDIUM")
+	field(ONAM, "LARGE")
+	field(ZSV,  "NO_ALARM")
+	field(OSV,  "MAJOR")
+	field(PINI, "YES")
+}
+
+# Get calibration factor
+record(ai, "XF:23ID-VA:X01{IP:02}Val:Cal-RB") 
+{
+	field(DESC, "Cal Factor")
+	field(DTYP, "stream")
+	field(INP, "@gammampc.proto getCalFactor(2) P1")
+	field(PREC, "2")
+	field(PINI, "YES")
+}
+
+# Set calibration factor
+record(ao, "XF:23ID-VA:X01{IP:02}Val:Cal-SP") 
+{
+	field(DESC, "Set Cal Factor")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}Val:Cal-RB")
+	field(OUT,  "@gammampc.proto setCalFactor(2) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(LOPR, "0")
+	field(HOPR, "9.99")
+	field(PREC, "2")
+	field(ASG,  "VAWRITE")
+}
+
+# Get high voltage output
+record(ai, "XF:23ID-VA:X01{IP:02}E:Max-RB") 
+{
+	field(DESC, "Max E")
+	field(DTYP, "stream")
+	field(INP, "@gammampc.proto getHVStrapping(2) P1")
+	field(EGU, "V")
+	field(PINI, "YES")
+}
+
+# Set display mode 
+record(mbbo, "XF:23ID-VA:X01{IP:02}Mode:Disp-Sel") 
+{
+	field(DESC, "Set Display")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setDisplayMode(2) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ZRST, "VOLTAGE")
+	field(ONST, "CURRENT")
+	field(TWST, "PRESSURE")
+	field(ASG,  "VAWRITE")
+}
+
+# Start/Stop pump
+record(bo, "XF:23ID-VA:X01{IP:02}Cmd:HV_On-Cmd") 
+{
+	field(DESC, "Start/Stop Pump")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setHVOn(2) P1")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}Sts:HV-Sts")
+	field(SDIS, "XF:23ID-VA:X01{IP:02}DB:HV-Calc_ PP")
+	field(DISV, "1")
+	field(ZNAM, "Stop")
+	field(ONAM, "Start")
+	field(ASG,  "VAWRITE")
+}
+
+record(bo, "XF:23ID-VA:X01{IP:02}Cmd:HV_Off-Cmd") 
+{
+	field(DESC, "Start/Stop Pump")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setHVOff(2) P1")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}Sts:HV-Sts") 
+	field(SDIS, "XF:23ID-VA:X01{IP:02}DB:HV-Calc_ PP")
+	field(DISV, "0")
+	field(ZNAM, "Stop")
+	field(ONAM, "Start")
+	field(ASG,  "VAWRITE")
+}
+
+# Calculation if HV command is valid
+record(calc, "XF:23ID-VA:X01{IP:02}DB:HV-Calc_")
+{
+	field(DESC, "HV On Calc")
+	field(INPA, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(INPB, "XF:23ID-VA:X01{IP:02}Sts:HV-Sts")
+	field(CALC, "A&&B")	
+}
+
+# Get current/pressure analog output 
+record(mbbi, "XF:23ID-VA:X01{IP:02}Mode:AnalogOut-Sts") 
+{
+	field(DESC, "Analog Out")
+	field(DTYP, "stream")
+	field(INP, "@gammampc.proto getAnalogOutMode(2) P1")
+	field(SCAN, "2 second")
+	field(ZRST, "LOG_P")
+	field(ONST, "LOG_I")
+	field(TWST, "V_PER_1_UA")
+	field(THST, "V_PER_10_UA")
+	field(FRST, "V_PER_100_UA")
+	field(FVST, "V_PER_1_MA")
+	field(SXST, "V_PER_10_MA")
+	field(SVST, "V_PER_50_MA")
+	field(ZRSV, "NO_ALARM")
+	field(ONSV, "MAJOR")
+	field(TWSV, "MAJOR")
+	field(THSV, "MAJOR")
+	field(FRSV, "MAJOR")
+	field(FVSV, "MAJOR")
+	field(SXSV, "MAJOR")
+	field(SVSV, "MAJOR")
+	field(PINI, "YES")
+}
+
+# Set current/pressure analog output 
+record(mbbo, "XF:23ID-VA:X01{IP:02}Mode:AnalogOut-Sel") 
+{
+	field(DESC, "Set Analog Out")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setAnalogoutMode(2) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ZRST, "LOG_P")
+	field(ONST, "LOG_I")
+	field(TWST, "V_PER_1_uA")
+	field(THST, "V_PER_10_uA")
+	field(FRST, "V_PER_100_uA")
+	field(FVST, "V_PER_1_mA")
+	field(SXST, "V_PER_10_mA")
+	field(SVST, "V_PER_50_mA")
+	field(FLNK, "XF:23ID-VA:X01{IP:02}Mode:AnalogOut-Sts")
+	field(ASG,  "VACWRITE")
+}
+
+# Get HV status
+record(bi, "XF:23ID-VA:X01{IP:02}Sts:HV-Sts") 
+{
+	field(DESC, "HV Status")
+	field(DTYP, "stream")
+	field(PINI, "YES")
+	field(INP, "@gammampc.proto getHVState(2) P1")
+	field(OSV, "NO_ALARM")
+	field(ZNAM, "OFF")
+	field(ONAM, "ON")
+	field(ZSV,  "MINOR")
+}
+
+# Set offset for high current metering
+record(longout, "XF:23ID-VA:X01{IP:02}Offset:I_Hi-SP") 
+{
+	field(DESC, "Set High I Offset")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setIHighOffset(2) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(LOPR, "-999")
+	field(HOPR, "999")
+	field(ASG,  "VAWRITE")
+	field(EGU,  "mA")
+}
+
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+## CHAN	-	PS channel, 1, 2
+
+# Get setpoint configuration
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:Rly1-Sts") 
+{
+	field(DESC, "Setpoint Status")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}P:Rly1On-RB")
+	field(INP,  "@gammampc.proto getSetpoint(1,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SCAN, "5 second")
+	field(ZNAM, "Inactive")
+	field(ONAM, "Active")
+	field(PINI, "YES")
+}
+
+# Get setpoint supply
+record(mbbi, "XF:23ID-VA:X01{IPC:01}Chan:Rly1-Sts") 
+{
+	field(DESC, "SP Chan")
+	field(PINI, "YES")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+# Get setpoint on value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly1On-RB") 
+{
+	field(DESC, "SP On Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Get setpoint off value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly1Off-RB") 
+{
+	field(DESC, "SP Off Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Set setpoint configuration
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:Rly1-Cmd") 
+{
+	field(DESC, "Set Setpoint")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setSetpoint(1,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ASG, "VAWRITE")
+}
+
+# Set setpoint supply
+record(mbbo, "XF:23ID-VA:X01{IPC:01}Chan:Rly1-Sel") 
+{
+	field(DESC, "Set SP Chan")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly1On-SP") 
+{
+	field(DESC, "Set SP On Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+# Set setpoint off value
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly1Off-SP") 
+{
+	field(DESC, "Set SP Off Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+## CHAN	-	PS channel, 1, 2
+
+# Get setpoint configuration
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:Rly2-Sts") 
+{
+	field(DESC, "Setpoint Status")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}P:Rly2On-RB")
+	field(INP,  "@gammampc.proto getSetpoint(2,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SCAN, "5 second")
+	field(ZNAM, "Inactive")
+	field(ONAM, "Active")
+	field(PINI, "YES")
+}
+
+# Get setpoint supply
+record(mbbi, "XF:23ID-VA:X01{IPC:01}Chan:Rly2-Sts") 
+{
+	field(DESC, "SP Chan")
+	field(PINI, "YES")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+# Get setpoint on value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly2On-RB") 
+{
+	field(DESC, "SP On Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Get setpoint off value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly2Off-RB") 
+{
+	field(DESC, "SP Off Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Set setpoint configuration
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:Rly2-Cmd") 
+{
+	field(DESC, "Set Setpoint")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setSetpoint(2,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ASG, "VAWRITE")
+}
+
+# Set setpoint supply
+record(mbbo, "XF:23ID-VA:X01{IPC:01}Chan:Rly2-Sel") 
+{
+	field(DESC, "Set SP Chan")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly2On-SP") 
+{
+	field(DESC, "Set SP On Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+# Set setpoint off value
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly2Off-SP") 
+{
+	field(DESC, "Set SP Off Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+## CHAN	-	PS channel, 1, 2
+
+# Get setpoint configuration
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:Rly3-Sts") 
+{
+	field(DESC, "Setpoint Status")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}P:Rly3On-RB")
+	field(INP,  "@gammampc.proto getSetpoint(3,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SCAN, "5 second")
+	field(ZNAM, "Inactive")
+	field(ONAM, "Active")
+	field(PINI, "YES")
+}
+
+# Get setpoint supply
+record(mbbi, "XF:23ID-VA:X01{IPC:01}Chan:Rly3-Sts") 
+{
+	field(DESC, "SP Chan")
+	field(PINI, "YES")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+# Get setpoint on value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly3On-RB") 
+{
+	field(DESC, "SP On Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Get setpoint off value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly3Off-RB") 
+{
+	field(DESC, "SP Off Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Set setpoint configuration
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:Rly3-Cmd") 
+{
+	field(DESC, "Set Setpoint")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setSetpoint(3,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ASG, "VAWRITE")
+}
+
+# Set setpoint supply
+record(mbbo, "XF:23ID-VA:X01{IPC:01}Chan:Rly3-Sel") 
+{
+	field(DESC, "Set SP Chan")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly3On-SP") 
+{
+	field(DESC, "Set SP On Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+# Set setpoint off value
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly3Off-SP") 
+{
+	field(DESC, "Set SP Off Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+## CHAN	-	PS channel, 1, 2
+
+# Get setpoint configuration
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:Rly4-Sts") 
+{
+	field(DESC, "Setpoint Status")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}P:Rly4On-RB")
+	field(INP,  "@gammampc.proto getSetpoint(4,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SCAN, "5 second")
+	field(ZNAM, "Inactive")
+	field(ONAM, "Active")
+	field(PINI, "YES")
+}
+
+# Get setpoint supply
+record(mbbi, "XF:23ID-VA:X01{IPC:01}Chan:Rly4-Sts") 
+{
+	field(DESC, "SP Chan")
+	field(PINI, "YES")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+# Get setpoint on value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly4On-RB") 
+{
+	field(DESC, "SP On Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Get setpoint off value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly4Off-RB") 
+{
+	field(DESC, "SP Off Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Set setpoint configuration
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:Rly4-Cmd") 
+{
+	field(DESC, "Set Setpoint")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setSetpoint(4,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ASG, "VAWRITE")
+}
+
+# Set setpoint supply
+record(mbbo, "XF:23ID-VA:X01{IPC:01}Chan:Rly4-Sel") 
+{
+	field(DESC, "Set SP Chan")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly4On-SP") 
+{
+	field(DESC, "Set SP On Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+# Set setpoint off value
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly4Off-SP") 
+{
+	field(DESC, "Set SP Off Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+## CHAN	-	PS channel, 1, 2
+
+# Get setpoint configuration
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:Rly5-Sts") 
+{
+	field(DESC, "Setpoint Status")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}P:Rly5On-RB")
+	field(INP,  "@gammampc.proto getSetpoint(5,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SCAN, "5 second")
+	field(ZNAM, "Inactive")
+	field(ONAM, "Active")
+	field(PINI, "YES")
+}
+
+# Get setpoint supply
+record(mbbi, "XF:23ID-VA:X01{IPC:01}Chan:Rly5-Sts") 
+{
+	field(DESC, "SP Chan")
+	field(PINI, "YES")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+# Get setpoint on value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly5On-RB") 
+{
+	field(DESC, "SP On Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Get setpoint off value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly5Off-RB") 
+{
+	field(DESC, "SP Off Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Set setpoint configuration
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:Rly5-Cmd") 
+{
+	field(DESC, "Set Setpoint")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setSetpoint(5,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ASG, "VAWRITE")
+}
+
+# Set setpoint supply
+record(mbbo, "XF:23ID-VA:X01{IPC:01}Chan:Rly5-Sel") 
+{
+	field(DESC, "Set SP Chan")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly5On-SP") 
+{
+	field(DESC, "Set SP On Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+# Set setpoint off value
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly5Off-SP") 
+{
+	field(DESC, "Set SP Off Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+## CHAN	-	PS channel, 1, 2
+
+# Get setpoint configuration
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:Rly6-Sts") 
+{
+	field(DESC, "Setpoint Status")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}P:Rly6On-RB")
+	field(INP,  "@gammampc.proto getSetpoint(6,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SCAN, "5 second")
+	field(ZNAM, "Inactive")
+	field(ONAM, "Active")
+	field(PINI, "YES")
+}
+
+# Get setpoint supply
+record(mbbi, "XF:23ID-VA:X01{IPC:01}Chan:Rly6-Sts") 
+{
+	field(DESC, "SP Chan")
+	field(PINI, "YES")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+# Get setpoint on value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly6On-RB") 
+{
+	field(DESC, "SP On Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Get setpoint off value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly6Off-RB") 
+{
+	field(DESC, "SP Off Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Set setpoint configuration
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:Rly6-Cmd") 
+{
+	field(DESC, "Set Setpoint")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setSetpoint(6,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ASG, "VAWRITE")
+}
+
+# Set setpoint supply
+record(mbbo, "XF:23ID-VA:X01{IPC:01}Chan:Rly6-Sel") 
+{
+	field(DESC, "Set SP Chan")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly6On-SP") 
+{
+	field(DESC, "Set SP On Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+# Set setpoint off value
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly6Off-SP") 
+{
+	field(DESC, "Set SP Off Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+## CHAN	-	PS channel, 1, 2
+
+# Get setpoint configuration
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:Rly7-Sts") 
+{
+	field(DESC, "Setpoint Status")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}P:Rly7On-RB")
+	field(INP,  "@gammampc.proto getSetpoint(7,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SCAN, "5 second")
+	field(ZNAM, "Inactive")
+	field(ONAM, "Active")
+	field(PINI, "YES")
+}
+
+# Get setpoint supply
+record(mbbi, "XF:23ID-VA:X01{IPC:01}Chan:Rly7-Sts") 
+{
+	field(DESC, "SP Chan")
+	field(PINI, "YES")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+# Get setpoint on value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly7On-RB") 
+{
+	field(DESC, "SP On Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Get setpoint off value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly7Off-RB") 
+{
+	field(DESC, "SP Off Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Set setpoint configuration
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:Rly7-Cmd") 
+{
+	field(DESC, "Set Setpoint")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setSetpoint(7,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ASG, "VAWRITE")
+}
+
+# Set setpoint supply
+record(mbbo, "XF:23ID-VA:X01{IPC:01}Chan:Rly7-Sel") 
+{
+	field(DESC, "Set SP Chan")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly7On-SP") 
+{
+	field(DESC, "Set SP On Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+# Set setpoint off value
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly7Off-SP") 
+{
+	field(DESC, "Set SP Off Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+
+# Database for Gamma MPC
+
+## Substitutions:
+## Sys	-	Primary system
+## Cntl	-	Gauge controller name
+## Dev	-	Gauge name
+## PORT	-	IP or Serial port name
+## CHAN	-	PS channel, 1, 2
+
+# Get setpoint configuration
+record(bi, "XF:23ID-VA:X01{IPC:01}Sts:Rly8-Sts") 
+{
+	field(DESC, "Setpoint Status")
+	field(DTYP, "stream")
+	field(FLNK, "XF:23ID-VA:X01{IPC:01}P:Rly8On-RB")
+	field(INP,  "@gammampc.proto getSetpoint(8,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SCAN, "5 second")
+	field(ZNAM, "Inactive")
+	field(ONAM, "Active")
+	field(PINI, "YES")
+}
+
+# Get setpoint supply
+record(mbbi, "XF:23ID-VA:X01{IPC:01}Chan:Rly8-Sts") 
+{
+	field(DESC, "SP Chan")
+	field(PINI, "YES")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+# Get setpoint on value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly8On-RB") 
+{
+	field(DESC, "SP On Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Get setpoint off value
+record(ai, "XF:23ID-VA:X01{IPC:01}P:Rly8Off-RB") 
+{
+	field(DESC, "SP Off Point")
+	field(PINI, "YES")
+	field(PREC, "1")
+}
+
+# Set setpoint configuration
+record(bo, "XF:23ID-VA:X01{IPC:01}Cmd:Rly8-Cmd") 
+{
+	field(DESC, "Set Setpoint")
+	field(DTYP, "stream")
+	field(OUT, "@gammampc.proto setSetpoint(8,XF:23ID-VA:X01,{IPC:01}) P1")
+	field(SDIS, "XF:23ID-VA:X01{IPC:01}Mode:Comm-Sts")
+	field(DISV, "0")
+	field(ASG, "VAWRITE")
+}
+
+# Set setpoint supply
+record(mbbo, "XF:23ID-VA:X01{IPC:01}Chan:Rly8-Sel") 
+{
+	field(DESC, "Set SP Chan")
+	field(ZRST, "0")
+	field(ONST, "1")
+	field(TWST, "2")
+}
+
+
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly8On-SP") 
+{
+	field(DESC, "Set SP On Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+# Set setpoint off value
+record(ao, "XF:23ID-VA:X01{IPC:01}P:Rly8Off-SP") 
+{
+	field(DESC, "Set SP Off Point")
+	field(PREC, "1")
+	field(VAL,  "2E-7")
+	field(LOPR, "1E-8")
+	field(HOPR, "1E-6")
+}
+
+

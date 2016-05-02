@@ -1,0 +1,282 @@
+## Database for Omega CN7500 temperature controller
+## Substitutions:
+## Pri		-	Primary system
+## Sec		-	Secodary system
+
+# Set/Get pattern temperature set point
+record(ao, "$(Sys)$(Dev)Step:0-SP") 
+{
+	field(DESC, "Set Step0 SP")	
+	field(DRVH, "999.9")
+	field(DRVL, "-99.9")
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")	
+	field(VAL,  "50")
+	field(EGU,  "Celsius")
+	field(ASG,  "VAWRITE")
+}
+
+record(ao, "$(Sys)$(Dev)Step:1-SP") 
+{
+	field(DESC, "Set Step1 SP")
+	field(DRVH, "999.9")
+	field(DRVL, "-99.9")
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")	
+	field(VAL,  "120")
+	field(EGU,  "Celsius")
+	field(ASG,  "VAWRITE")
+}
+
+record(ao, "$(Sys)$(Dev)Step:2-SP") 
+{
+	field(DESC, "Set Step2 SP")
+	field(DRVH, "999.9")
+	field(DRVL, "-99.9")
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")
+	field(VAL,  "120")
+	field(EGU,  "Celsius")
+	field(ASG,  "VAWRITE")	
+}
+
+record(ao, "$(Sys)$(Dev)Step:3-SP") 
+{
+	field(DESC, "Set Step3 SP")	
+	field(DRVH, "999.9")
+	field(DRVL, "-99.9")
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")
+	field(VAL,  "0")	
+	field(EGU,  "Celsius")
+	field(ASG,  "VAWRITE")
+}
+
+record(ao, "$(Sys)$(Dev)Step:4-SP") 
+{
+	field(DESC, "Set Step4 SP")	
+	field(DRVH, "999.9")
+	field(DRVL, "-99.9")
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")	
+	field(VAL,  "0")
+	field(EGU,  "Celsius")
+	field(ASG,  "VAWRITE")
+}
+
+record(ao, "$(Sys)$(Dev)Step:5-SP") 
+{
+	field(DESC, "Set Step5 SP")	
+	field(DRVH, "999.9")
+	field(DRVL, "-99.9")
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")	
+	field(VAL,  "0")
+	field(EGU,  "Celsius")
+	field(ASG,  "VAWRITE")	
+}
+
+record(ao, "$(Sys)$(Dev)Step:6-SP") 
+{
+	field(DESC, "Set Step6 SP")
+	field(DRVH, "999.9")
+	field(DRVL, "-99.9")
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")	
+	field(VAL,  "0")
+	field(EGU,  "Celsius")
+	field(ASG,  "VAWRITE")
+}
+
+record(ao, "$(Sys)$(Dev)Step:7-SP") 
+{
+	field(DESC, "Set Step7 SP")	
+	field(DRVH, "999.9")
+	field(DRVL, "-99.9")
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")	
+	field(VAL,  "0")
+	field(EGU,  "Celsius")
+	field(ASG,  "VAWRITE")
+}
+
+# Set/Get pattern execution time
+record(longout, "$(Sys)$(Dev)ExeTime:0-SP") 
+{
+	field(DESC, "Set Step0 Time")
+	field(DRVH, "900")
+	field(DRVL, "0")
+	field(VAL,  "30")
+	field(EGU,  "Minute")
+	field(ASG,  "VAWRITE")
+}
+
+record(longout, "$(Sys)$(Dev)ExeTime:1-SP") 
+{
+	field(DESC, "Set Step1 Time")
+	field(DRVH, "900")
+	field(DRVL, "0")
+	field(VAL,  "150")
+	field(EGU,  "Minute")
+	field(ASG,  "VAWRITE")
+}
+
+record(longout, "$(Sys)$(Dev)ExeTime:2-SP") 
+{
+	field(DESC, "Set Step2 Time")
+	field(DRVH, "900")
+	field(DRVL, "0")
+	field(VAL,  "360")
+	field(EGU,  "Minute")
+	field(ASG,  "VAWRITE")
+}
+
+record(longout, "$(Sys)$(Dev)ExeTime:3-SP") 
+{
+	field(DESC, "Set Step3 Time")
+	field(DRVH, "900")
+	field(DRVL, "0")
+	field(VAL,  "0")
+	field(EGU,  "Minute")
+	field(ASG,  "VAWRITE")
+}
+
+record(longout, "$(Sys)$(Dev)ExeTime:4-SP") 
+{
+	field(DESC, "Set Step4 Time")
+	field(DRVH, "900")
+	field(DRVL, "0")
+	field(VAL,  "0")
+	field(EGU,  "Minute")
+	field(ASG,  "VAWRITE")
+}
+
+record(longout, "$(Sys)$(Dev)ExeTime:5-SP") 
+{
+	field(DESC, "Set Step5 Time")
+	field(DRVH, "900")
+	field(DRVL, "0")
+	field(VAL,  "0")
+	field(EGU,  "Minute")
+	field(ASG,  "VAWRITE")
+}
+
+record(longout, "$(Sys)$(Dev)ExeTime:6-SP")
+{
+	field(DESC, "Set Step6 Time")
+	field(DRVH, "900")
+	field(DRVL, "0")
+	field(VAL,  "0")
+	field(EGU,  "Minute")
+	field(ASG,  "VAWRITE")
+}
+
+record(longout, "$(Sys)$(Dev)ExeTime:7-SP") 
+{
+	field(DESC, "Set Step7 Time")
+	field(DRVH, "900")
+	field(DRVL, "0")
+	field(VAL,  "0")
+	field(EGU,  "Minute")
+	field(ASG,  "VAWRITE")
+}
+
+# Set control method
+record(mbbo, "$(Sys)$(Dev)Ctl:Mode-Sel")
+{
+	field(DESC, "Control Method")
+	field(ASG,  "VAWRITE")
+	field(ZRST, "PID")
+	field(ONST, "ON/OFF")
+	field(TWST, "Manual Tuning")
+	field(THST, "PID Program")
+	field(VAL,  "3")
+}
+
+record(mbbo, "$(Sys)$(Dev)Heat:Mode-Sel")
+{
+	field(DESC, "Heat Mode")
+	field(ZRST, "Heating")
+	field(ONST, "Cooling")
+	field(TWST, "Heating/Cooling")
+	field(THST, "Cooling/Heating")
+	field(VAL,  "0")
+}
+
+# Set alarm setting
+record(ao, "$(Sys)$(Dev)Alrm1:HiT-SP") 
+{
+	field(DESC, "Set Alarm1 Hi")	
+	field(DRVH, "999.9")
+	field(DRVL, "0")
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")	
+	field(VAL,  "0")
+	field(ASG,  "VAWRITE")
+}
+
+record(ao, "$(Sys)$(Dev)Alrm1:LoT-SP") 
+{
+	field(DESC, "Set Alarm1 Lo")
+	field(DRVH, "999.9")
+	field(DRVL, "0")
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")	
+	field(VAL,  "160")
+	field(ASG,  "VAWRITE")
+}
+
+record(mbbo, "$(Sys)$(Dev)Alrm1:Type-Sel") 
+{
+	field(DESC, "Set Alamr1 Type")
+	field(ZRST, "0:Disabled")
+      field(ONST, "1:Dev Up-Lo")
+      field(TWST, "2:Dev Up")
+      field(THST, "3:Dev Lo")
+      field(FRST, "4:Rev Up-Lo")
+      field(FVST, "5:Abs Up-Lo")
+      field(SXST, "6:Abs Up")
+      field(SVST, "7:Abs Lo")
+      field(EIST, "8:Std Up-Lo")
+      field(NIST, "9:Std Up")
+      field(TEST, "10:Std Lo")
+	field(ELST, "11:Hys Up")
+	field(TVST, "12:Hys Lo")
+	field(TTST, "13:CT Alrm")
+	field(VAL,  "7")
+	field(ASG,  "VAWRITE")
+}
+
+# Set system limit
+record(ao, "$(Sys)$(Dev)Sys:HiT-SP")
+{
+	field(DESC, "Upper-limit T")
+	field(DRVH, "600")
+	field(DRVL, "0")	
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")
+	field(PREC, "1")
+	field(VAL,  "300")
+	field(ASG,  "VAWRITE")
+}
+
+record(ao, "$(Sys)$(Dev)Sys:LoT-SP")
+{
+	field(DESC, "Low-limit T")
+	field(DRVH, "600")
+	field(DRVL, "0")	
+	field(LINR, "SLOPE")
+	field(ESLO, "0.1")
+	field(PREC, "1")
+	field(VAL,  "0")
+	field(ASG,  "VAWRITE")
+}
+
+record(mbbo, "$(Sys)$(Dev)Sys:Alrm-Sel") 
+{
+	field(DESC, "Set System Alarm")
+	field(ZRST, "None")
+      field(ONST, "Alarm1")
+	field(VAL,  "1")
+	field(ASG,  "VAWRITE")
+}

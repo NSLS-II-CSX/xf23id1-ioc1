@@ -1,0 +1,9 @@
+record(bi, "XF:23ID1-VA{Dif:Diag-IP:1}Sts:Rly1PLC-Sts") {
+	field("VAL", 1)
+}
+record(bi, "XF:23ID1-VA{Dif:Diag-CCG:1}Sts:Rly1PLC-Sts") {
+	field("VAL", 1)
+}
+record(bi, "XF:23ID1-VA{Dif:Diag-TCG:1}Sts:Rly1PLC-Sts") {
+	field("VAL", 1)
+}

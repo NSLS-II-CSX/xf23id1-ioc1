@@ -1,0 +1,68 @@
+#!./bin/linux-x86_64/MOTIONIOC
+
+## You may have to change MOTIONIOC to something else
+## everywhere it appears in this file
+
+< iocBoot/iocMOTIONIOC/envPaths
+
+cd ${TOP}
+
+## Register all support components
+dbLoadDatabase "dbd/MOTIONIOC.dbd"
+MOTIONIOC_registerRecordDeviceDriver pdbbase
+
+## User defined ENV variables
+epicsEnvSet(HOSTNAME,"CSXPCBIOC")
+epicsEnvSet(P,"CSXPCB")
+# the following is done due to a limitation of 
+# the autosave status PV name (max. length=9)
+epicsEnvSet(AS_PV_PREFIX,"AS_IOC01:")
+epicsEnvSet(AS_PATH,"/epics/iocs/CSXCOBmono-from-code/iocoutput/autosave")
+epicsEnvSet(AS_DB_PATH,"/usr/lib/epics/")
+
+## Configure DeltaTau PMAC motion controller(s)
+pmacAsynIPConfigure("pmac1", "10.23.2.83:1025")
+pmacAsynMotorCreate("pmac1", 0, 0, 9)
+drvAsynMotorConfigure("PMAC1", "pmacAsynMotor", 0, 9)
+pmacSetIdlePollPeriod(0,300)
+pmacSetMovingPollPeriod(0,100)
+
+
+pmacAsynIPConfigure("pmac2", "10.23.2.82:1025")
+pmacAsynMotorCreate("pmac2", 0, 1, 9)
+drvAsynMotorConfigure("PMAC2", "pmacAsynMotor", 1, 9)
+pmacSetIdlePollPeriod(1,300)
+pmacSetMovingPollPeriod(1,100)
+
+
+## configuration for stream
+epicsEnvSet ("STREAM_PROTOCOL_PATH", "$(TOP)/../SAI/SAIApp/src:$(TOP)/MOTIONIOCApp/src")
+
+## Substitutions
+dbLoadTemplate("db/CSXPCBGenericScan.substitutions")
+dbLoadTemplate("db/CSXPCBPGMMotion.substitutions")
+dbLoadTemplate("db/CSXPCBBaffleSlitsMotion.substitutions")
+
+# µIOCSystem Overwiew
+dbLoadTemplate("SAI/db/SAI_IOCsystem.substitutions")
+
+# save_restore setup
+< ${TOP}/iocBoot/${IOC}/save_restore.cmd
+
+cd ${TOP}/iocBoot/${IOC}
+iocInit
+
+dbl ("*") > PVList.${HOSTNAME}
+
+## saving scan data
+saveData_Init saveData_GSCAN.req "P=$(P),SCAN=GSCAN:SCANREC_SP"
+
+## Start any sequence programs
+# generic Scan
+seq dist_pvs,"DEVICE=$(P)GSCAN"
+seq csvtxtSaver,"DEVICE=$(P)GSCAN"
+
+## Start autosave
+makeAutosaveFileFromDbInfo("${HOSTNAME}.req","autosaveFields")
+create_monitor_set("${HOSTNAME}.req", 5, "P=")
+

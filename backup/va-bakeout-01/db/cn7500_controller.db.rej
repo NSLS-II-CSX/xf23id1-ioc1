@@ -1,0 +1,133 @@
+--- cn7500App/Db/cn7500_controller.db	2013-10-01 16:06:14.000000000 -0400
++++ db/cn7500_controller.db	2013-10-06 21:48:20.000000000 -0400
+@@ -24,6 +24,60 @@
+ 	field(HIHI, "210")
+ }
+ 
++record(ao, "$(Sys)$(Dev)T-SP")
++{
++        field(DTYP, "stream")
++        field(DESC, "Setpoint")
++        field(OUT,  "@cn7500.proto write_reg($(HexAddr),1001) $(PORT)")
++        field(LINR, "SLOPE")
++        field(ESLO, "0.1")
++        field(PREC, "1")
++        field(EGU,  "Celsius")
++	field(ASG,  "VAWRITE")
++	field(DRVH, "600")
++        field(DRVL, "0")
++}
++
++record(ai, "$(Sys)$(Dev)T-RB")
++{
++        field(DTYP, "stream")
++        field(DESC, "Setpoint Readback")
++        field(INP,  "@cn7500.proto read_reg($(HexAddr),1001) $(PORT)")
++	field(PINI, "1")
++        field(LINR, "SLOPE")
++        field(ESLO, "0.1")
++        field(PREC, "1")
++        field(EGU,  "Celsius")
++        field(SCAN, "10 second")
++}
++
++record(ao, "$(Sys)$(Dev)Out1-SP")
++{
++        field(DTYP, "stream")
++        field(DESC, "Out1 Manual Output")
++        field(OUT,  "@cn7500.proto write_reg($(HexAddr),1012) $(PORT)")
++        field(LINR, "SLOPE")
++        field(ESLO, "0.1")
++        field(PREC, "1")
++        field(EGU,  "Percent")
++        field(ASG,  "VAWRITE")
++        field(DRVH, "100")
++        field(DRVL, "0")
++}
++
++record(ai, "$(Sys)$(Dev)Out1-RB")
++{
++        field(DTYP, "stream")
++        field(DESC, "Out1 Manual Output Readback")
++        field(INP,  "@cn7500.proto read_reg($(HexAddr),1012) $(PORT)")
++        field(PINI, "1")
++        field(LINR, "SLOPE")
++        field(ESLO, "0.1")
++        field(PREC, "1")
++        field(EGU,  "Percent")
++        field(SCAN, "10 second")
++}
++
+ # Set/Get upper-limit of temperature range
+ record(ao, "$(Sys)$(Dev)Sys:HiT-SP")
+ {
+@@ -299,10 +353,21 @@
+ 	field(DTYP, "stream")
+ 	field(DESC, "LED Status")
+ 	field(INP,  "@cn7500.proto read_reg($(HexAddr),102A) $(PORT)")
+-	field(FLNK, "$(Sys)$(Dev)Alrm1-Sts") 
++	field(FLNK, "$(Sys)$(Dev)LED-FOut_")
+ 	field(NOBT, "8")
+ }
+ 
++record(fanout, "$(Sys)$(Dev)LED-FOut_")
++{
++        field(DESC, "LED Fanout 1")
++        field(LNK1, "$(Sys)$(Dev)Alrm1-Sts")
++        field(LNK2, "$(Sys)$(Dev)Alrm2-Sts")
++        field(LNK3, "$(Sys)$(Dev)Alrm3-Sts")
++        field(LNK4, "$(Sys)$(Dev)Out1-Sts")
++        field(LNK5, "$(Sys)$(Dev)Out2-Sts")
++        field(LNK6, "$(Sys)$(Dev)AT-Sts")
++}
++
+ record(bi, "$(Sys)$(Dev)Alrm1-Sts") 
+ {
+ 	field(DESC, "Alarm1 Status")
+@@ -311,6 +376,46 @@
+ 	field(ONAM, "ON")
+ }
+ 
++record(bi, "$(Sys)$(Dev)Alrm2-Sts")
++{
++        field(DESC, "Alarm1 Status")
++        field(INP,  "$(Sys)$(Dev)LED-Sts.B1")
++        field(ZNAM, "OFF")
++        field(ONAM, "ON")
++} 
++
++record(bi, "$(Sys)$(Dev)Alrm3-Sts")
++{
++        field(DESC, "Alarm1 Status")
++        field(INP,  "$(Sys)$(Dev)LED-Sts.B0")
++        field(ZNAM, "OFF")
++        field(ONAM, "ON")
++} 
++
++record(bi, "$(Sys)$(Dev)Out1-Sts")
++{
++        field(DESC, "Out1 Status")
++        field(INP,  "$(Sys)$(Dev)LED-Sts.B6")
++        field(ZNAM, "OFF")
++        field(ONAM, "ON")
++}
++
++record(bi, "$(Sys)$(Dev)Out2-Sts")
++{
++        field(DESC, "Out1 Status")
++        field(INP,  "$(Sys)$(Dev)LED-Sts.B5")
++        field(ZNAM, "OFF")
++        field(ONAM, "ON")
++}
++
++record(bi, "$(Sys)$(Dev)AT-Sts")
++{
++        field(DESC, "Out1 Status")
++        field(INP,  "$(Sys)$(Dev)LED-Sts.B7")
++        field(ZNAM, "OFF")
++        field(ONAM, "ON")
++} 
++
+ # Get left time of on goint step in minute
+ record(longin, "$(Sys)$(Dev)LeftTime-I")
+ {

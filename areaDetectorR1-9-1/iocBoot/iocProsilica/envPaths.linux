@@ -1,0 +1,6 @@
+epicsEnvSet("ARCH","linux-x86")
+epicsEnvSet("IOC","iocProsilica")
+epicsEnvSet("TOP","/direct/iocs_diagnostics/areaDetectorR1-9-1")
+epicsEnvSet("ASYN","/epics/modules/asyn4-21")
+epicsEnvSet("AREA_DETECTOR","/epics/iocs/areaDetectorR1-9-1")
+epicsEnvSet("EPICS_BASE","/usr/lib/epics")

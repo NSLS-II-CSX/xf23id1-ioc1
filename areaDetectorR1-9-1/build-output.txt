@@ -1,0 +1,932 @@
+make -C ./configure clean 
+make[1]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/configure'
+rm -rf O.linux-x86 O.Common
+make[1]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/configure'
+make -C ./ADApp clean 
+make[1]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp'
+make -C ./ADSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/ADSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/ADSrc'
+make -C ./netCDFSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/netCDFSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/netCDFSrc'
+make -C ./cbfSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/cbfSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/cbfSrc'
+make -C ./prosilicaSupport clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSupport'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSupport'
+make -C ./tiffSupport clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport'
+make -C ./tiffBin clean 
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffBin'
+rm -rf O.linux-x86 O.Common
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffBin'
+make -C ./jpegSrc clean 
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/jpegSrc'
+rm -rf O.linux-x86 O.Common
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/jpegSrc'
+make -C ./tiffSrc clean 
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffSrc'
+rm -rf O.linux-x86 O.Common
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffSrc'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport'
+make -C ./hdf5Support clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/hdf5Support'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/hdf5Support'
+make -C ./nexusSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/nexusSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/nexusSrc'
+make -C ./pvcamSupport clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSupport'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSupport'
+make -C ./perkinElmerSupport clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSupport'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSupport'
+make -C ./magickSupport clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/magickSupport'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/magickSupport'
+make -C ./andorSupport clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSupport'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSupport'
+make -C ./andor3Support clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Support'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Support'
+make -C ./pluginSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pluginSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pluginSrc'
+make -C ./simDetectorSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/simDetectorSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/simDetectorSrc'
+make -C ./URLSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/URLSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/URLSrc'
+make -C ./prosilicaSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSrc'
+make -C ./pilatusSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pilatusSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pilatusSrc'
+make -C ./marCCDSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/marCCDSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/marCCDSrc'
+make -C ./mar345Src clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/mar345Src'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/mar345Src'
+make -C ./adscSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/adscSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/adscSrc'
+make -C ./firewireWinSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/firewireWinSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/firewireWinSrc'
+make -C ./perkinElmerSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSrc'
+make -C ./pvcamSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSrc'
+make -C ./brukerSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/brukerSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/brukerSrc'
+make -C ./PSLSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/PSLSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/PSLSrc'
+make -C ./andorSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSrc'
+make -C ./andor3Src clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Src'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Src'
+make -C ./roperSrc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/roperSrc'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/roperSrc'
+make -C ./Db clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/Db'
+rm -rf O.linux-x86 O.Common
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/Db'
+make[1]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp'
+make -C ./iocBoot clean 
+make[1]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot'
+make -C ./iocAdsc clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAdsc'
+rm -f cdCommands envPaths dllPath.bat
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAdsc'
+make -C ./iocAndor clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAndor'
+make[2]: Nothing to be done for `clean'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAndor'
+make -C ./iocAndor3 clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAndor3'
+make[2]: Nothing to be done for `clean'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAndor3'
+make -C ./iocBruker clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocBruker'
+make[2]: Nothing to be done for `clean'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocBruker'
+make -C ./iocFirewire clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocFirewire'
+make[2]: Nothing to be done for `clean'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocFirewire'
+make -C ./iocMAR345 clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocMAR345'
+rm -f cdCommands envPaths dllPath.bat
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocMAR345'
+make -C ./iocMARCCD clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocMARCCD'
+rm -f cdCommands envPaths dllPath.bat
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocMARCCD'
+make -C ./iocPerkinElmer clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPerkinElmer'
+make[2]: Nothing to be done for `clean'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPerkinElmer'
+make -C ./iocPilatus clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPilatus'
+rm -f cdCommands envPaths dllPath.bat
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPilatus'
+make -C ./iocProsilica clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocProsilica'
+rm -f cdCommands envPaths dllPath.bat
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocProsilica'
+make -C ./iocPSL clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPSL'
+rm -f cdCommands envPaths dllPath.bat
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPSL'
+make -C ./iocPVCam clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPVCam'
+make[2]: Nothing to be done for `clean'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPVCam'
+make -C ./iocRoper clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocRoper'
+make[2]: Nothing to be done for `clean'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocRoper'
+make -C ./iocSimDetector clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocSimDetector'
+rm -f cdCommands envPaths dllPath.bat
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocSimDetector'
+make -C ./iocURLDriver clean 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocURLDriver'
+make[2]: Nothing to be done for `clean'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocURLDriver'
+make[1]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot'
+make -C ./configure install 
+make[1]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/configure'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../.. T_A=linux-x86 install
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/configure/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/convertRelease.pl checkRelease
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/configure/O.linux-x86'
+make[1]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/configure'
+make -C ./ADApp install 
+make[1]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp'
+make -C ./ADSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/ADSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/ADSrc/O.linux-x86'
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDArray.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../asynNDArrayDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../ADDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../PVAttribute.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../paramAttribute.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../tinyxml.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../tinystr.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../tinyxmlparser.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../tinyxmlerror.cpp 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../parseAreaPrefixes.c 
+/usr/bin/ar -rc   libADBase.a         NDArray.o asynNDArrayDriver.o ADDriver.o PVAttribute.o paramAttribute.o tinyxml.o tinystr.o tinyxmlparser.o tinyxmlerror.o parseAreaPrefixes.o
+/usr/bin/ranlib libADBase.a
+Installing library ../../../lib/linux-x86/libADBase.a
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/ADSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/ADSrc'
+make -C ./netCDFSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/netCDFSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/netCDFSrc/O.linux-x86'
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/attr.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/dim.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/lookup3.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/nc.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/nc3dispatch.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/nclistmgr.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/ncx.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/posixio.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/putget.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/string.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/utf8proc.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/v1hpg.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libsrc/var.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libdispatch/att.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libdispatch/dim1.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libdispatch/dispatch.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libdispatch/error.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libdispatch/file.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libdispatch/nc_uri.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/libdispatch/var1.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../../../ADApp/netCDFSrc/liblib/stub.c 
+/usr/bin/ar -rc   libnetCDF.a         attr.o dim.o lookup3.o nc.o nc3dispatch.o nclistmgr.o ncx.o posixio.o putget.o string.o utf8proc.o v1hpg.o var.o att.o dim1.o dispatch.o error.o file.o nc_uri.o var1.o stub.o
+/usr/bin/ranlib libnetCDF.a
+Installing library ../../../lib/linux-x86/libnetCDF.a
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHAVE_CONFIG_H  -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../ADApp/netCDFSrc/inc -I../../../ADApp/netCDFSrc/libsrc -I../../../ADApp/netCDFSrc/libdispatch -I../../../ADApp/netCDFSrc/liblib -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../test_big_classic.c 
+/usr/bin/g++ -o test_big_classic -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86       -m32               test_big_classic.o    -lnetCDF -Wl,-Bdynamic  -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/test_big_classic
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/netCDFSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/netCDFSrc'
+make -C ./cbfSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/cbfSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/cbfSrc/O.linux-x86'
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_alloc.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_ascii.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_binary.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_byte_offset.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_canonical.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_codes.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_compress.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_context.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_file.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_getopt.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_lex.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_packed.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_predictor.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_read_binary.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_read_mime.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_simple.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_string.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_stx.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_tree.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_uncompressed.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_write.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_write_binary.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../cbf_ws.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../md5c.c 
+/usr/bin/ar -rc   libcbfad.a        cbf.o cbf_alloc.o cbf_ascii.o cbf_binary.o cbf_byte_offset.o cbf_canonical.o cbf_codes.o cbf_compress.o cbf_context.o cbf_file.o cbf_getopt.o cbf_lex.o cbf_packed.o cbf_predictor.o cbf_read_binary.o cbf_read_mime.o cbf_simple.o cbf_string.o cbf_stx.o cbf_tree.o cbf_uncompressed.o cbf_write.o cbf_write_binary.o cbf_ws.o md5c.o 
+/usr/bin/ranlib libcbfad.a
+Installing library ../../../lib/linux-x86/libcbfad.a
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/cbfSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/cbfSrc'
+make -C ./prosilicaSupport install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSupport'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSupport/O.linux-x86'
+make[3]: Nothing to be done for `install'.
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSupport/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSupport'
+make -C ./tiffSupport install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport'
+make -C ./tiffBin install 
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffBin'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../../.. T_A=linux-x86 install
+make[4]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffBin/O.linux-x86'
+make[4]: Nothing to be done for `install'.
+make[4]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffBin/O.linux-x86'
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffBin'
+make -C ./jpegSrc install 
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/jpegSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../../.. T_A=linux-x86 install
+make[4]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/jpegSrc/O.linux-x86'
+make[4]: Nothing to be done for `install'.
+make[4]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/jpegSrc/O.linux-x86'
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/jpegSrc'
+make -C ./tiffSrc install 
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../../.. T_A=linux-x86 install
+make[4]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffSrc/O.linux-x86'
+make[4]: Nothing to be done for `install'.
+make[4]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffSrc/O.linux-x86'
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport/tiffSrc'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/tiffSupport'
+make -C ./hdf5Support install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/hdf5Support'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/hdf5Support/O.linux-x86'
+make[3]: Nothing to be done for `install'.
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/hdf5Support/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/hdf5Support'
+make -C ./nexusSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/nexusSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/nexusSrc/O.linux-x86'
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHDF5 -D_FILE_OFFSET_BITS=64  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../napi.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHDF5 -D_FILE_OFFSET_BITS=64  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../napi5.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHDF5 -D_FILE_OFFSET_BITS=64  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../napiu.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHDF5 -D_FILE_OFFSET_BITS=64  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../nxdataset.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHDF5 -D_FILE_OFFSET_BITS=64  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../nxio.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHDF5 -D_FILE_OFFSET_BITS=64  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../nxstack.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHDF5 -D_FILE_OFFSET_BITS=64  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../nxxml.c 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall     -DHDF5 -D_FILE_OFFSET_BITS=64  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../stptok.c 
+/usr/bin/ar -rc   libNeXus.a         napi.o napi5.o napiu.o nxdataset.o nxio.o nxstack.o nxxml.o stptok.o
+/usr/bin/ranlib libNeXus.a
+Installing library ../../../lib/linux-x86/libNeXus.a
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/nexusSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/nexusSrc'
+make -C ./pvcamSupport install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSupport'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSupport/O.linux-x86'
+make[3]: Nothing to be done for `install'.
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSupport/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSupport'
+make -C ./perkinElmerSupport install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSupport'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSupport/O.linux-x86'
+make[3]: Nothing to be done for `install'.
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSupport/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSupport'
+make -C ./magickSupport install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/magickSupport'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/magickSupport/O.linux-x86'
+make[3]: Nothing to be done for `install'.
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/magickSupport/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/magickSupport'
+make -C ./andorSupport install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSupport'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSupport/O.linux-x86'
+make[3]: Nothing to be done for `install'.
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSupport/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSupport'
+make -C ./andor3Support install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Support'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Support/O.linux-x86'
+make[3]: Nothing to be done for `install'.
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Support/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Support'
+make -C ./pluginSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pluginSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pluginSrc/O.linux-x86'
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDPluginDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDPluginFile.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDFileNetCDF.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDPluginStdArrays.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDPluginStats.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDPluginProcess.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDPluginROI.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDPluginTransform.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDPluginOverlay.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDPluginColorConvert.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDFileTIFF.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDFileJPEG.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDFileNexus.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDFileHDF5.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDFileNull.cpp 
+/usr/bin/ar -rc   libNDPlugin.a        NDPluginDriver.o NDPluginFile.o NDFileNetCDF.o NDPluginStdArrays.o NDPluginStats.o NDPluginProcess.o NDPluginROI.o NDPluginTransform.o NDPluginOverlay.o NDPluginColorConvert.o NDFileTIFF.o NDFileJPEG.o NDFileNexus.o NDFileHDF5.o NDFileNull.o 
+/usr/bin/ranlib libNDPlugin.a
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86 -O0 -DHAVE_PVAPI  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../NDFileMagick.cpp 
+/usr/bin/ar -rc   libNDFileMagick.a        NDFileMagick.o 
+/usr/bin/ranlib libNDFileMagick.a
+Installing library ../../../lib/linux-x86/libNDPlugin.a
+Installing library ../../../lib/linux-x86/libNDFileMagick.a
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pluginSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pluginSrc'
+make -C ./simDetectorSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/simDetectorSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/simDetectorSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl simDetectorSupport.dbd commonDriverSupport.dbd NDFileMagick.dbd simDetectorAppInclude.dbd
+echo "../O.Common/simDetectorAppInclude.dbd : ../Makefile" >> simDetectorApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/simDetectorApp.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../simDetector.cpp 
+/usr/bin/ar -rc   libsimDetector.a         simDetector.o
+/usr/bin/ranlib libsimDetector.a
+Installing library ../../../lib/linux-x86/libsimDetector.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/simDetectorApp.dbd simDetectorApp_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > simDetectorApp.tmp
+mv simDetectorApp.tmp simDetectorApp_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       simDetectorApp_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../simDetectorAppMain.cpp 
+/usr/bin/g++ -o simDetectorApp -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32                simDetectorApp_registerRecordDeviceDriver.o simDetectorAppMain.o   -lsimDetector -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/simDetectorApp
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/simDetectorSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/simDetectorSrc'
+make -C ./URLSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/URLSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/URLSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl URLDriverSupport.dbd commonDriverSupport.dbd NDFileMagick.dbd URLDriverAppInclude.dbd
+echo "../O.Common/URLDriverAppInclude.dbd : ../Makefile" >> URLDriverApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/URLDriverApp.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../URLDriver.cpp 
+/usr/bin/ar -rc   libURLDriver.a         URLDriver.o
+/usr/bin/ranlib libURLDriver.a
+Installing library ../../../lib/linux-x86/libURLDriver.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/URLDriverApp.dbd URLDriverApp_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > URLDriverApp.tmp
+mv URLDriverApp.tmp URLDriverApp_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       URLDriverApp_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../URLDriverAppMain.cpp 
+/usr/bin/g++ -o URLDriverApp -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32               URLDriverApp_registerRecordDeviceDriver.o URLDriverAppMain.o    -lURLDriver -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/URLDriverApp
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/URLSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/URLSrc'
+make -C ./prosilicaSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl prosilicaSupport.dbd base.dbd devIocStats.dbd asSupport.dbd system.dbd commonDriverSupport.dbd NDFileMagick.dbd prosilicaAppInclude.dbd
+echo "../O.Common/prosilicaAppInclude.dbd : ../Makefile" >> prosilicaApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/prosilicaApp.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../prosilica.cpp 
+/usr/bin/ar -rc   libprosilica.a         prosilica.o
+/usr/bin/ranlib libprosilica.a
+Installing library ../../../lib/linux-x86/libprosilica.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/prosilicaApp.dbd prosilicaApp_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > prosilicaApp.tmp
+mv prosilicaApp.tmp prosilicaApp_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86  -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       prosilicaApp_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -D_LINUX -D_x86  -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../prosilicaAppMain.cpp 
+/usr/bin/g++ -o prosilicaApp -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32                prosilicaApp_registerRecordDeviceDriver.o prosilicaAppMain.o   -lprosilica -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lautosave -ldevIocStats -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/prosilicaApp
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/prosilicaSrc'
+make -C ./pilatusSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pilatusSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pilatusSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl pilatusDetectorSupport.dbd commonDriverSupport.dbd NDFileMagick.dbd drvAsynIPPort.dbd pilatusDetectorAppInclude.dbd
+echo "../O.Common/pilatusDetectorAppInclude.dbd : ../Makefile" >> pilatusDetectorApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/pilatusDetectorApp.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include     -I../../../ADApp/cbfSrc   ../pilatusDetector.cpp 
+/usr/bin/ar -rc   libpilatusDetector.a         pilatusDetector.o
+/usr/bin/ranlib libpilatusDetector.a
+Installing library ../../../lib/linux-x86/libpilatusDetector.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/pilatusDetectorApp.dbd pilatusDetectorApp_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > pilatusDetectorApp.tmp
+mv pilatusDetectorApp.tmp pilatusDetectorApp_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include     -I../../../ADApp/cbfSrc   pilatusDetectorApp_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include     -I../../../ADApp/cbfSrc   ../pilatusDetectorAppMain.cpp 
+/usr/bin/g++ -o pilatusDetectorApp -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32                pilatusDetectorApp_registerRecordDeviceDriver.o pilatusDetectorAppMain.o   -lpilatusDetector -lcbfad -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/pilatusDetectorApp
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pilatusSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pilatusSrc'
+make -C ./marCCDSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/marCCDSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/marCCDSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl marCCD_ADSupport.dbd commonDriverSupport.dbd NDFileMagick.dbd drvAsynIPPort.dbd marCCDAppInclude.dbd
+echo "../O.Common/marCCDAppInclude.dbd : ../Makefile" >> marCCDApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/marCCDApp.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../marCCD.cpp 
+/usr/bin/ar -rc   libmarCCD_AD.a         marCCD.o
+/usr/bin/ranlib libmarCCD_AD.a
+Installing library ../../../lib/linux-x86/libmarCCD_AD.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/marCCDApp.dbd marCCDApp_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > marCCDApp.tmp
+mv marCCDApp.tmp marCCDApp_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       marCCDApp_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../marCCDAppMain.cpp 
+/usr/bin/g++ -o marCCDApp -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32                marCCDApp_registerRecordDeviceDriver.o marCCDAppMain.o   -lmarCCD_AD -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/marCCDApp
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/marCCDSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/marCCDSrc'
+make -C ./mar345Src install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/mar345Src'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/mar345Src/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl mar345Support.dbd commonDriverSupport.dbd NDFileMagick.dbd drvAsynIPPort.dbd mar345AppInclude.dbd
+echo "../O.Common/mar345AppInclude.dbd : ../Makefile" >> mar345App.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/mar345App.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../mar345.cpp 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../mar3xx_pck.c 
+/usr/bin/ar -rc   libmar345.a         mar345.o mar3xx_pck.o
+/usr/bin/ranlib libmar345.a
+Installing library ../../../lib/linux-x86/libmar345.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/mar345App.dbd mar345App_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > mar345App.tmp
+mv mar345App.tmp mar345App_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       mar345App_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../mar345AppMain.cpp 
+/usr/bin/g++ -o mar345App -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32                mar345App_registerRecordDeviceDriver.o mar345AppMain.o   -lmar345 -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/mar345App
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/mar345Src/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/mar345Src'
+make -C ./adscSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/adscSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/adscSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl adscSupport.dbd adscAppInclude.dbd
+echo "../O.Common/adscAppInclude.dbd : ../Makefile" >> adscApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/adscApp.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -DUSE_SIMADSC  -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../simadsc -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../adsc.cpp 
+
+/usr/bin/gcc -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3 -g   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../simadsc -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../simadsc/simadsc.c 
+/usr/bin/ar -rc   libadsc.a         adsc.o simadsc.o
+/usr/bin/ranlib libadsc.a
+Installing library ../../../lib/linux-x86/libadsc.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/adscApp.dbd adscApp_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > adscApp.tmp
+mv adscApp.tmp adscApp_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -DUSE_SIMADSC  -m32      -MMD -I. -I../O.Common -I. -I.. -I../simadsc -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       adscApp_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall     -DUSE_SIMADSC  -m32      -MMD -I. -I../O.Common -I. -I.. -I../simadsc -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../adscAppMain.cpp 
+/usr/bin/g++ -o adscApp -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32               adscApp_registerRecordDeviceDriver.o adscAppMain.o    -ladsc -lADBase -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -Wl,-Bdynamic  -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/adscApp
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/adscSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/adscSrc'
+make -C ./firewireWinSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/firewireWinSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/firewireWinSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl firewireWinDCAMSupport.dbd commonDriverSupport.dbd NDFileMagick.dbd firewireWinDCAMAppInclude.dbd
+echo "../O.Common/firewireWinDCAMAppInclude.dbd : ../Makefile" >> firewireWinDCAMApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/firewireWinDCAMApp.dbd
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/firewireWinSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/firewireWinSrc'
+make -C ./perkinElmerSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl PerkinElmerSupport.dbd commonDriverSupport.dbd NDFileMagick.dbd PerkinElmerAppInclude.dbd
+echo "../O.Common/PerkinElmerAppInclude.dbd : ../Makefile" >> PerkinElmerApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/PerkinElmerApp.dbd
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/perkinElmerSrc'
+make -C ./pvcamSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl pvCamSupport.dbd commonDriverSupport.dbd NDFileMagick.dbd pvCamAppInclude.dbd
+echo "../O.Common/pvCamAppInclude.dbd : ../Makefile" >> pvCamApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/pvCamApp.dbd
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/pvcamSrc'
+make -C ./brukerSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/brukerSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/brukerSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl BISDetectorSupport.dbd commonDriverSupport.dbd NDFileMagick.dbd drvAsynIPPort.dbd BISDetectorAppInclude.dbd
+echo "../O.Common/BISDetectorAppInclude.dbd : ../Makefile" >> BISDetectorApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/BISDetectorApp.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../BISDetector.cpp 
+/usr/bin/ar -rc   libBISDetector.a         BISDetector.o
+/usr/bin/ranlib libBISDetector.a
+Installing library ../../../lib/linux-x86/libBISDetector.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/BISDetectorApp.dbd BISDetectorApp_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > BISDetectorApp.tmp
+mv BISDetectorApp.tmp BISDetectorApp_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       BISDetectorApp_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../BISDetectorAppMain.cpp 
+/usr/bin/g++ -o BISDetectorApp -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32                BISDetectorApp_registerRecordDeviceDriver.o BISDetectorAppMain.o   -lBISDetector -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/BISDetectorApp
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/brukerSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/brukerSrc'
+make -C ./PSLSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/PSLSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/PSLSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl PSLSupport.dbd commonDriverSupport.dbd NDFileMagick.dbd drvAsynIPPort.dbd PSLAppInclude.dbd
+echo "../O.Common/PSLAppInclude.dbd : ../Makefile" >> PSLApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/PSLApp.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../PSL.cpp 
+/usr/bin/ar -rc   libPSL.a         PSL.o
+/usr/bin/ranlib libPSL.a
+Installing library ../../../lib/linux-x86/libPSL.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/PSLApp.dbd PSLApp_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > PSLApp.tmp
+mv PSLApp.tmp PSLApp_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       PSLApp_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../PSLAppMain.cpp 
+/usr/bin/g++ -o PSLApp -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32                PSLApp_registerRecordDeviceDriver.o PSLAppMain.o   -lPSL -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/PSLApp
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/PSLSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/PSLSrc'
+make -C ./andorSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl andorCCDSupport.dbd commonDriverSupport.dbd andorCCDAppInclude.dbd
+echo "../O.Common/andorCCDAppInclude.dbd : ../Makefile" >> andorCCDApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/andorCCDApp.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../andorCCD.cpp 
+/usr/bin/ar -rc   libandorCCD.a         andorCCD.o
+/usr/bin/ranlib libandorCCD.a
+Installing library ../../../lib/linux-x86/libandorCCD.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/andorCCDApp.dbd andorCCDApp_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > andorCCDApp.tmp
+mv andorCCDApp.tmp andorCCDApp_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       andorCCDApp_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../andorCCDAppMain.cpp 
+/usr/bin/g++ -o andorCCDApp -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32                andorCCDApp_registerRecordDeviceDriver.o andorCCDAppMain.o   -landorCCD -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -landor -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/andorCCDApp
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andorSrc'
+make -C ./andor3Src install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Src'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Src/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl andor3Support.dbd commonDriverSupport.dbd NDFileMagick.dbd andor3AppInclude.dbd
+echo "../O.Common/andor3AppInclude.dbd : ../Makefile" >> andor3App.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/andor3App.dbd
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32     -fPIC -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../andor3.cpp 
+/usr/bin/ar -rc   libandor3.a         andor3.o
+/usr/bin/ranlib libandor3.a
+Installing library ../../../lib/linux-x86/libandor3.a
+perl /usr/lib/epics/bin/linux-x86/registerRecordDeviceDriver.pl ../O.Common/andor3App.dbd andor3App_registerRecordDeviceDriver /direct/iocs_diagnostics/areaDetectorR1-9-1 > andor3App.tmp
+mv andor3App.tmp andor3App_registerRecordDeviceDriver.cpp
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       andor3App_registerRecordDeviceDriver.cpp 
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../andor3AppMain.cpp 
+/usr/bin/g++ -o andor3App -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32               andor3App_registerRecordDeviceDriver.o andor3AppMain.o    -landor3 -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -latcore -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../binTest.cpp 
+/usr/bin/g++ -o binTest -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32               binTest.o    -landor3 -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -latcore -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+
+/usr/bin/g++ -c  -D_POSIX_C_SOURCE=199506L -D_POSIX_THREADS -D_XOPEN_SOURCE=500           -D_X86_  -DUNIX  -D_BSD_SOURCE -Dlinux  -D_REENTRANT   -O3   -Wall      -m32      -MMD -I. -I../O.Common -I. -I.. -I../../../include/os/Linux -I../../../include     -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include -I/epics/iocs/areaDetectorR1-9-1/include/os/Linux -I/epics/iocs/areaDetectorR1-9-1/include -I/usr/lib/epics/include/os/Linux -I/usr/lib/epics/include       ../rateTest.cpp 
+/usr/bin/g++ -o rateTest -Wl,-Bstatic -L/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -L/usr/lib/epics/lib/linux-x86 -Wl,-rpath,/direct/iocs_diagnostics/areaDetectorR1-9-1/lib/linux-x86 -Wl,-rpath,/usr/lib/epics/lib/linux-x86       -m32               rateTest.o    -landor3 -lNDPlugin -lADBase -lnetCDF -lcalc -lbusy -lsscan -lautosave -lasyn -lrecIoc -lsoftDevIoc -lmiscIoc -lrsrvIoc -ldbtoolsIoc -lasIoc -ldbIoc -lregistryIoc -ldbStaticIoc -lca -lCom -lNDFileMagick -lGraphicsMagick++ -lGraphicsMagickWand -lGraphicsMagick -lPvAPI -lNeXus -lhdf5 -lsz -ltiff -ljpeg -lz -Wl,-Bdynamic -latcore -lgomp -lX11 -lxml2 -lpng12 -lbz2 -lXext -lfreetype -lpthread   -lreadline -lm -lrt -ldl -lgcc
+Installing created file ../../../bin/linux-x86/andor3App
+Installing created file ../../../bin/linux-x86/binTest
+Installing created file ../../../bin/linux-x86/rateTest
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Src/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/andor3Src'
+make -C ./roperSrc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/roperSrc'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/roperSrc/O.linux-x86'
+perl /usr/lib/epics/bin/linux-x86/makeIncludeDbd.pl roperSupport.dbd commonDriverSupport.dbd NDFileMagick.dbd roperAppInclude.dbd
+echo "../O.Common/roperAppInclude.dbd : ../Makefile" >> roperApp.dbd.d
+Expanding dbd
+Installing created dbd file ../../../dbd/roperApp.dbd
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/roperSrc/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/roperSrc'
+make -C ./Db install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/Db'
+perl /usr/lib/epics/bin/linux-x86/makeMakefile.pl O.linux-x86 ../../..
+mkdir O.Common
+make -C O.linux-x86 -f ../Makefile TOP=../../.. T_A=linux-x86 install
+make[3]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/Db/O.linux-x86'
+make[3]: Nothing to be done for `install'.
+make[3]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/Db/O.linux-x86'
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp/Db'
+make[1]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/ADApp'
+make -C ./iocBoot install 
+make[1]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot'
+make -C ./iocAdsc install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAdsc'
+perl /usr/lib/epics/bin/linux-x86/convertRelease.pl -a linux-x86 envPaths
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAdsc'
+make -C ./iocAndor install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAndor'
+make[2]: Nothing to be done for `install'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAndor'
+make -C ./iocAndor3 install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAndor3'
+make[2]: Nothing to be done for `install'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocAndor3'
+make -C ./iocBruker install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocBruker'
+make[2]: Nothing to be done for `install'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocBruker'
+make -C ./iocFirewire install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocFirewire'
+make[2]: Nothing to be done for `install'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocFirewire'
+make -C ./iocMAR345 install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocMAR345'
+perl /usr/lib/epics/bin/linux-x86/convertRelease.pl -a linux-x86 envPaths
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocMAR345'
+make -C ./iocMARCCD install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocMARCCD'
+perl /usr/lib/epics/bin/linux-x86/convertRelease.pl -a linux-x86 envPaths
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocMARCCD'
+make -C ./iocPerkinElmer install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPerkinElmer'
+make[2]: Nothing to be done for `install'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPerkinElmer'
+make -C ./iocPilatus install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPilatus'
+perl /usr/lib/epics/bin/linux-x86/convertRelease.pl -a linux-x86 envPaths
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPilatus'
+make -C ./iocProsilica install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocProsilica'
+perl /usr/lib/epics/bin/linux-x86/convertRelease.pl -a linux-x86 envPaths
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocProsilica'
+make -C ./iocPSL install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPSL'
+perl /usr/lib/epics/bin/linux-x86/convertRelease.pl -a linux-x86 envPaths
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPSL'
+make -C ./iocPVCam install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPVCam'
+make[2]: Nothing to be done for `install'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocPVCam'
+make -C ./iocRoper install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocRoper'
+make[2]: Nothing to be done for `install'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocRoper'
+make -C ./iocSimDetector install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocSimDetector'
+perl /usr/lib/epics/bin/linux-x86/convertRelease.pl -a linux-x86 envPaths
+perl /usr/lib/epics/bin/linux-x86/convertRelease.pl -a linux-x86 cdCommands
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocSimDetector'
+make -C ./iocURLDriver install 
+make[2]: Entering directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocURLDriver'
+make[2]: Nothing to be done for `install'.
+make[2]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot/iocURLDriver'
+make[1]: Leaving directory `/direct/iocs_diagnostics/areaDetectorR1-9-1/iocBoot'
